@@ -66,3 +66,10 @@
     margin: 0;
   }
 }
+
+/* HEADER */
+
+.mobile-nav--closeIcon {
+  /* border: 1px solid red; */
+  z-index: 12;
+}
