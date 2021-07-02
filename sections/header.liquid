@@ -77,19 +77,27 @@
             <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}" data-image-loading-animation>
               {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
               <img class="lazyload js"
-                   src="{{ section.settings.logo | img_url: '300x300' }}"
+                   src="{{ axis-yTextLogoAv1.svg | asset_url: '300x300' }}"
                    data-src="{{ img_url }}"
                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
                    data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
                    data-sizes="auto"
                    alt="{{ logo_alt | escape }}"
                    style="max-width: 150px">
+                   <!-- <img class="lazyload js"
+                   src="{{ section.settings.logo | img_url: '300x300' }}"
+                   data-src="{{ img_url }}"
+                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
+                   data-sizes="auto"
+                   alt="{{ logo_alt | escape }}"
+                   style="max-width: 150px"> -->
               <noscript>
                 {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
-                <img src="{{ section.settings.logo | img_url: image_size }}"
+                <!-- <img src="{{ section.settings.logo | img_url: image_size }}"
                      srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
                      alt="{{ section.settings.logo.alt | default: shop.name }}"
-                     style="max-width: 150px;">
+                     style="max-width: 150px;"> -->
               </noscript>
             </a>
           {% else %}
@@ -145,7 +153,7 @@
           </a>
 
           {% unless linklists[section.settings.main_linklist] == blank %}
-            <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open mobile-nav--closeIcon" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+            <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
               {% include 'icon-hamburger' %}
               {% include 'icon-close' %}
             </button>
@@ -157,6 +165,10 @@
 
     <nav class="mobile-nav-wrapper medium-up--hide critical-hidden" role="navigation">
           
+            <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--close mobile-nav--closeIcon" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+              {% include 'icon-hamburger' %}
+              {% include 'icon-close' %}
+            </button>
 
       <ul id="MobileNav" class="mobile-nav">
         {% for link in linklists[section.settings.main_linklist].links %}
@@ -252,7 +264,9 @@
       </ul>
       <div class="border-top">
         <label>Region</label>
-        <select>
+        <!-- <input type="checkbox" id="regionCheckbox"/> -->
+        
+        <select class="mobile-nav__regionSelect">
           <option>US</option>
           <option>Korea</option>    
           <option>Indonesia</option>

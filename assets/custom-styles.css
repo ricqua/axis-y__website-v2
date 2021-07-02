@@ -70,6 +70,60 @@
 /* HEADER */
 
 .mobile-nav--closeIcon {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+
   /* border: 1px solid red; */
-  z-index: 12;
+  /* z-index: 12; */
+}
+
+/* html,
+body {
+  overflow: hidden;
+} */
+/* 
+.mobile-nav__regionSelect {
+  display: block;
+  bottom: 0;
+}
+
+.mobile-nav__regionSelect > label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#regionCheckbox:checked ~ .mobile-nav__regionSelect--subMenu {
+  max-height: 300px;
+  visibility: visible;
+  bottom: 100%;
+  transition: all 0.4s linear;
+}
+
+#regionCheckbox {
+  display: none;
+}
+
+.mobile-nav__regionSelect--subMenu {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  box-shadow: none;
+  max-height: 0;
+  width: 150px;
+
+  overflow: hidden;
+}
+
+.mobile-nav__regionSelect--subMenu > option {
+  display: block;
+} */
+
+.mobile-nav__regionSelect {
+  border: none;
+  padding-right: 0;
+  font-size: 18px;
 }
