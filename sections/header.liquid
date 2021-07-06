@@ -119,11 +119,13 @@
       <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-fifth{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
       
         <div class="site-header__icons-wrapper">
-
-                 <!-- <a href="/" >
-                Test
-            </a> -->
           
+          <!-- {% unless linklists[section.settings.main_linklist] == blank %} -->
+            <!-- <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}"> -->
+              <a href="https://www.axis-y.co.kr/" > KR</a> 
+            <!-- </button> -->
+          <!-- {% endunless %} -->
+
           <!-- <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top" data-predictive-search-open-drawer>
             {% include 'icon-search' %}
             <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
@@ -135,6 +137,7 @@
                 {% include 'icon-login' %}
                 <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
               </a>
+              
             {% else %}
               <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
                 {% include 'icon-login' %}

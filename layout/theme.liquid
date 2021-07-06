@@ -213,8 +213,9 @@
         font-size: calc(
           ((var(--font-h2-desktop)) / (var(--font-size-base))) * 1em
         );
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+        /* text-transform: uppercase; */
+        font-weight: 500;
+        letter-spacing: 0em;
       }
       @media only screen and (max-width: 749px) {
         .h2,
@@ -282,12 +283,12 @@
       }
       .grid__item {
         float: left;
-        padding-left: 30px;
+        padding-left: 16px;
         width: 100%;
       }
       @media only screen and (max-width: 749px) {
         .grid__item {
-          padding-left: 22px;
+          padding-left: 7px;
         }
       }
       .grid__item[class*="--push"] {
@@ -524,6 +525,11 @@
         position: relative;
         padding: 0;
         text-align: center;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        max-width: 500px;
+        margin: auto;
         /* margin: 25px 0; */
       }
       .site-nav a {
@@ -606,6 +612,16 @@
       }
     </script>
 
+
+     <link
+      rel="stylesheet"
+      href="{{ 'custom-styles.css' | asset_url }}"
+      type="text/css"
+      media="print"
+      onload="this.media='all';onLoadStylesheet()"
+    />
+
+
     <link
       rel="stylesheet"
       href="{{ 'theme.css' | asset_url }}"
@@ -614,13 +630,7 @@
       onload="this.media='all';onLoadStylesheet()"
     />
 
-    <link
-      rel="stylesheet"
-      href="{{ 'custom-styles.css' | asset_url }}"
-      type="text/css"
-      media="print"
-      onload="this.media='all';onLoadStylesheet()"
-    />
+   
 
     <style>
       {{ header_font | font_face: font_display: 'swap' }}
