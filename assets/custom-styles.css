@@ -25,7 +25,7 @@
   }
   .site-footer__logoSloganDiv > div:last-child{
   margin: 0px 0 80px 0;
-
+  }
 }
 
 .newsletterTitle {
@@ -57,21 +57,24 @@
   margin-right: -40px;
 }
 
-.site-footer__bellowBreakSection{
-  border: 1px solid green !important;
-  padding-bottom: 56px;
-  display: flex;
-  flex-flow: column wrap;
+
+.site-footer__bellowBreakSection {
+  padding-bottom: 50px;
+  display: flex; 
+  flex-flow: row-reverse nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media only screen and (max-width: 749px) {
-  .site-footer__bellowBreakSection{
-  border: 1px solid red ;
-  }
+@media only screen and (max-width: 750px) {
+  .site-footer__bellowBreakSection {
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
 }
 
 /* HEADER */
-
 .mobile-nav--closeIcon {
   position: absolute;
   top: 13px;

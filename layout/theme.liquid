@@ -613,14 +613,6 @@
     </script>
 
 
-     <link
-      rel="stylesheet"
-      href="{{ 'custom-styles.css' | asset_url }}"
-      type="text/css"
-      media="print"
-      onload="this.media='all';onLoadStylesheet()"
-    />
-
 
     <link
       rel="stylesheet"
@@ -631,6 +623,14 @@
     />
 
    
+     <link
+      rel="stylesheet"
+      href="{{ 'custom-styles.css' | asset_url }}"
+      type="text/css"
+      media="print"
+      onload="this.media='all';onLoadStylesheet()"
+    />
+
 
     <style>
       {{ header_font | font_face: font_display: 'swap' }}

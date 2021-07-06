@@ -257,8 +257,7 @@
 
     {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
 
-    <div class="page-width site-footer__bellowBreakSection">
-    
+    <section class="page-width site-footer__bellowBreakSection">
       <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
         {%- for social in socials -%}
           {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
@@ -274,10 +273,8 @@
         {%- endfor -%}
       </ul>
 
-      <!-- <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right site-footer__bellowBreakSection redBorder"> -->
-            <p class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }} All rights reserved.</p>
-      <!-- </div> -->
-    </div>
+      <p class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }} All rights reserved.</p>
+    </section>
 </footer>
 
 
