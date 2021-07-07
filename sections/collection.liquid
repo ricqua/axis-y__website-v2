@@ -2,15 +2,18 @@
 
 
   <!-- PRINT THE TILE OF THE COLLECTION -->
-  {% if section.settings.title != blank %}
+  <!-- {% if section.settings.title != blank %} -->
   <section class="page-shop__titleSection">
-      <h2 >{{ section.settings.title | escape }}</h2>
+
+    <p>collection.liquid</p>
+    
+    <h2 >{{ section.settings.title | escape }}</h2>
     <div>
       <button class="page-shop__fiilterButton">Filters</button>
       <button class="page-shop__sortButton">Sort by</button>
     </div>
   </section>
-  {% endif %} 
+  <!-- {% endif %}  -->
   
   {%- assign collection = collections[section.settings.collection] -%} {% case section.settings.grid %} {% when 2 %} {%- assign max_height = 530 -%} 
   {%- assign grid_item_width = 'medium-up--one-half' -%} {% when 3 %} {%- assign max_height = 345 -%} 
