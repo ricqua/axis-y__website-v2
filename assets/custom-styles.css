@@ -339,7 +339,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 64px 0 0;
+    padding: 0 64px 0 50px;
 }
 
 /* 6+1+1 SECTION */
@@ -358,7 +358,6 @@
     justify-content: center;
     align-items: center;
     padding: 62px 64px;
-    /* border: 1px solid red; */
 }
 
 .product-single__611section--image img{
@@ -367,7 +366,6 @@
 
 .product-single__611section--info{
     width: 50%;
-    /* border: 1px solid red; */
     margin: auto 0;
 }
 
@@ -389,4 +387,116 @@
 .product-single__611section--info p:nth-child(3){
     margin: 0 80px 0 0 ;
     margin-bottom: 32px;
+}
+
+/* INGREDIENTS SECTOIN */
+.product-single__ingredientsSection{
+  padding: 120px 82px;
+  max-width: 1440px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+}
+
+.product-single__ingredientsSection h1{
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 600px;
+  margin: 0 0 40px 0;
+}
+
+.product-single__ingredientsSection--card{
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 0 64px 0;
+}
+
+.product-single__ingredientsSection--image{
+  width: 64px;
+  height: 64px;
+  background-color: grey;
+  margin: 0 24px 0 0;
+  border-radius: 8px;
+}
+
+.product-single__ingredientsSection--card p{
+   margin: 0;
+   padding-right: 64px;
+} 
+
+.product-single__ingredientsSection--card p:nth-child(2){
+   font-size: 16px;
+   color: #757575;
+   margin-top: 8px;
+} 
+
+.product-single__ingredientsSection--specialSection{
+  margin-top: 48px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+}
+
+
+.width50 {
+  width: 50%
+}
+
+.width100 {
+  width: 100%
+}
+
+.product-single__ingredientsSection--seeMore {
+  background: none;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 18px 24px;
+  display: flex; 
+  flex-flow: row nowrap;
+}
+
+.product-single__ingredientsSection--seeMore span{
+  margin-left: 100px;
+}
+
+/* HOW TO USE SECTION */
+.product-single__howToSection{
+  /* border: 1px solid red; */
+  margin: auto;
+  padding: 0 80px 120px 80px;
+  max-width: 1440px;
+}
+
+.product-single__howToSection h1{
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 600px;
+  margin: 0 0 40px 0;
+  width: 100%;
+}
+
+.product-single__howToSection--cards {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.product-single__howToSection--card {
+  /* border: 1px solid red; */
+  margin-right: 64px;
+}
+
+.product-single__howToSection--card img{
+  width: 100%;
+}
+
+.product-single__howToSection--card:last-child {
+  margin-right: 0;
+}
+
+.product-single__howToSection--card p:nth-child(3){
+  font-size: 16px;
+  color: #757575;
+  margin-top: 12px;
 }
