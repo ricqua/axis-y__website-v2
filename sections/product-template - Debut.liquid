@@ -36,7 +36,10 @@
   {% endcase %}
 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
-    <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+
+
+    <!-- PRODUCT IMAGE AREA -->
+    <div class=" redBorder grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
       {%- for media in product.media -%}
@@ -62,7 +65,6 @@
           {% include 'icon-3d-badge-full-color' %}<span class='product-single__view-in-space-text'>{{ 'products.product.view_in_space' | t }}</span>
         </button>
       {%- endif -%}
-
 
       {% if product.media.size > 1 %}
         {% if product.media.size > 4 %}
@@ -131,7 +133,8 @@
       {% endif %}
     </div>
 
-    <div class="grid__item {{ product_description_width }}">
+<!-- PRODUCT DESCRIPTION AREA -->
+    <div class="grid__item {{ product_description_width }} redBorder">
       <div class="product-single__meta">
 
         <h1 class="product-single__title">{{ product.title }}</h1>
