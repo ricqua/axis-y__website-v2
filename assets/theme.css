@@ -3663,15 +3663,15 @@ hr {
 }
 
 .product-form__item {
-  flex-grow: 0;
+  /* flex-grow: 0;
   flex-basis: 100%;
   margin-bottom: 10px;
-  padding: 0;
+  padding: 0; */
 }
 @media only screen and (min-width: 990px) {
-  .product-form__item {
+  /* .product-form__item {
     flex-basis: 50%;
-    padding: 0 5px;
+    padding: 0 5px; */
   }
   .product-single--large-image .product-form__item {
     flex-basis: 100%;
@@ -3682,10 +3682,10 @@ hr {
 }
 
 .product-form__item--submit {
-  -webkit-flex: 1 1 300px;
+  /* -webkit-flex: 1 1 300px;
   -moz-flex: 1 1 300px;
   -ms-flex: 1 1 300px;
-  flex: 1 1 300px;
+  flex: 1 1 300px; */
 }
 
 .product-form__item--no-variants {
@@ -3728,7 +3728,7 @@ hr {
 }
 
 .product-form--payment-button-no-variants {
-  max-width: 25rem;
+  /* max-width: 25rem; */
 }
 
 .product-form__variants {

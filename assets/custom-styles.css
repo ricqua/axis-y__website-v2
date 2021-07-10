@@ -397,19 +397,41 @@
 
 
 
-.product-single__forArea--submitButtons{
-  border: 1px solid red;
+.product-single__formArea--submitButtons{
+  /* border: 1px solid red; */
   margin: 38px 0 0 0;
-
   display: flex;
   flex-flow: row nowrap;
+  width: 100%;
 }
 
-.product-single__forArea--quantityContainer{
+.product-single__formArea--quantityContainer{
+  width: 30%;
+}
+
+.product-single__formArea--quantityContainer input{
   /* border: 1px solid green; */
   text-align: center;
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
+.product-single__formArea button{
+  /* border: 1px solid green; */
+  border: none;
+  background-color: #008554;
+  color: white;
+  border-radius: 8px;
+  /* padding: 18px; */
+  width: 70%;
+  font-size: 18px;
+  margin-left: 16px;
+}
+
+.product-single__formArea button > span:nth-child(2){
+ margin: 0 24px;
+}
 
 .product-single__skinTypes{
   display: flex;
