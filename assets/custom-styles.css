@@ -107,6 +107,16 @@
   font-weight: 500;
 } 
 
+
+.product-card--image{
+  border: 1px solid blue;
+}
+
+.product-card--image img{
+  width: 100%;
+  height: 100%;
+}
+
 .product-card__subTitle {
   font-size: 14px;
   color: #757575; 
@@ -269,10 +279,58 @@
 
 /* PRODUCT PAGE  */
 
-.product-price__vendor {
+.product-single_heroSection {
+  width: 100%;
+}
+
+.product-single_heroSection--wrapper {
+   max-width: 1440px; 
+   margin: auto; 
+   min-height: 500px; 
+   display: flex; 
+   flex-flow: row nowrap;
+}
+
+.product-single_heroSection--wrapper > div {
+  width: 50%;
+  margin: auto;
+}
+
+.product-single__thumbnails {
+  width: 100%; 
+  display: flex; 
+  flex-flow: row nowrap; 
+  justify-content: space-between;
+}
+
+.product-single__thumbnails img {
+  padding: 0 4px;
+}
+
+.product-single__formArea{
+  max-width: 500px; 
+  margin: auto;
+  padding: 0 16px;
+}
+
+.product-single__formArea h1{
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.product-single__formArea--subTitle{
   font-size: 18px;
   color: #757575; 
   font-weight: 300;
+  line-height: 28px;
+  margin: 20px 0;
+}
+
+.product-single__formArea--price{
+  font-size: 18px;
+  color: black; 
+  font-weight: 600;
   line-height: 28px;
   margin: 20px 0;
 }
@@ -282,13 +340,75 @@
   margin: 32px 0;
 }
 
-.product-single__infoDiv {
+.product-single__formArea h4{
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* .product-single__infoDiv {
   border: 1px solid green;
   margin: auto;
   max-width: 500px;
+} */
+
+/* The container */
+.product-single__formArea--variantContainer {
+  display: inline-block;
+  position: relative;
+  padding: 0 36px 0 0px;
+  margin: 10px 0  0 ;
 }
 
+.product-single__formArea--variantContainer input[type='radio'] {
+  display: none;
+}
 
+.product-single__formArea--variantContainer label {
+  color: black;
+  font-weight: normal;
+}
+
+.product-single__formArea--variantContainer label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 6px;
+  margin: 0 20px 0 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: transparent;
+}
+
+.product-single__formArea--variantContainer input[type=radio]:checked + label:after {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  content: " ";
+  display: block;
+  background: black;
+}
+/* ------- */
+
+
+
+.product-single__forArea--submitButtons{
+  border: 1px solid red;
+  margin: 38px 0 0 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.product-single__forArea--quantityContainer{
+  /* border: 1px solid green; */
+  text-align: center;
+}
 
 
 .product-single__skinTypes{
@@ -410,6 +530,14 @@
   display: flex;
   flex-flow: row nowrap;
   margin: 0 0 64px 0;
+}
+
+.product-single__ingredientsSection--card img{
+  width: 64px;
+  height: 64px;
+  background-color: grey;
+  margin: 0 24px 0 0;
+  border-radius: 8px;
 }
 
 .product-single__ingredientsSection--image{

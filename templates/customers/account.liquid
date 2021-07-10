@@ -47,6 +47,32 @@
       {% endpaginate %}
     </div>
     <div class="grid__item myaccount__account-details">
+    
+    <div class="redBorder"">
+      <!-- SkinType:  -->
+     <!-- {{ customer || json}} -->
+     <!-- {{ customer }} -->
+
+     
+     {% assign collection = collections["all"] %}
+     <!-- {% assign collection = collections["testCollection"] %} -->
+
+     {{ collection.title}}
+
+     <ul>
+       {% for item in collection.products  %}
+        <li >
+          <a href="{{item.url}}">            
+            {{item.title}}  - {{item.price | money}}
+           {% if item.available == true %}
+            (AVAILABLE)
+           {% endif%}
+          </a>
+        </li>
+       {% endfor %}
+     </ul>
+    </div> 
+
       <h2>{{ 'customer.account.details' | t }}</h2>
 
       {{ customer.default_address | format_address }}

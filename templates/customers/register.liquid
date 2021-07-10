@@ -19,6 +19,15 @@
           <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
           <input type="text" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name">
 
+<!-- TESTING ADDITIONAL FIELDS -->
+          <label for="{{ formId }}-SkinType">Skin Type</label>
+          <input type="text" name="customer[account][skin_type]" id="{{ formId }}-SkinType" {% if form.skin_type %}value="{{ form.skin_type }}"{% endif %} autocomplete="skin-type">
+
+          <!-- <div class="allergies">
+            <label for="allergies">Allergies</label>
+            <input id="allergies" type="test" name="customer[note][Allergies]" />
+          </div> -->
+
           <label for="{{ formId }}-email">{{ 'customer.register.email' | t }}</label>
           <input
             type="email"

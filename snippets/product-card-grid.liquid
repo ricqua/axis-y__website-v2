@@ -5,21 +5,30 @@
     {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
     {%- assign preview_image = product.featured_media.preview_image -%}
     {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
     {% unless preview_image == blank %}
       {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
     {% endunless %}
 
-    <div>
-      <img id="{{ img_id }}"
-                class="grid-view-item__image lazyload"
-                alt="{{ preview_image.alt }}"
-                data-src="{{ img_url }}"
-                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                data-aspectratio="{{ preview_image.aspect_ratio }}"
-                data-sizes="auto"
-                data-image>
-      <div class="product-card__textDetailsDiv">
 
+    <div>
+      <!-- <div class="product-card--image"> -->
+        <img id="{{ img_id }}"
+        class="grid-view-item__image lazyload"
+        alt="{{ preview_image.alt }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-aspectratio="{{ preview_image.aspect_ratio }}"
+        data-sizes="auto"
+        data-image>
+      <!-- </div> -->
+        
+      <!-- {% if customer %}
+        Customer is logged in. You can access the customer
+        attributes such as {{ customer.first_name }}.
+      {% endif %} -->
+
+      <div class="product-card__textDetailsDiv">
         <p class="product-card__title" aria-hidden="true"> {{ product.title }} </p>
         <p class="product-card__subTitle"> {{ product.vendor }} </p>
         {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
