@@ -652,6 +652,154 @@
 }
 
 
+/* REVIEWS ON PRODUCT PAGE */
+.jdgm-rev-widg{
+  display: flex !important;
+  flex-flow: row nowrap !important;
+}
+
+.jdgm-rev-widg__header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.jdgm-rev-widg__title{
+  font-size: 32px;
+  margin: 0 0 24px 0 !important;
+  order: 1;
+  font-weight: 600;
+}
+
+.jdgm-all-reviews-widget, .jdgm-rev-widg {
+  border: none !important;
+}
+
+
+.jdgm-widget-actions-wrapper{
+  order: 4;
+}
+
+.jdgm-ask-question-btn, .jdgm-write-rev-link {
+  padding: 16px 36px !important;
+  font: 18px;
+  border-radius: 8px;
+  margin: 40px 0  0 0 !important;
+}
+
+.jdgm-rev-widg__sort-wrapper{
+  display: none;
+}
+
+.jdgm-rev-widg__summary{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  order: 2;
+
+}
+
+.jdgm-rev-widg__summary-text{
+  margin-left: 16px !important;
+}
+
+.jdgm-star {
+  font-weight: 100 !important;
+}
+
+
+
+.jdgm-histogram{
+  border: none !important;
+  padding: 0 !important;
+  margin: 40px 0  0 0 !important;
+  order: 3;
+
+}
+
+.jdgm-histogram__row{
+  margin-bottom: 26px !important;
+}
+
+.jdgm-histogram__bar-content{
+  background: black !important;
+}
+
+.jdgm-histogram__bar {
+  box-shadow: none;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 8px !important;
+}
+
+.jdgm-rev-widg__body{
+  flex-grow: 4 !important;
+}
+
+.jdgm-rev__icon{
+  display: none;
+}
+
+.jdgm-divider-top{
+  /* border: none !important; */
+}
+
+.jdgm-rev__timestamp {
+  margin-left: 24px !important;
+  color: grey;
+}
+
+.jdgm-rev__author-wrapper {
+  margin: 20px 0 !important;
+  font-weight: 300 !important;
+  color: grey !important;
+}
+
+.jdgm-rev__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0 !important;
+}
+
+
+.jdgm-rev__body{
+  margin: 24px 0 14px 0 !important;
+}
+
+.jdgm-quest, .jdgm-rev{
+  margin-bottom: 80px !important;
+}
+
+.jdgm-picture-fieldset{
+  display: flex;
+  margin: 0 !important;
+}
+
+.jdgm-submit-rev{
+  background-color: #008554;
+  border-radius: 8px;
+  margin: 24px 0 !important;
+  padding: 16px 36px;
+  font-weight: 300;
+}
+
+.jdgm-form-wrapper{
+  border: none !important;
+}
+
+.jdgm-form__reviewer-name-format-container{
+  display: none;
+}
+
+.jdgm-form-wrapper label{
+  font-weight: 600;
+  margin: 56px 0 16px 0 !important;
+}
+
+.jdgm-form-wrapper input, .jdgm-form-wrapper textarea {
+  border-radius: 8px;
+}
 
 /* LOGIN PAGE */
 
