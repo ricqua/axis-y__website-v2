@@ -650,3 +650,182 @@
   color: #757575;
   margin-top: 12px;
 }
+
+
+
+/* LOGIN PAGE */
+
+.login-page {
+  max-width: 720px;
+  /* border: 1px solid red; */
+  padding: 120px 64px;
+  margin: auto auto;
+}
+
+.login-page h1 {
+  font-size: 48px;
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+@media (max-width: 749px) {
+  .login-page {
+    padding: 96px 16px;
+  }
+  
+  .login-page h1 {
+    font-size: 32px;
+  }
+}
+
+.login-page label {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.login-page input {
+  border-radius: 8px;
+  border-color: black;
+  font-size: 18px;
+  margin: 0 0 56px 0;
+  padding: 23px;
+  width: 100%;
+}
+
+.login-page input:focus {
+  outline: none;
+  /* border-color: black; */
+  /* box-shadow: 0 0 0 black; */
+}
+
+/* .login-page input:nth-child(2){
+  margin: 100px;
+} */
+
+.login-page__recoverPassword{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: right;
+  /* width: 100%; */
+}
+
+.login-page__recoverPassword p { 
+  color: #757575;
+  font-weight: 300;
+  margin: 0;
+}
+
+.login-page__recoverPassword a { 
+  color: #757575;
+  font-weight: 300;
+  margin: 0;
+}
+
+
+.login-page__loginButton {
+  width: 100%;
+  min-height: 64px;
+  text-align: center;
+  color: white;
+  background-color: #008554;
+  border: none;
+  margin: 58px 0 82px 0; 
+  border-radius: 8px;
+}
+
+@media (max-width: 749px) {
+  .login-page__loginButton {
+    margin: 48px 0 48px 0; 
+  }
+}
+
+.login-page__createAccount p {
+ margin: 16px 0 40px 0;
+}
+
+
+.login-page__createAccount--button {
+  width: 100%;
+  min-height: 64px;
+  text-align: center;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  margin: 0; 
+  border-radius: 8px;
+}
+
+.login-page__createAccount--button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 16px 0;
+}
+
+/* REGISTRATOIN / SIGN UP PAGE  */
+.register-page {
+  max-width: 720px;
+  padding: 120px 64px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.register-page h1 {
+  font-size: 48px;
+  margin: 0 0 40px 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 749px) {
+  .register-page {
+    padding: 96px 16px;
+  }
+  
+  .register-page h1 {
+    font-size: 32px;
+  }
+}
+
+.register-page label {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.register-page input {
+  border-radius: 8px;
+  border-color: black;
+  font-size: 18px;
+  margin: 0 0 56px 0;
+  padding: 23px;
+  width: 100%;
+}
+
+.register-page input:focus {
+  outline: none;
+}
+
+
+.register-page input[type=submit] {
+  width: 100%;
+  min-height: 64px;
+  text-align: center;
+  background-color: #008554;
+  color: white;
+  border: none;
+  margin: 24px 0 0 0; 
+  border-radius: 8px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+
+.register-page__errorText{
+  margin-left: 8px;
+}
