@@ -9,15 +9,19 @@
   padding: 16px 36px !important;
   font: 18px;
   border-radius: 8px;
+  min-width: 264px
   /* margin: 40px 0  0 0 !important; */
 }
 
 .greenButton {
   background-color: #008554;
   border: none;
+  color: white;
   padding: 16px 36px !important;
   font: 18px;
+  font-weight: 300;
   border-radius: 8px;
+  min-width: 264px
   /* margin: 40px 0  0 0 !important; */
 }
 
@@ -1049,4 +1053,75 @@
 .featureImageTextStack__button{
   margin-top: 32px;
   min-width: 260px;
+}
+
+.featured-collection__section{
+  max-width: 1440px;
+  margin: auto;
+  /* border: 1px solid red; */
+  margin-bottom: 140px;
+
+}
+
+.featured-collection__section h2 {
+  font-size: 48px;
+  padding: 0 32px 24px 32px;
+}
+
+.featured-collection__section ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.featured-collection__section li {
+  padding: 0 8px;
+}
+
+.featured-collection__section li:first-child {
+  padding-left: 32px;
+}
+.featured-collection__section li:last-child {
+  padding-right: 32px;
+}
+
+/* HERO CUSTOM */
+
+.heroCustom {
+  width: 100%;  
+  display: flex;
+  /* align-items: flex-end; */
+}
+
+.heroCustom__container {
+  max-width: 1440px;
+  margin: auto auto 40px auto;
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.heroCustom__item {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.heroCustom h2{
+  text-align: left;
+  font-size: 112px;
+  font-weight: 500;
+  color: black;
+}
+.heroCustom p{
+  text-align: left;
+  font-size: 112px;
+  font-weight: 200;
+  font-style: italic;
+  font-family: restora;
+  margin: 0;
+  color: black;
+
 }

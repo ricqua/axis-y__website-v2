@@ -1,7 +1,5 @@
-<div class="page-width__store ">
-  <section class="page-shop__titleSection">
-    <h2 >{{ section.settings.title | escape }}</h2>
-  </section>
+<section class="featured-collection__section">
+  <h2 >{{ section.settings.title | escape }}</h2>
   
   {%- assign collection = collections[section.settings.collection] -%} {% case section.settings.grid %} {% when 2 %} {%- assign max_height = 530 -%} 
   {%- assign grid_item_width = 'medium-up--one-half' -%} {% when 3 %} {%- assign max_height = 345 -%} 
@@ -9,27 +7,17 @@
   {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%} {% when 5 %} {%- assign max_height = 195 -%} 
   {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%} {% endcase %} {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-
-
-  <ul class="grid grid--uniform grid--view-items">
+  <ul>
     {% for product in collection.products limit: product_limit %}
-    <li class="grid__item grid__item--{{ section.id }} {{ grid_item_width }}">
-      {% include 'product-card-grid', max_height: max_height, product: product,
-      show_vendor: section.settings.show_vendor %}
-    </li>
+      <li>
+        {% include 'product-card-grid', max_height: max_height, product: product,
+        show_vendor: section.settings.show_vendor %}
+      </li>
     {% else %} 
-
-          {% for i in (1..product_limit) %}
-          <li class="grid__item grid__item--{{ section.id }} {{ grid_item_width }}">
-            <div class="grid-view-item product-card">
-
-            </div>
-          </li>
-          {% endfor %} 
 
     {% endfor %}
   </ul>
-</div>
+</section>
 
 {% schema %}
 {
