@@ -1,13 +1,14 @@
-<div class="feature-row">
+<div class="page-width feature-row">
   {% capture image_layout %}
+  <H1> Feature row</H1>
     <div class="feature-row__item">
       {% if section.settings.image != blank %}
         {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
         {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style', image: section.settings.image, height: 700, wrapper_id: wrapper_id, img_id: img_id %}
+        {% include 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
         <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-          <div data-image-loading-animation>
+          <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;" data-image-loading-animation>
             <img id="{{ img_id }}"
                  class="feature-row__image lazyload"
                  data-src="{{ img_url }}"
@@ -21,11 +22,9 @@
         <noscript>
           {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
         </noscript>
-
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
-
     </div>
   {% endcapture %}
 
@@ -39,7 +38,7 @@
         <h2 class="h3">{{ section.settings.title | escape }}</h2>
       {% endif %}
       {% if section.settings.text != blank %}
-        <div class="featured-row__subtext">{{ section.settings.text }}</div>
+        <div class="rte rte-setting featured-row__subtext">{{ section.settings.text }}</div>
       {% endif %}
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         {%- capture ariaLabel -%}
@@ -53,11 +52,11 @@
           {%- endif -%}
         {%- endcapture -%}
 
-        <button href="{{ section.settings.button_link }}"
-          class="clearButton featured-row__button"
+        <a href="{{ section.settings.button_link }}"
+          class="btn"
           aria-label="{{ ariaLabel }}">
           {{- section.settings.button_label | escape -}}
-        </button>
+        </a>
       {% endif %}
     </div>
 

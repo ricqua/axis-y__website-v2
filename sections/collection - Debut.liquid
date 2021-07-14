@@ -27,8 +27,28 @@
           </li>
           {% endfor %} 
 
+
     {% endfor %}
   </ul>
+
+
+  <!-- LOAD MORE BUTTON -->
+  <!-- {% if section.settings.show_view_all %}
+  <hr class="hr--invisible" aria-hidden="true" />
+
+  <div class="text-center page-shop__loadMoreBtn">
+    <a
+      href="{{ collection.url }}"
+      class="btn"
+      aria-label="{{
+        'collections.general.view_all_label'
+          | t: collection_name:collection.title
+      }}"
+    >
+      {{ "collections.general.view_all" | t }}
+    </a>
+  </div>
+  {% endif %} -->
 </div>
 
 {% schema %}

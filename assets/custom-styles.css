@@ -2,6 +2,26 @@
   border: 1px solid red !important;
 }
 
+.clearButton {
+  background-color: rgba(255, 255, 255, 0);
+  /* background: rgba(255, 255, 255, 0); */
+  border: 1px solid black;
+  padding: 16px 36px !important;
+  font: 18px;
+  border-radius: 8px;
+  /* margin: 40px 0  0 0 !important; */
+}
+
+.greenButton {
+  background-color: #008554;
+  border: none;
+  padding: 16px 36px !important;
+  font: 18px;
+  border-radius: 8px;
+  /* margin: 40px 0  0 0 !important; */
+}
+
+
 /* FOOTER NEWSLETTER */
 
 
@@ -559,7 +579,7 @@
   height: 64px;
   background-color: grey;
   margin: 0 24px 0 0;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
 .product-single__ingredientsSection--image{
@@ -976,4 +996,57 @@
 
 .register-page__errorText{
   margin-left: 8px;
+}
+
+
+/* HOME PAGE */
+.featured-row__button {
+  min-width: 264px;
+  /* margin-top: 32px; */
+}
+
+
+.featureImageTextStack {
+  /* border: 1px solid red; */
+}
+
+.featureImageTextStack__wrapper{
+  /* border: 1px solid green; */
+  max-width: 1440px;
+  margin: auto;
+  padding: 224px 140px 120px 140px;
+}
+
+.featureImageTextStack__image-wrapper{
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.featureImageTextStack__image{
+  /* border: 1px solid blue; */
+}
+
+.featureImageTextStack__textContainer{
+ text-align: center;
+ color: black;
+}
+
+.featureImageTextStack__textContainer h2{
+  font-size: 56px;
+  font-weight: 500;
+  margin: auto;
+  margin-top: 24px;
+  line-height: 80px;
+  max-width: 820px;
+}
+
+
+.featureImageTextStack__subtext{
+  max-width: 570px;
+  margin: auto;
+}
+
+.featureImageTextStack__button{
+  margin-top: 32px;
+  min-width: 260px;
 }

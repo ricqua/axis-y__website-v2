@@ -3218,13 +3218,13 @@ hr {
 
 /*================ Index sections ================*/
 .index-section {
-  padding-top: 35px;
-  padding-bottom: 35px;
+  /* padding-top: 35px; */
+  /* padding-bottom: 35px; */
 }
 @media only screen and (min-width: 750px) {
   .index-section {
-    padding-top: 55px;
-    padding-bottom: 55px;
+    /* padding-top: 55px; */
+    /* padding-bottom: 55px; */
   }
 }
 .index-section:first-child {
@@ -7620,13 +7620,15 @@ margin: 0;
 }
 
 .feature-row {
+  /* border: 1px solid red; */
+  background-color:#CEDFD7;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
@@ -7634,6 +7636,7 @@ margin: 0;
   -o-align-items: center;
   align-items: center;
 }
+
 @media only screen and (max-width: 749px) {
   .feature-row {
     -webkit-flex-direction: column;
@@ -7648,6 +7651,8 @@ margin: 0;
   -moz-flex: 0 1 50%;
   -ms-flex: 0 1 50%;
   flex: 0 1 50%;
+  max-width: 720px;
+  /* border: 1px solid green; */
 }
 @media only screen and (max-width: 749px) {
   .feature-row__item {
@@ -7661,19 +7666,21 @@ margin: 0;
 }
 
 .feature-row__image-wrapper {
-  margin: 0 auto 19.44444px;
+  /* margin: 0 auto 19.44444px; */
+  padding: 80px 40px 80px 40px;
   position: relative;
   width: 100%;
 }
 
 .feature-row__image {
   display: block;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin: 0;
 }
 .feature-row__image-wrapper .feature-row__image {
   width: 100%;
-  position: absolute;
-  top: 0;
+  /* position: absolute;
+  top: 0; */
 }
 @media only screen and (max-width: 749px) {
   .feature-row__image {
@@ -7685,6 +7692,7 @@ margin: 0;
   padding-top: 35px;
   padding-bottom: 35px;
 }
+
 @media only screen and (max-width: 749px) {
   .feature-row__text {
     order: 2;
@@ -7692,14 +7700,28 @@ margin: 0;
   }
 }
 
+
+.feature-row__text h2 {
+  font-size: 48px;
+}
+
 @media only screen and (min-width: 750px) {
   .feature-row__text--left {
-    padding-left: 35px;
+    padding-left: 32px;
   }
   .feature-row__text--right {
     padding-right: 35px;
   }
 }
+
+.featured-row__subtext {
+  margin: 32px 32px 32px 0;
+}
+
+.featured-row__subtext p {
+  margin: 0;
+}
+
 
 @media only screen and (min-width: 750px) {
   .featured-row__subtext {
@@ -7708,6 +7730,8 @@ margin: 0;
     );
   }
 }
+
+
 
 .hero {
   position: relative;

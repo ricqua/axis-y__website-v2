@@ -1,45 +1,44 @@
-<div class="feature-row">
+<div class="featureImageTextStack">
+
   {% capture image_layout %}
-    <div class="feature-row__item">
       {% if section.settings.image != blank %}
-        {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+
+        <!-- {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %} -->
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
-        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style', image: section.settings.image, height: 700, wrapper_id: wrapper_id, img_id: img_id %}
-        <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-          <div data-image-loading-animation>
-            <img id="{{ img_id }}"
-                 class="feature-row__image lazyload"
-                 data-src="{{ img_url }}"
+        <!-- {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%} -->
+        <!-- {%- assign img_url = section.settings.image | img_url: "1400x", scale: 2  -%} -->
+
+        {% include 'image-style', image: section.settings.image, height: 1400, wrapper_id: wrapper_id, img_id: img_id %}
+        <div id="{{ wrapper_id }}" class="featureImageTextStack__image-wrapper js">
+          <!-- <div data-image-loading-animation> -->
+            <img id="FeatureRowImage-{{ section.id }}"
+                 class="featureImageTextStack__image lazyload"
+                 data-src="{{section.settings.image | img_url: "1400x", scale: 2}}"
                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
                  data-aspectratio="{{ section.settings.image.aspect_ratio }}"
                  data-sizes="auto"
                  alt="{{ section.settings.image.alt | escape }}">
-          </div>
+          <!-- </div> -->
         </div>
 
         <noscript>
-          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
+          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'featureImageTextStack__image' }}
         </noscript>
 
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
-
-    </div>
   {% endcapture %}
 
-  <div class="feature-row">
-    {% if section.settings.layout == 'left' %}
+  <div class="featureImageTextStack__wrapper">
       {{ image_layout }}
-    {% endif %}
 
-    <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+    <div class="featureImageTextStack__textContainer">
       {% if section.settings.title != blank %}
         <h2 class="h3">{{ section.settings.title | escape }}</h2>
       {% endif %}
       {% if section.settings.text != blank %}
-        <div class="featured-row__subtext">{{ section.settings.text }}</div>
+        <div class="featureImageTextStack__subtext">{{ section.settings.text }}</div>
       {% endif %}
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         {%- capture ariaLabel -%}
@@ -54,16 +53,13 @@
         {%- endcapture -%}
 
         <button href="{{ section.settings.button_link }}"
-          class="clearButton featured-row__button"
+          class="clearButton featureImageTextStack__button"
           aria-label="{{ ariaLabel }}">
           {{- section.settings.button_label | escape -}}
         </button>
       {% endif %}
     </div>
 
-    {% if section.settings.layout == 'right' %}
-      {{ image_layout }}
-    {% endif %}
   </div>
 </div>
 
@@ -75,7 +71,7 @@
     "cs": "Obrázek s textem",
     "da": "Billede med tekst",
     "de": "Foto mit Text",
-    "en": "Image with text",
+    "en": "Image with text Stacked",
     "es": "Imagen con texto",
     "fi": "Kuva tekstillä",
     "fr": "Image avec texte",
@@ -124,88 +120,6 @@
       }
     },
     {
-      "type": "select",
-      "id": "layout",
-      "label": {
-        "cs": "Zarovnání obrázku",
-        "da": "Justering af billede",
-        "de": "Fotoausrichtung",
-        "en": "Image alignment",
-        "es": "Alineación de imagen",
-        "fi": "Kuvan tasaus",
-        "fr": "Alignement de l'image",
-        "it": "Allineamento immagine",
-        "ja": "画像アラインメント",
-        "ko": "이미지 정렬",
-        "nb": "Bildejustering",
-        "nl": "Afbeelding uitlijnen",
-        "pl": "Wyrównanie obrazu",
-        "pt-BR": "Alinhamento da imagem",
-        "pt-PT": "Alinhamento da imagem",
-        "sv": "Bildjustering",
-        "th": "การจัดวางรูปภาพ",
-        "tr": "Görsel hizalaması",
-        "vi": "Căn chỉnh hình ảnh",
-        "zh-CN": "图片对齐方式",
-        "zh-TW": "圖片對齊"
-      },
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": {
-            "cs": "Doleva",
-            "da": "Venstre",
-            "de": "Links",
-            "en": "Left",
-            "es": "Izquierda",
-            "fi": "Vasen",
-            "fr": "Gauche",
-            "it": "Sinistra",
-            "ja": "左",
-            "ko": "왼쪽",
-            "nb": "Venstre",
-            "nl": "Links",
-            "pl": "Do lewej",
-            "pt-BR": "Esquerda",
-            "pt-PT": "Esquerda",
-            "sv": "Vänster",
-            "th": "ด้านซ้าย",
-            "tr": "Sol",
-            "vi": "Bên trái",
-            "zh-CN": "左侧",
-            "zh-TW": "左方"
-          }
-        },
-        {
-          "value": "right",
-          "label": {
-            "cs": "Doprava",
-            "da": "Højre",
-            "de": "Rechts",
-            "en": "Right",
-            "es": "Derecha",
-            "fi": "Oikea",
-            "fr": "Droite",
-            "it": "Destra",
-            "ja": "右",
-            "ko": "오른쪽",
-            "nb": "Høyre",
-            "nl": "Rechts",
-            "pl": "Do prawej",
-            "pt-BR": "Direita",
-            "pt-PT": "Direita",
-            "sv": "Höger",
-            "th": "ด้านขวา",
-            "tr": "Sağ",
-            "vi": "Bên phải",
-            "zh-CN": "右侧",
-            "zh-TW": "右方"
-          }
-        }
-      ]
-    },
-    {
       "type": "text",
       "id": "title",
       "label": {
@@ -235,7 +149,7 @@
         "cs": "Obrázek s textem",
         "da": "Billede med tekst",
         "de": "Foto mit Text",
-        "en": "Image with text",
+        "en": "Image with text Stacked",
         "es": "Imagen con texto",
         "fi": "Kuva tekstillä",
         "fr": "Image avec texte",
@@ -366,7 +280,7 @@
         "cs": "Obrázek s textem",
         "da": "Billede med tekst",
         "de": "Foto mit Text",
-        "en": "Image with text",
+        "en": "Image with text Stacked",
         "es": "Imagen con texto",
         "fi": "Kuva tekstillä",
         "fr": "Image avec texte",

@@ -12,6 +12,10 @@
           "text_size": "large"
         }
       },
+      "feature-image-text-stack": {
+        "type": "feature-image-text-stack",
+        "settings": {}
+      },
       "feature-row": {
         "type": "feature-row",
         "settings": {}
@@ -129,7 +133,8 @@
       "collection",
       "hero-2",
       "quotes",
-      "image-bar"
+      "image-bar",
+      "feature-image-text-stack"
     ]
   },
   "presets": {
