@@ -1,62 +1,27 @@
-<div class="featureImageTextStack">
+<div class="heroTextStack">
+  <div class="heroTextStack__wrapper">
 
-  {% capture image_layout %}
-      {% if section.settings.image != blank %}
+    <h2 class="heroTextStack--headerbold">{{ section.settings.title | escape }} <h2 class="heroTextStack--headeritalic">{{ section.settings.title2 | escape }}</h2></h2>
+    
 
-        <!-- {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %} -->
-        {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
-        <!-- {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%} -->
-        <!-- {%- assign img_url = section.settings.image | img_url: "1400x", scale: 2  -%} -->
+    {%- capture ariaLabel -%}
+      {{- section.settings.button_label -}}
+      {%- if section.settings.button_link.type == 'frontpage_link' -%}
+        : {{ 'homepage.general.title' | t -}}
+      {%- elsif section.settings.button_link.type == 'catalog_link' -%}
+        : {{ 'collections.catalog.title' | t -}}
+      {%- elsif section.settings.button_link.object.title -%}
+        : {{ section.settings.button_link.object.title -}}
+      {%- endif -%}
+    {%- endcapture -%}
 
-        {% include 'image-style', image: section.settings.image, height: 1400, wrapper_id: wrapper_id, img_id: img_id %}
-        <div id="{{ wrapper_id }}" class="featureImageTextStack__image-wrapper js">
-            <img id="FeatureRowImage-{{ section.id }}"
-                 class="featureImageTextStack__image lazyload"
-                 data-src="{{section.settings.image | img_url: "1400x", scale: 2}}"
-                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                 data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                 data-sizes="auto"
-                 alt="{{ section.settings.image.alt | escape }}">
-        </div>
+      {{ section.settings.text }}
 
-        <noscript>
-          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'featureImageTextStack__image' }}
-        </noscript>
-
-      {% else %}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-      {% endif %}
-  {% endcapture %}
-
-  <div class="featureImageTextStack__wrapper">
-      {{ image_layout }}
-
-    <div class="featureImageTextStack__textContainer">
-      {% if section.settings.title != blank %}
-        <h2 class="h3">{{ section.settings.title | escape }}</h2>
-      {% endif %}
-      {% if section.settings.text != blank %}
-        <div class="featureImageTextStack__subtext">{{ section.settings.text }}</div>
-      {% endif %}
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        {%- capture ariaLabel -%}
-          {{- section.settings.button_label -}}
-          {%- if section.settings.button_link.type == 'frontpage_link' -%}
-            : {{ 'homepage.general.title' | t -}}
-          {%- elsif section.settings.button_link.type == 'catalog_link' -%}
-            : {{ 'collections.catalog.title' | t -}}
-          {%- elsif section.settings.button_link.object.title -%}
-            : {{ section.settings.button_link.object.title -}}
-          {%- endif -%}
-        {%- endcapture -%}
-
-        <button href="{{ section.settings.button_link }}"
-          class="clearButton featureImageTextStack__button"
-          aria-label="{{ ariaLabel }}">
-          {{- section.settings.button_label | escape -}}
-        </button>
-      {% endif %}
-    </div>
+    <button href="{{ section.settings.button_link }}"
+      class="clearButton"
+      aria-label="{{ ariaLabel }}">
+      {{- section.settings.button_label | escape -}}
+    </button>
 
   </div>
 </div>
@@ -69,7 +34,7 @@
     "cs": "Obrázek s textem",
     "da": "Billede med tekst",
     "de": "Foto mit Text",
-    "en": "Image with text Stacked",
+    "en": "Hero - Stacked text",
     "es": "Imagen con texto",
     "fi": "Kuva tekstillä",
     "fr": "Image avec texte",
@@ -91,39 +56,62 @@
   "class": "index-section",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": {
-        "cs": "Obrázek",
-        "da": "Billede",
-        "de": "Foto",
-        "en": "Image",
-        "es": "Imagen",
-        "fi": "Kuva",
-        "fr": "Image",
-        "it": "Immagine",
-        "ja": "画像",
-        "ko": "이미지",
-        "nb": "Bilde",
-        "nl": "Afbeelding",
-        "pl": "Obraz",
-        "pt-BR": "Imagem",
-        "pt-PT": "Imagem",
-        "sv": "Bild",
-        "th": "รูปภาพ",
-        "tr": "Görsel",
-        "vi": "Hình ảnh",
-        "zh-CN": "图片",
-        "zh-TW": "圖片"
-      }
-    },
-    {
       "type": "text",
       "id": "title",
       "label": {
         "cs": "Nadpis",
         "da": "Overskrift",
-        "de": "Titel",
+        "de": "Titel - bold",
+        "en": "Heading 2",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pl": "Nagłówek",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "tr": "Başlık",
+        "vi": "Tiêu đề",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "cs": "Obrázek s textem",
+        "da": "Billede med tekst",
+        "de": "Foto mit Text",
+        "en": "It's not about conforming to someone else's standards.",
+        "es": "Imagen con texto",
+        "fi": "Kuva tekstillä",
+        "fr": "Image avec texte",
+        "it": "Immagine con testo",
+        "ja": "テキスト付き画像",
+        "ko": "텍스트 포함 이미지",
+        "nb": "Bilde med tekst",
+        "nl": "Afbeelding met tekst",
+        "pl": "Obraz z tekstem",
+        "pt-BR": "Imagem com texto",
+        "pt-PT": "Imagem com texto",
+        "sv": "Bild med text",
+        "th": "รูปภาพพร้อมข้อความ",
+        "tr": "Metin içeren görsel",
+        "vi": "Hình ảnh có chữ",
+        "zh-CN": "带文本图片",
+        "zh-TW": "附文字的圖片"
+      }
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": {
+        "cs": "Nadpis",
+        "da": "Overskrift",
+        "de": "Titel - italic",
         "en": "Heading",
         "es": "Título",
         "fi": "Otsake",
@@ -147,7 +135,7 @@
         "cs": "Obrázek s textem",
         "da": "Billede med tekst",
         "de": "Foto mit Text",
-        "en": "Image with text Stacked",
+        "en": "It's about your unique story.",
         "es": "Imagen con texto",
         "fi": "Kuva tekstillä",
         "fr": "Image avec texte",
@@ -197,7 +185,7 @@
         "cs": "<p>Zkombinujte velký text a obrázek, abyste zaměřili pozornost návštěvníků na zvolený produkt, kolekci či příspěvek na blogu. Pak můžete připojit podrobnosti o dostupnosti a stylu, nebo dokonce recenzi.</p>",
         "da": "<p>Kombiner stor tekst med et billede for at give dit valgte produkt, din valgte kollektion eller dit valgte blogopslag fokus. Tilføj oplysninger om tilgængelighed, stil og eventuelt også en anmeldelse.</p>",
         "de": "<p>Kombinieren Sie große Schrift mit einem Foto, um einen Fokus auf Ihr ausgewähltes Produkt, die Kategorie oder einen Blogpost zu legen. Sie können dann Details zur Verfügbarkeit und dem Style oder sogar eine Bewertung hinzufügen.</p>",
-        "en": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+        "en": "<p>You're not alone in your skin care journey.  We're here to deliverpersonalized skin careto you wherever you are.</p>",
         "es": "<p>Vincula un texto largo con una imagen para dar visibilidad a tu producto, colección o artículo de blog seleccionados. Agrega detalles sobre disponibilidad, estilo, o incluso ofrece una reseña.</p>",
         "fi": "<p>Korosta valitsemaasi tuotetta, kokoelmaa tai blogijulkaisua lisäämällä kuvaan suuri teksti. Lisää saatavuustiedot, määritä tyyli tai näytä vaikkapa arvostelu.</p>",
         "fr": "<p>Ajoutez une image à un long paragraphe de texte pour mettre l'accent sur un produit de votre choix, une collection, ou un article de blog. Ajoutez des détails sur la disponibilité, le style, ou mettez un commentaire client en avant.</p>",
@@ -251,7 +239,7 @@
         "cs": "Tlačítkový odkaz",
         "da": "Knaplink",
         "de": "Button-Link",
-        "en": "Button link",
+        "en": "Read our story",
         "es": "Enlace de botón",
         "fi": "Painikelinkki",
         "fr": "Lien du bouton",
@@ -278,7 +266,7 @@
         "cs": "Obrázek s textem",
         "da": "Billede med tekst",
         "de": "Foto mit Text",
-        "en": "Image with text Stacked",
+        "en": "Hero - Stacked text",
         "es": "Imagen con texto",
         "fi": "Kuva tekstillä",
         "fr": "Image avec texte",

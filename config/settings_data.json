@@ -16,6 +16,10 @@
         "type": "feature-image-text-stack",
         "settings": {}
       },
+      "hero-text-stack": {
+        "type": "hero-text-stack",
+        "settings": {}
+      },
       "feature-row": {
         "type": "feature-row",
         "settings": {}
@@ -134,7 +138,8 @@
       "hero-2",
       "quotes",
       "image-bar",
-      "feature-image-text-stack"
+      "feature-image-text-stack",
+      "hero-text-stack"
     ]
   },
   "presets": {
@@ -153,6 +158,14 @@
         },
         "feature-row": {
           "type": "feature-row",
+          "settings": {}
+        },
+        "feature-image-text-stack": {
+          "type": "feature-image-text-stack",
+          "settings": {}
+        },
+        "hero-text-stack": {
+          "type": "hero-text-stack",
           "settings": {}
         },
         "feature-columns": {
@@ -268,7 +281,9 @@
         "collection",
         "hero-2",
         "quotes",
-        "image-bar"
+        "image-bar",
+        "feature-image-text-stack",
+        "hero-text-stack"
       ]
     },
     "Light": {

@@ -7708,9 +7708,12 @@ margin: 0;
 @media only screen and (min-width: 750px) {
   .feature-row__text--left {
     padding-left: 32px;
+    padding-right: 32px;
   }
   .feature-row__text--right {
     padding-right: 35px;
+    padding-left: 32px;
+
   }
 }
 

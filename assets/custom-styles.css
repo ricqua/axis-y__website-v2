@@ -1107,6 +1107,7 @@
   /* border: 1px solid red; */
   display: flex;
   flex-flow: column nowrap;
+  padding: 0 32px;
 }
 
 .heroCustom h2{
@@ -1123,5 +1124,44 @@
   font-family: restora;
   margin: 0;
   color: black;
+}
 
+
+/* HERO TEXT STACK */
+
+.heroTextStack {
+  width: 100%;
+}
+
+.heroTextStack__wrapper {
+  max-width: 1000px;
+  margin: 200px auto 170px auto;
+  /* border: 1px solid red; */
+  text-align: center;
+  padding: 0 32px;
+  
+  
+}
+
+.heroTextStack--headerbold {
+  font-size: 64px;
+  font-weight: 500;  
+  line-height: 96px;  
+}
+
+.heroTextStack--headeritalic {
+  font-style: italic;
+  font-weight: 300; 
+  font-size: 64px;
+  line-height: 96px;  
+}
+
+.heroTextStack p {
+  margin: 48px auto;;
+  padding: 0 32px;
+  max-width: 800px;
+  word-break: break-word;
+  text-align: center;
+  font-size: 24px;
+  /* white-space:normal; */
 }
