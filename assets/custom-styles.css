@@ -1085,18 +1085,15 @@
 }
 
 /* HERO CUSTOM */
-
 .heroCustom {
   width: 100%;  
   display: flex;
-  /* align-items: flex-end; */
 }
 
 .heroCustom__container {
   max-width: 1440px;
   margin: auto auto 40px auto;
   width: 100%;
-  /* border: 1px solid red; */
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-end;
@@ -1104,7 +1101,6 @@
 }
 
 .heroCustom__item {
-  /* border: 1px solid red; */
   display: flex;
   flex-flow: column nowrap;
   padding: 0 32px;
@@ -1125,6 +1121,47 @@
   margin: 0;
   color: black;
 }
+
+/* HERO 2 SECTION */
+.hero2 {
+  width: 100%;  
+  display: flex;
+}
+
+.hero2__container {
+  max-width: 1440px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero2__item {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 32px;
+}
+
+.hero2 h2{
+  text-align: center;
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 96px;
+  color: black;
+}
+
+.hero2 p{
+  text-align: center;
+  font-size: 112px;
+  font-weight: 200;
+  font-style: italic;
+  font-family: restora;
+  margin: 0;
+  color: black;
+}
+
 
 
 /* HERO TEXT STACK */
@@ -1150,6 +1187,7 @@
 }
 
 .heroTextStack--headeritalic {
+  font-family: Restora;
   font-style: italic;
   font-weight: 300; 
   font-size: 64px;
@@ -1232,4 +1270,300 @@
   right: -100px;
   max-width: 200px;
   /* border: 1px solid green; */
+}
+
+
+/* RICH TEXT */
+
+.richTextSection{
+  max-width: 800px;
+  padding: 125px 32px 125px 32px;
+  margin: auto;
+}
+
+.richTextSection h2{
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  margin-bottom: 24px;
+}
+
+.richTextSection p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.richTextSection button {
+  margin-top: 64px;
+  display: inline-block;
+}
+
+/* CO-DEVELOPMENT PAGE */
+
+.codev-page{
+
+}
+
+.codev-page__heroSection{
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 764px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+
+}
+
+.codev-page__heroSection > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.codev-page__heroSection h1{
+  margin: 80px 32px 0 32px;
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 96px;
+}
+
+.codev-page__heroSection h2{
+  font-family: Restora;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 80px;
+  line-height: 96px;
+}
+
+
+.codev-page__bigImage{
+  padding: 0 32px 0 32px;
+  margin: auto;
+  
+}
+
+.codev-page__bigImage--wrapper{
+  margin: auto;
+  max-width: 1040px;
+}
+
+.codev-page__bigImage--image{
+  height: 548px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  margin: auto;
+}
+
+.codev-page__bigImage img {
+  max-width: 1040px;
+  position: absolute;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* width: 100%; */
+  background-repeat: no-repeat;
+}
+
+.codev-page__bigImage p{
+  margin: 16px 0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.codev-page__bigImage label{
+  font-family: Restora;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 28px;
+  display: inline-block;
+  margin-right: 24px;
+}
+
+.codev-page__1000participants{
+  padding: 0 32px;
+  margin: auto; 
+}
+
+.codev-page__1000participants--wrapper{
+  margin: auto;
+  max-width: 1040px;
+  min-height: 440px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  position: relative;
+}
+
+.codev-page__1000participants--heading1{
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 96px;
+}
+
+.codev-page__1000participants--heading2 {
+  font-family: Restora;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 80px;
+  line-height: 96px;
+  margin-left: 140px; 
+}
+
+.codev-page__1000participants--imageWrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  /* background-size: cover; */
+  margin: auto;
+  background-color: #CEDFD7;
+  min-width: 440px;
+  min-height: 440px;
+  z-index: -1;
+}
+
+.codev-page__1000participants img {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: no-repeat; */
+}
+
+.codev-page__influencers {
+  max-width: 1440px;
+  margin: auto;
+  padding: 140px 80px 0 80px;
+  /* border: 1px solid red; */
+  
+}
+
+.codev-page__influencers >  h2 {
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 80px;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.codev-page__influencers--items{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.codev-page__influencers--item{
+  /* border: 1px solid green; */
+  flex-grow: 1;
+  margin-right: 64px;
+}
+
+.codev-page__influencers--item:last-child{
+  margin-right: 0px;
+}
+
+.codev-page__influencer--imageWrapper{
+
+}
+
+.codev-page__influencers--item h3{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.codev-page__influencers--item p{
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.codev-page__hr{
+  margin: auto;
+  max-width: 1440px;
+  border-bottom: 1px solid #E5E1E6;
+}
+
+/* TIMELINE SECTION */
+
+.timelineSection{
+  max-width: 1440px;
+  margin: auto;
+  padding: 150px 80px;
+}
+
+.timelineSection h2{
+  text-align: center;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 80px;
+  margin-bottom: 80px;
+}
+
+.timelineSection img {
+ width: 100%;
+}
+
+
+/* ABOUT US PAGE */
+
+.about-page {
+
+}
+
+.about-page__harmfulTableSection {
+  max-width: 760px;
+  padding: 16px;
+  margin: auto;
+}
+
+.about-page__harmfulTableSection table {
+  /* border: 1px solid red; */
+}
+
+.about-page__harmfulTableSection tr {
+  border: none;
+}
+
+.about-page__harmfulTableSection th {
+  
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  border: none;
+  border-bottom: 1px solid #E5E1E6;
+
+  }
+
+.about-page__harmfulTableSection td{
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  border: none;
+  border-bottom: 1px solid #E5E1E6;
+}
+
+.about-page__harmfulTableSection tr > td:first-child{
+  width: 70%; 
+}
+
+.about-page__harmfulTableSection label {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  color: #757575;
 }
