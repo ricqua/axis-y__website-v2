@@ -16,10 +16,6 @@
         "type": "feature-image-text-stack",
         "settings": {}
       },
-      "2col_list-image": {
-        "type": "2col_list-image",
-        "settings": {}
-      },
       "hero-text-stack": {
         "type": "hero-text-stack",
         "settings": {}
@@ -136,11 +132,14 @@
     },
     "content_for_index": [
       "hero-1",
-      "hero-text-stack",
-      "collection",
       "feature-row",
+      "feature-columns",
+      "collection",
+      "hero-2",
+      "quotes",
+      "image-bar",
       "feature-image-text-stack",
-      "2col_list-image"
+      "hero-text-stack"
     ]
   },
   "presets": {
@@ -159,7 +158,7 @@
         },
         "feature-row": {
           "type": "feature-row",
-          "settings": {} 
+          "settings": {}
         },
         "feature-image-text-stack": {
           "type": "feature-image-text-stack",
@@ -197,7 +196,7 @@
         "collection": {
           "type": "collection",
           "settings": {
-            "grid": 3
+            "grid": 4
           }
         },
         "hero-2": {

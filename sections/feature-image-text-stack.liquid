@@ -1,12 +1,28 @@
-<div class="featureImageTextStack">
+<!-- SECTION ON HOME PAGE WITH LARGE WIDE IMAGE AND TEXT/BUTTONS BELLOW -->
 
-  {% capture image_layout %}
+<section class="featureImageTextStack">
+  <div>
+    <img src="{{section.settings.image | img_url: "1200x"}}" alt="{{section.secttings.image.alt | escape}}">
+  </div>
+
+  <h2>{{ section.settings.title | escape }}</h2>
+
+  {{ section.settings.text }}
+  
+  <button href="{{ section.settings.button_link }}"
+    class="clearButton featureImageTextStack__button"
+    aria-label="Button link">
+    {{- section.settings.button_label | escape -}}
+  </button>
+</section>
+
+  <!-- {% capture image_layout %}
       {% if section.settings.image != blank %}
 
-        <!-- {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %} -->
+        {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
-        <!-- {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%} -->
-        <!-- {%- assign img_url = section.settings.image | img_url: "1400x", scale: 2  -%} -->
+        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        {%- assign img_url = section.settings.image | img_url: "1400x", scale: 2  -%}
 
         {% include 'image-style', image: section.settings.image, height: 1400, wrapper_id: wrapper_id, img_id: img_id %}
         <div id="{{ wrapper_id }}" class="featureImageTextStack__image-wrapper js">
@@ -26,40 +42,11 @@
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
-  {% endcapture %}
+  {% endcapture %} -->
 
-  <div class="featureImageTextStack__wrapper">
-      {{ image_layout }}
+      <!-- {{ image_layout }} -->
 
-    <div class="featureImageTextStack__textContainer">
-      {% if section.settings.title != blank %}
-        <h2 class="h3">{{ section.settings.title | escape }}</h2>
-      {% endif %}
-      {% if section.settings.text != blank %}
-        <div class="featureImageTextStack__subtext">{{ section.settings.text }}</div>
-      {% endif %}
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        {%- capture ariaLabel -%}
-          {{- section.settings.button_label -}}
-          {%- if section.settings.button_link.type == 'frontpage_link' -%}
-            : {{ 'homepage.general.title' | t -}}
-          {%- elsif section.settings.button_link.type == 'catalog_link' -%}
-            : {{ 'collections.catalog.title' | t -}}
-          {%- elsif section.settings.button_link.object.title -%}
-            : {{ section.settings.button_link.object.title -}}
-          {%- endif -%}
-        {%- endcapture -%}
-
-        <button href="{{ section.settings.button_link }}"
-          class="clearButton featureImageTextStack__button"
-          aria-label="{{ ariaLabel }}">
-          {{- section.settings.button_label | escape -}}
-        </button>
-      {% endif %}
-    </div>
-
-  </div>
-</div>
+    
 
 
 

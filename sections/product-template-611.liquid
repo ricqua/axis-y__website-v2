@@ -67,6 +67,9 @@
       <H1>{{product.title}}</H1>
       <p class="product-single__formArea--subTitle">{{ product.vendor}}</p>
       <p class="product-single__formArea--price">{{product.price | money}}</p>
+
+                   {{ product.description }}
+
         <hr class="product-page__bellowPriceHR">
 
 
@@ -172,6 +175,7 @@
         {% endif %} -->
           
       {% endform %}
+
 
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
@@ -456,12 +460,6 @@
     },
     {
       "type": "checkbox",
-      "id": "randomCheckbox",
-      "label": "Random checkbox",
-      "default": true
-    },
-    {
-      "type": "checkbox",
       "id": "show_quantity_selector",
       "label": {
         "cs": "Zobrazit výběr množství",
@@ -486,7 +484,7 @@
         "zh-CN": "显示数量选择器",
         "zh-TW": "顯示數量選擇器"
       },
-      "default": false
+      "default": true
     },
     {
       "type": "checkbox",
@@ -593,7 +591,7 @@
         "zh-CN": "显示社交分享按钮",
         "zh-TW": "顯示社群分享按鈕"
       },
-      "default": true
+      "default": false
     },
     
     {

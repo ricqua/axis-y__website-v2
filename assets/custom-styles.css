@@ -81,7 +81,6 @@
   margin-right: -40px;
 }
 
-
 .site-footer__bellowBreakSection {
   padding-bottom: 50px;
   display: flex; 
@@ -95,7 +94,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
-}
+  }
 }
 
 /* HEADER */
@@ -1012,30 +1011,26 @@
 
 .featureImageTextStack {
   /* border: 1px solid red; */
-}
-
-.featureImageTextStack__wrapper{
-  /* border: 1px solid green; */
   max-width: 1440px;
   margin: auto;
   padding: 224px 140px 120px 140px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  color: black;
 }
 
-.featureImageTextStack__image-wrapper{
+.featureImageTextStack > div {
+  margin: 0 140px;
   width: 100%;
-  /* border: 1px solid red; */
 }
 
-.featureImageTextStack__image{
-  /* border: 1px solid blue; */
+.featureImageTextStack > img {
+  width: 100%;
 }
 
-.featureImageTextStack__textContainer{
- text-align: center;
- color: black;
-}
-
-.featureImageTextStack__textContainer h2{
+.featureImageTextStack > h2{
   font-size: 56px;
   font-weight: 500;
   margin: auto;
@@ -1045,9 +1040,10 @@
 }
 
 
-.featureImageTextStack__subtext{
+.featureImageTextStack > p{
   max-width: 570px;
   margin: auto;
+  margin: 24px 0;
 }
 
 .featureImageTextStack__button{
@@ -1055,6 +1051,10 @@
   min-width: 260px;
 }
 
+
+
+
+/* FEATURE COLLECTION */
 .featured-collection__section{
   max-width: 1440px;
   margin: auto;
@@ -1164,4 +1164,72 @@
   text-align: center;
   font-size: 24px;
   /* white-space:normal; */
+}
+
+
+/* INSTAGRAM FEED ON HOME PAGE */
+
+.ooo-instagram-container{
+  max-width: 1440px;
+  margin-bottom: 140px;
+}
+
+.ooo-instagram-header__title{
+  font-size: 32px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.ooo-instagram-media{
+  /* min-width: 384px;
+  min-height: 384px; */
+}
+
+/* 2col_list-image */
+
+.col_list-image {
+  max-width: 1440px;
+  margin: auto;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.col_list-image ul {
+  /* border: 1px solid green; */
+  flex-grow: 1;
+  padding: 120px 40px 120px 120px;
+}
+
+.col_list-image li {
+  padding: 24px 0;
+  font-size: 40px;
+  line-height: 80px;
+  border-bottom: 1px solid #E5E1E6;
+}
+
+.col_list-image li:nth-child(5) {
+  border-bottom: none;
+}
+
+.col_list-image button {
+  margin: 24px 0;
+}
+
+.col_list-image > div {
+  /* border: 1px solid yellow; */
+  /* flex-grow: 1; */
+  height: 100%;
+  margin-right: 160px;
+  position: relative;
+}
+
+
+.col_list-image--legalBadge{
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  max-width: 200px;
+  /* border: 1px solid green; */
 }
