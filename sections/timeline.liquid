@@ -1,8 +1,9 @@
 <!-- AXIS-Y STYLED TIMELINE FOR THE BOTTOM OF THE CO-DEVELOPMENT PAGE. 16 JULY 2021 -->
 
 <section class="timelineSection">
-  <h2>What's next?</h2>
-  <img src="{{ section.settings.image | img_url:  "1440x" }}" alt="{{section.secttings.image.alt | escape}}">
+  <h2>{{ section.settings.title}}</h2>
+  <img src="{{ section.settings.image1 | img_url:  "1440x" }}" alt="{{section.secttings.image.alt | escape}}">
+  <!-- <img src="{{ section.settings.image2 | img_url:  "1440x" }}" alt="{{section.secttings.image.alt | escape}}"> -->
 </section>
 
 {% schema %}
@@ -12,12 +13,21 @@
   },
   "class": "index-section",
   "settings": [
+      { 
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "What's next?"
+      },
       {
       "type": "image_picker",
-      "id": "image",
-      "label": {
-        "en": "Timeline image"
-      }
+      "id": "image1",
+      "label": "Timeline image - Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Timeline image - Mobile"
     }
   ]
 }

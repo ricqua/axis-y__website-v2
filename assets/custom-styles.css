@@ -213,11 +213,15 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+  margin-top: 64px;
+
 }
 
 .collection__headerSection  h1 {
- text-align: left; 
- font-size: 80px;
+  text-align: left; 
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 96px;
 }
 
 @media only screen and (max-width: 749px) {
@@ -1274,8 +1278,7 @@
 
 
 /* RICH TEXT */
-
-.richTextSection{
+.richTextSection {
   max-width: 800px;
   padding: 125px 32px 125px 32px;
   margin: auto;
@@ -1298,6 +1301,20 @@
 .richTextSection button {
   margin-top: 64px;
   display: inline-block;
+}
+
+.richTextSection a {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  text-decoration-line: underline;
+  color: #008554;
+}
+
+@media only screen and (max-width: 749px) {
+  .richTextSection {
+    padding: 60px 16px 60px 16px;
+  }
 }
 
 /* CO-DEVELOPMENT PAGE */
@@ -1498,6 +1515,65 @@
   border-bottom: 1px solid #E5E1E6;
 }
 
+/* CONTRIBUTORS SECTION */
+
+
+.codev-page__contributors {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 80px;
+  /* border: 1px solid red; */
+  margin-bottom: 160px;  
+}
+
+.codev-page__contributors >  h2 {
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 80px;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.codev-page__contributors--items{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.codev-page__contributors--item{
+  flex-grow: 1;
+  max-width: 180px;
+}
+
+.codev-page__contributors--item:last-child{
+  margin-right: 0px;
+}
+
+.codev-page__influencer--imageWrapper{
+  /* width: 100%; */
+}
+
+.codev-page__contributors--item h3{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.codev-page__contributors--item p{
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+}
+
+
+
+
 /* TIMELINE SECTION */
 
 .timelineSection{
@@ -1566,4 +1642,151 @@
   font-size: 14px;
   line-height: 24px;
   color: #757575;
+}
+
+
+/* CAREERS PAGE */
+.careers-page {
+
+}
+
+.careers-page__valuesSection {
+  margin: auto;
+  max-width: 1440px;
+  padding: 0 80px;
+}
+
+.careers-page__valuesSection h2 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.careers-page__valuesSection ul{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.careers-page__valuesSection li{
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 0 64px 0;
+}
+
+.careers-page__valuesSection img{
+  width: 64px;
+  height: 64px;
+  background-color: grey;
+  margin: auto 24px auto 0;
+}
+
+.careers-page__valuesSection div{
+   margin: 0;
+   padding-right: 64px;
+} 
+
+.careers-page__valuesSection h4{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+} 
+
+.careers-page__valuesSection p{
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px 0 0 0;
+} 
+
+@media only screen and (max-width: 749px) {
+
+  .careers-page__valuesSection {
+    padding: 0 16px;
+  }
+
+  .careers-page__valuesSection {
+    padding: 64px 16px 0 16px;
+  }
+
+  .careers-page__valuesSection li{
+    width: 100%;
+    margin: 0 0 40px 0;
+  }
+}
+
+
+
+/* 2 BIG IMAGES NEXT TO EACH OTHER SECTION */
+.twoLargeImagesSection{
+  padding: 0 32px 132px 32px;
+  margin: auto;
+  max-width: 1128px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.twoLargeImagesSection--wrapper{
+  margin: auto;
+  width: 50%;
+}
+
+.twoLargeImagesSection--wrapper:first-child{
+  padding-right: 24px;
+}
+
+.twoLargeImagesSection--image{
+  height: 548px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  margin: auto;
+}
+
+.twoLargeImagesSection img {
+  max-width: 1040px;
+  position: absolute;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
+  background-repeat: no-repeat;
+}
+
+.twoLargeImagesSection p{
+  margin: 16px 0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.twoLargeImagesSection label{
+  font-family: Restora;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 28px;
+  display: inline-block;
+  margin-right: 24px;
+}
+
+@media only screen and (max-width: 749px) {
+  .twoLargeImagesSection{
+    padding: 16px;
+  }
+
+  .twoLargeImagesSection--wrapper{
+    width: 100%;
+  }
+
+  .twoLargeImagesSection--wrapper:first-child{
+    padding-right: 0;
+  }
+
+  .twoLargeImagesSection--wrapper:last-child{
+    display: none;
+  }
 }
