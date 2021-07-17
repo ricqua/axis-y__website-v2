@@ -15,38 +15,11 @@
 
   <div>
     <img src="{{section.settings.image | img_url: "556x720"}}" alt="{{section.secttings.image.alt | escape}}">
-    
     <div class="col_list-image--legalBadge">
       {{ 'legalWarningbadge.svg' | asset_url | img_tag: 'legal warning badge' }}
     </div>
   </div>
-
-
-  <!-- <div>
-      {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
-      {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
-
-      {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-      {% include 'image-style', image: section.settings.image, height: 700, wrapper_id: wrapper_id, img_id: img_id %}
-      <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-        <div data-image-loading-animation>
-          <img id="{{ img_id }}"
-                class="lazyload"
-                data-src="{{ img_url }}"
-                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                data-sizes="auto"
-                alt="{{ section.settings.image.alt | escape }}">
-        </div>
-      </div>
-
-      <noscript>
-        {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
-      </noscript>
-  </div>     -->
-
 </section>
-
 
 
 {% schema %}
@@ -59,26 +32,18 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": {
-        "en": "Select image"
-      }
+      "label": "Select image"
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": {
-        "en": "Button label"
-      },
-      "default": {
-        "en": "See our products"
-      }
-    },
+      "label": "Button label",
+      "default": "See our products"
+    },    
     {
       "type": "url",
       "id": "button_link",
-      "label": {
-        "en": "Button Link"
-      }
+      "label": "Button Link"
     }
   ]
 }

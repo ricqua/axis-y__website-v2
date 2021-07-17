@@ -3,12 +3,31 @@
     <h2>{{ section.settings.title}}</h2>
     <div class="codev-page__contributors--items">
       {% for block in section.blocks %}  
-        <div class="codev-page__contributors--item" id="call-to-action"> 
+        <!-- <input type="checkbox" id="contributor-{{ blcok.settings.name }}"> -->
+        <div class="codev-page__contributors--item" id="call-to-action" for="contributor-{{ blcok.settings.name }}"> 
           <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
           <h3>{{ block.settings.name }}</h3>
           <p>{{ block.settings.location }}</p>
           <!-- <a href="{{ block.settings.link }}" class="btn">{{ block.settings.linktext }}</a> -->
         </div> 
+        <!-- <section class="codev-page__contributors--popUpWindow">   
+          <div>
+            <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
+            <h3>{{ block.settings.name }}</h3>
+            <p>{{ block.settings.location }}</p>
+          </div>     
+          <p>{{ block.settings.description }}</p>
+          <div>
+            <p>{{ block.settings.social1Tag }} <a href="{{ block.settings.social1Url }}">{{ block.settings.social1Name }}</a></p>
+            <p>{{ block.settings.social2Tag }} <a href="{{ block.settings.social2Url }}">{{ block.settings.social2Name }}</a></p>
+            <p>{{ block.settings.social3Tag }} <a href="{{ block.settings.social3Url }}">{{ block.settings.social3Name }}</a></p>
+          </div>
+          <div>
+            <p>Affiliate code</p>
+            <p>{{ block.settings.code }}</p>
+            <button class="clearButton" >Copy to clipboard</button>
+          </div>
+        </section> -->
       {% endfor %}
     </div>
 </section>
@@ -47,7 +66,79 @@
           "type": "text",
           "label": "Location",
           "default": "Location"
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "default": "Description text"
+        },
+        {
+          "id": "social1Name",
+          "type": "text",
+          "label": "Social 1 Name",
+          "default": "Instagram, Facebook, etc"
+        },
+        {
+          "id": "social1Tag",
+          "type": "text",
+          "label": "Social 1 account ID",
+          "default": "@accountID"
+        },
+        {
+          "id": "social1Url",
+          "type": "text",
+          "label": "Social 1 URL",
+          "default": "e.g. https://instagram.com/accountID"
+        },
+        {
+          "id": "social2Name",
+          "type": "text",
+          "label": "Social 2 Name",
+          "default": "Instagram, Facebook, etc"
+        },
+        {
+          "id": "social2Tag",
+          "type": "text",
+          "label": "Social 2 account ID",
+          "default": "@accountID"
+        },
+        {
+          "id": "social2Url",
+          "type": "text",
+          "label": "Social 2 URL",
+          "default": "e.g. https://instagram.com/accountID"
+        },
+        {
+          "id": "social3Name",
+          "type": "text",
+          "label": "Social 3 Name",
+          "default": "Instagram, Facebook, etc"
+        },
+        {
+          "id": "social3Tag",
+          "type": "text",
+          "label": "Social 3 account ID",
+          "default": "@accountID"
+        },
+        {
+          "id": "social3Url",
+          "type": "text",
+          "label": "Social 3 URL",
+          "default": "e.g. https://instagram.com/accountID"
+        },
+        {
+          "id": "code",
+          "type": "text",
+          "label": "Affiliate code",
+          "default": "SKNQUAJ"
+        },
+        {
+          "id": "product",
+          "type": "product",
+          "label": "Recommended product"
         }
+        
       ]
     }
   ]

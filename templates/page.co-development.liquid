@@ -1,10 +1,13 @@
 <section class="codev-page">
 
-  <section class="codev-page__heroSection">
+  {% section "hero-codev" %} 
+
+
+  <!-- <section class="codev-page__heroSection">
     <img src="{{ "codevHero.png" | asset_img_url: "1440x"}}" alt="Hero image" }}">
     <h1>Made for me</h1>
     <h2>by me</h2>
-  </section>
+  </section> -->
 
   <section class="richTextSection">
     <h2>A line made for and by the community</h2>
@@ -21,10 +24,12 @@
 
   <section class="codev-page__1000participants">
     <div class="codev-page__1000participants--wrapper">
-      <h1 class="codev-page__1000participants--heading1">Over 1000 participants</h1>
-      <h1 class="codev-page__1000participants--heading2">from over 68 countries</h1>
+      <h1>
+        <span class="codev-page__1000participants--heading1">Over 1000 participants</span>
+        <span class="codev-page__1000participants--heading2">from over 68 countries</span>
+      </h1>
       <div class="codev-page__1000participants--imageWrapper">
-        <img src="" alt="">
+        <img src="{{ "codevHero.png" | asset_img_url: "450x"}}" alt="Hero image">
       </div>
     </div>
   </section>
@@ -84,5 +89,22 @@
   <section>
     {% section "timeline" %}
   </section>
+
+
+<!-- <section>
+  <a class="modalButton" href="#openModal">Open it up!</a>
+
+  <div id="openModal" class="modalbg">
+    <div class="dialog">
+      <a href="#close" title="Close" class="close">X</a>
+      <h2>Holy Crap!!!</h2>
+      <p>You freakin' did it!</p>
+      <p>You opened up the freakin' modal window! Now close it, ya dingus.</p>
+      <p class="fineprint">Based on the article "Creating a modal window with HTML5 & CSS3" at <a href="webdesignerdepot.com">Webdesigner Depot</a></p>
+      <p class="fineprint">p.s. Sorry for calling you a dingus earlier.</p>
+    </div>
+  </div>
+</section> -->
+
 
 </section>

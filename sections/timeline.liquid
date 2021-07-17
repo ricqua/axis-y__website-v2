@@ -2,8 +2,8 @@
 
 <section class="timelineSection">
   <h2>{{ section.settings.title}}</h2>
-  <img src="{{ section.settings.image1 | img_url:  "1440x" }}" alt="{{section.secttings.image.alt | escape}}">
-  <!-- <img src="{{ section.settings.image2 | img_url:  "1440x" }}" alt="{{section.secttings.image.alt | escape}}"> -->
+  <img class="timelineSection__imageDesktop" src="{{ section.settings.image1 | img_url:  "1440x" }}" alt="{{section.secttings.image.alt | escape}}">
+  <img class="timelineSection__imageMobile" src="{{ section.settings.image2 | img_url:  "800x" }}" alt="{{section.secttings.image.alt | escape}}">
 </section>
 
 {% schema %}
