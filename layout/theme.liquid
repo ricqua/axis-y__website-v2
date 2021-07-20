@@ -313,7 +313,7 @@
       }
       .site-header {
         position: relative;
-        background-color: var(--color-body);
+        /* background-color: var(--color-body); */
         min-height: 116px;
         display: flex;
         align-items: center;
@@ -488,6 +488,7 @@
       .site-header__menu {
         display: none;
       }
+
       @media only screen and (max-width: 749px) {
         .site-header__icon {
           display: inline-block;
@@ -506,7 +507,7 @@
         position: relative;
         text-align: center;
         border-bottom: 1px solid transparent;
-        padding: 2px;
+        /* padding: 2px; */
       }
       .announcement-bar__link {
         display: block;
@@ -517,6 +518,11 @@
         font-size: calc(((16) / (var(--font-size-base))) * 1em);
         font-weight: var(--font-weight-header);
       }
+
+      .announcement-bar__message p{
+        margin: 0;
+      }
+
       @media only screen and (min-width: 750px) {
         .announcement-bar__message {
           padding-left: 55px;
@@ -532,39 +538,47 @@
         justify-content: space-around;
         max-width: 500px;
         margin: auto;
-        /* margin: 25px 0; */
       }
+
       .site-nav a {
         padding: 3px 10px;
       }
+
       .site-nav__link {
         display: block;
         white-space: nowrap;
       }
+
       .site-nav--centered .site-nav__link {
         padding-top: 0;
       }
+
       .site-nav__link .icon-chevron-down {
         width: calc(8em / 16);
         height: calc(8em / 16);
         margin-left: 0.5rem;
       }
+
       .site-nav__label {
         border-bottom: 1px solid transparent;
       }
+
       .site-nav__link--active .site-nav__label {
         border-bottom-color: var(--color-text);
       }
+
       .site-nav__link--button {
         border: none;
         background-color: transparent;
         padding: 3px 10px;
       }
+
       .site-header__mobile-nav {
         z-index: 11;
         position: relative;
         background-color: var(--color-body);
       }
+      
       @media only screen and (max-width: 749px) {
         .site-header__mobile-nav {
           display: -webkit-flex;
@@ -755,8 +769,11 @@
       "general.accessibility.skip_to_content" | t
     }}</a>
 
-    {%- if settings.enable_ajax -%} {% include 'cart-popup' %} {%- endif -%} {%
-    section 'header' %}
+    {%- if settings.enable_ajax -%} {% include 'cart-popup' %} {%- endif -%} 
+
+    {% unless template.directory  contains "customers" %}
+      {% section 'header' %}
+    {% endunless %}
 
     <div class="page-container drawer-page-content" id="PageContainer">
       <main
@@ -768,7 +785,10 @@
         {{ content_for_layout }}
       </main>
 
-      {% section 'footer' %}
+    {% unless template.directory  contains "customers" %}
+       {% section 'footer' %}
+    {% endunless %}
+
 
       <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
         {{- 'sections.slideshow.navigation_instructions' | t -}}

@@ -1,19 +1,27 @@
 <section class="register-page">
 
-    <h1>{{ 'customer.register.title' | t }}</h1>
+  <a href="/account/login" class="login-page__backButton">
+    {% include 'icon-chevron-left' %}
+  </a>
+  
+  <a href="/" class="login-page__closeButton">
+            {% include 'icon-close' %}
+  </a>
 
-    {%- assign formId = 'RegisterForm' -%}
-    {% form 'create_customer', id: formId, novalidate: 'novalidate' %}
-    {% include 'form-status', form: form, form_id: formId %}
+  <h1>{{ 'customer.register.title' | t }}</h1>
 
-    <!-- <label for="{{ formId }}-Name">Full name</label>
-    <input type="text" name="customer[name]" id="{{ formId }}-Name" {% if form.name %}value="{{ form.name }}"{% endif %} autocomplete="name"> -->
+  {%- assign formId = 'RegisterForm' -%}
+  {% form 'create_customer', id: formId, novalidate: 'novalidate' %}
+  {% include 'form-status', form: form, form_id: formId %}
 
-    <label for="{{ formId }}-FirstName">{{ 'customer.register.first_name' | t }}</label>
-    <input type="text" name="customer[first_name]" id="{{ formId }}-FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocomplete="given-name">
+  <!-- <label for="{{ formId }}-Name">Full name</label>
+  <input type="text" name="customer[name]" id="{{ formId }}-Name" {% if form.name %}value="{{ form.name }}"{% endif %} autocomplete="name"> -->
 
-    <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
-    <input type="text" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name">
+  <label for="{{ formId }}-FirstName">{{ 'customer.register.first_name' | t }}</label>
+  <input type="text" name="customer[first_name]" id="{{ formId }}-FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocomplete="given-name">
+
+  <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
+  <input type="text" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name">
 
 <!-- TESTING ADDITIONAL FIELDS -->
     <!-- <label for="{{ formId }}-SkinType">Skin Type</label>

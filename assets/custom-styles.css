@@ -2,29 +2,56 @@
   border: 1px solid red !important;
 }
 
+.topLayer{
+  z-index: 9999999999;
+}
+
+
+
 .clearButton {
   background-color: rgba(255, 255, 255, 0);
-  /* background: rgba(255, 255, 255, 0); */
   border: 1px solid black;
   padding: 16px 36px !important;
   font: 18px;
   border-radius: 8px;
-  min-width: 264px
-  /* margin: 40px 0  0 0 !important; */
+  min-width: 264px;
+  transition: ease-in-out 250ms;
 }
 
-.greenButton {
+.clearButton:hover {
   background-color: #008554;
-  border: none;
+  border: 1px solid #008554;
   color: white;
   padding: 16px 36px !important;
   font: 18px;
   font-weight: 300;
   border-radius: 8px;
-  min-width: 264px
-  /* margin: 40px 0  0 0 !important; */
+  min-width: 264px;
+  transition: ease-in-out 250ms;
 }
 
+.greenButton {
+  background-color: #008554;
+  border: 1px solid #008554;
+  color: white;
+  padding: 16px 36px !important;
+  font: 18px;
+  font-weight: 300;
+  border-radius: 8px;
+  min-width: 264px;
+  transition: ease-in-out 250ms;
+}
+
+.greenButton:hover{
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;;
+  color: black;
+  padding: 16px 36px !important;
+  font: 18px;
+  border-radius: 8px;
+  min-width: 264px;
+  transition: ease-in-out 250ms;
+}
 
 /* FOOTER NEWSLETTER */
 
@@ -843,10 +870,30 @@
   /* border: 1px solid red; */
   padding: 120px 64px;
   margin: auto auto;
+  position: relative;
+}
+
+.login-page__backButton{
+  position: absolute;
+  top: 28px;
+  left: 20px;
+  width: 22px;
+  height: 22px;
+  /* font-size: 48px; */
+}
+
+.login-page__closeButton{
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  width: 22px;
+  height: 22px;
+  /* font-size: 48px; */
 }
 
 .login-page h1 {
   font-size: 48px;
+  font-weight: 500;
   margin: 0 0 40px 0;
   padding: 0;
 }
@@ -879,20 +926,13 @@
 
 .login-page input:focus {
   outline: none;
-  /* border-color: black; */
-  /* box-shadow: 0 0 0 black; */
 }
-
-/* .login-page input:nth-child(2){
-  margin: 100px;
-} */
 
 .login-page__recoverPassword{
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: right;
-  /* width: 100%; */
 }
 
 .login-page__recoverPassword p { 
@@ -906,7 +946,6 @@
   font-weight: 300;
   margin: 0;
 }
-
 
 .login-page__loginButton {
   width: 100%;
@@ -951,9 +990,10 @@
 /* REGISTRATOIN / SIGN UP PAGE  */
 .register-page {
   max-width: 720px;
-  padding: 120px 64px;
+  padding: 160px 64px;
   margin: 0 auto;
   display: block;
+  position: relative;
 }
 
 
@@ -961,12 +1001,12 @@
   font-size: 48px;
   margin: 0 0 40px 0;
   padding: 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @media (max-width: 749px) {
   .register-page {
-    padding: 96px 16px;
+    padding: 120px 16px;
   }
   
   .register-page h1 {
@@ -1049,11 +1089,11 @@
 
 
 .featureImageTextStack > h2{
-  font-size: 56px;
   font-weight: 500;
+  font-size: 56px;
+  line-height: 80px;
   margin: auto;
   margin-top: 24px;
-  line-height: 80px;
   max-width: 820px;
 }
 
@@ -1062,6 +1102,9 @@
   max-width: 570px;
   margin: auto;
   margin: 24px 0;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .featureImageTextStack__button{
@@ -1077,13 +1120,15 @@
 
   .featureImageTextStack > div {
     margin: 0 140px;
-    /* min-height: 343px; */
-    width: 100%;
+    height: 343px;
+    /* width: 100%; */
+    overflow: hidden;
   }
 
   .featureImageTextStack img {
-    min-height: 100%;
-    /* min-width: 100%; */
+    /* min-height: 100%; */
+    width: unset;
+    /* max-width: 343px; */
     overflow: hidden;
   }
 
@@ -1092,12 +1137,16 @@
     font-size: 24px;
     line-height: 40px;
     margin-top: 24px;
+    text-align: left;
+    max-width: 100%;
   }
 
   .featureImageTextStack > p{
     font-weight: 300;
     font-size: 18px;
     line-height: 28px;
+    text-align: left;
+    max-width: 100%;
   }
 
   .featureImageTextStack__button{
@@ -1306,33 +1355,33 @@
 .hero2Home__item h2{
   text-align: left;
   font-weight: 500;
-  font-size: 80px;
+  font-size: 96px;
   line-height: 96px;
   color: black;
   margin: 0;
 }
 
 .hero2Home__item p{
+  font-family: restora;
+  font-size: 96px;
+  font-style: italic;
   text-align: left;
   line-height: 96px;
   text-align: left;
-  font-size: 112px;
   font-weight: 200;
-  font-style: italic;
-  font-family: restora;
   margin: 0;
   color: black;
 }
 
 @media (max-width: 749px) {
   .hero2Home__container {
-    margin-top: auto;
-    margin: auto 16px 20px 16px;
+    /* margin-top: 32px; */
+    margin: 32px 16px auto 16px;
     width: 100%;
     display: flex;
     flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .hero2Home__item {
@@ -1343,7 +1392,7 @@
 
   .hero2Home__item h2{
     font-weight: 500;
-    font-size: 56px;
+    font-size: 48px;
     line-height: 80px;
     text-align: left;
     color: black;
@@ -1352,7 +1401,7 @@
 
   .hero2Home__item p{
     font-weight: 200;
-    font-size: 56px;
+    font-size: 48px;
     line-height: 80px;
     text-align: left;
     text-align: left;
@@ -1377,7 +1426,7 @@
 }
 
 .heroTextStack__wrapper {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 200px auto 170px auto;
   text-align: center;
   padding: 0 32px;
@@ -1387,6 +1436,7 @@
   font-size: 64px;
   font-weight: 500;  
   line-height: 96px;  
+  display: inline;
 }
 
 .heroTextStack--headeritalic {
@@ -1395,12 +1445,13 @@
   font-weight: 200; 
   font-size: 64px;
   line-height: 96px;  
+  display: inline;
 }
 
 .heroTextStack p {
   margin: 48px auto;;
   padding: 0 32px;
-  max-width: 800px;
+  max-width: 900px;
   word-break: break-word;
   text-align: center;
   font-size: 24px;
@@ -1452,6 +1503,20 @@
   font-size: 32px;
   font-weight: 500;
   text-align: left;
+}
+
+@media (max-width: 749px){
+  .ooo-instagram-header__title{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+  }
+  .ooo-instagram-feed__list{
+    padding: 16px;
+  }
+  .ooo-instagram-container{
+    padding: 16px !important;
+  }
 }
 
 .ooo-instagram-media{
@@ -1509,7 +1574,7 @@
 
   .col_list-image ul {
     order: 2;
-    padding: 16px;
+    padding: 0 !important;
   }
 
   .col_list-image li {
@@ -1546,6 +1611,12 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
+}
+
+.richTextSection h3{
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
   margin-bottom: 24px;
 }
 
@@ -1554,6 +1625,12 @@
   font-size: 18px;
   line-height: 28px;
   margin: 0;
+}
+.richTextSection label {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  color: #757575;
 }
 
 .richTextSection button {
@@ -1644,7 +1721,8 @@
 }
 
 .codev-page__bigImage--image{
-  height: 548px;
+  min-height: 548px;
+  max-height: 620px;
   position: relative;
   overflow: hidden;
   background-size: cover;
@@ -1652,12 +1730,24 @@
 }
 
 .codev-page__bigImage img {
-  max-width: 1040px;
-  position: absolute;
   min-height: 100%;
-  top: 0;
-  left: 0;
-  background-repeat: no-repeat;
+  /* max-width: 1040px; */
+  /* position: absolute; */
+  /* min-height: 100%; */
+  /* top: 0; */
+  /* left: 0; */
+  /* background-repeat: no-repeat; */
+}
+
+@media (max-width: 749px){
+  .codev-page__bigImage--image{
+    height: 343px;
+  }
+  
+  .codev-page__bigImage img {
+    height: 100%;
+    width: unset;
+  }
 }
 
 .codev-page__bigImage p{
@@ -2051,7 +2141,7 @@
   
 }
 
-.modalbg > .dialog {
+/* .modalbg > .dialog {
     width: 400px;
     position: relative;
     top: -1000px;
@@ -2060,7 +2150,7 @@
     .border-radius(10px);
     .gradient;
     .box-shadow;
-}
+} */
 
 .modalbg:target {
 	display: block;
@@ -2076,7 +2166,7 @@
   }
 
 
-.close {
+/* .close {
 	background: #606061;
 	color: #FFFFFF;
 	line-height: 25px;
@@ -2089,7 +2179,7 @@
 	font-weight: bold;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
-	border-radius: 12px;
+	border-radius: 12px; */
   /* .box-shadow;
   .transition;
   .transition-delay(.2s);
@@ -2097,19 +2187,19 @@
   &:hover { background: #00d9ff; .transition; } */
 }
 
-.fineprint {
+/* .fineprint {
   font-style: italic;
   font-size: 10px;
   color: #646;
 }
-a { color: #333; text-decoration: none; }
+a { color: #333; text-decoration: none; } */
 
 
 /* TIMELINE SECTION */
 .timelineSection{
   max-width: 1440px;
-  margin: auto;
-  padding: 150px 80px;
+  margin: 140px auto 160px auto;;
+  /* padding: 150px 80px !important; */
 }
 
 .timelineSection h2{
@@ -2122,6 +2212,8 @@ a { color: #333; text-decoration: none; }
 
 .timelineSection img {
  width: 100%;
+ max-width: 1200px;
+ margin: auto;
 }
 
 .timelineSection__imageDesktop{
@@ -2227,6 +2319,7 @@ a { color: #333; text-decoration: none; }
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
+  margin-bottom: 56px;
 }
 
 .careers-page__valuesSection ul{
@@ -2245,8 +2338,8 @@ a { color: #333; text-decoration: none; }
 .careers-page__valuesSection img{
   width: 64px;
   height: 64px;
-  background-color: grey;
-  margin: auto 24px auto 0;
+  /* background-color: grey; */
+  margin: 0 24px 0 0;
 }
 
 .careers-page__valuesSection div{
@@ -2267,6 +2360,27 @@ a { color: #333; text-decoration: none; }
   line-height: 24px;
   margin: 8px 0 0 0;
 } 
+.career-page__specialNestedHeading{
+  max-width: 800px;
+  padding:64px 32px 0 32px; 
+  margin: auto;
+}
+
+.career-page__specialNestedHeading h3{
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  display: inline;
+}
+
+.career-page__specialNestedHeading h4{
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 48px;
+  display: inline;
+  font-family: Restora;
+  font-style: italic;
+}
 
 @media only screen and (max-width: 749px) {
 
@@ -2321,6 +2435,7 @@ a { color: #333; text-decoration: none; }
   max-width: 1040px;
   position: absolute;
   min-height: 100%;
+  width: unset;
   top: 0;
   left: 0;
   /* width: 100%; */
@@ -2370,38 +2485,39 @@ a { color: #333; text-decoration: none; }
 
 /* LEGAL PAGES */
 
-.page-legal {
+.shopify-policy__container {
   max-width: 749px;
   margin: auto;
   padding: 64px 32px 200px 32px; 
 }
 
-.page-legal h1 {
+.shopify-policy__container h1 {
   font-weight: 500;
   font-size: 64px;
   line-height: 96px;
+  text-align: left;
 }
 
-.page-legal h2 {
+.shopify-policy__container h2 {
   font-weight: 500;
   font-size: 32px;
   line-height: 48px;
   margin-bottom: 24px;
 }
 
-.page-legal h3 {
+.shopify-policy__container h3 {
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
 }
 
-.page-legal p {
+.shopify-policy__container p {
   font-weight: 300;
   font-size: 18px;
   line-height: 28px;
 }
 
-.page-legal a {
+.shopify-policy__container a {
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
@@ -2409,7 +2525,7 @@ a { color: #333; text-decoration: none; }
   color: #008554;
 }
 
-.page-legal li {
+.shopify-policy__container li {
   font-weight: 300;
   font-size: 18px;
   line-height: 28px;
@@ -2418,25 +2534,25 @@ a { color: #333; text-decoration: none; }
 }
 
 @media (max-width: 749px) {
-  .page-legal {
+  .shopify-policy__container {
     margin: auto;
     padding: 32px 16px 112px 16px; 
   }
 
-  .page-legal h1 {
+  .shopify-policy__container h1 {
     font-weight: 500;
     font-size: 48px;
     line-height: 64px;
   }
 
-  .page-legal h2 {
+  .shopify-policy__container h2 {
     font-weight: 500;
     font-size: 32px;
     line-height: 48px;
     margin-bottom: 16px;
   }
 
-  .page-legal h3 {
+  .shopify-policy__container h3 {
     font-weight: 600;
     font-size: 24px;
     line-height: 40px;
@@ -2503,3 +2619,122 @@ a { color: #333; text-decoration: none; }
     font-size: 11px; 
   }
 } */
+
+
+
+/* RECOVER PASSWORD SECTION ON LOGIN PAGE */
+
+.login-page__passwordRecoverSection {
+  /* border: 1px solid green; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+}
+
+.login-page__passwordRecoverSection p {
+    margin-bottom: 64px;
+}
+
+
+/* 
+.login-page__passwordRecoverSection--wrapper {
+  max-width: 720px;
+  margin: auto;
+} */
+
+
+
+/* CONTACT US PAGE */
+.contact-page{
+  width: 100%;
+  /* background-color: #757575; */
+}
+
+.contact-page__wrapper{
+  background-color: white;
+  max-width: 720px;
+  padding: 64px 32px 200px 32px;
+  margin: auto auto;
+  position: relative;
+}
+
+.contact-page__backButton{
+  position: absolute;
+  top: 28px;
+  left: 20px;
+  width: 22px;
+  height: 22px;
+}
+
+.contact-page__closeButton{
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  width: 22px;
+  height: 22px;
+}
+
+.contact-page h1 {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 96px;
+  text-align: left;
+}
+
+.contact-page h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
+  padding: 56px 0 32px 0;
+  margin: 0;
+}
+
+.contact-page h4 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: black;
+  margin: 0;
+  padding: 0 0 16px 0;
+}
+
+.contact-page p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-page small {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 0 0 16px 0;
+  margin: 0;
+  color: #757575;
+}
+
+.contact-page hr {
+  margin: 32px 0;
+  border-bottom: 1px solid black;
+}
+
+@media (max-width: 749px) {
+  .contact-page__wrapper {
+    padding: 32px 16px 112px 16px;
+  }
+  
+  .contact-page h1 {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 64px;
+    /* padding: 0 0 46px 0; */
+    margin: 0;
+  }
+}
+

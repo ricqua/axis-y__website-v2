@@ -107,7 +107,7 @@
                 <h2>{{ section.settings.title | escape }}</h2>
               {%- endif -%}
               {%- if section.settings.text != blank -%}
-                <p>{{ section.settings.text }}</p>
+                {{ section.settings.text }}
               {%- endif -%}
             </div>
 
