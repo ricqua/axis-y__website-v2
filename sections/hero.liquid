@@ -124,11 +124,12 @@
                 {%- endif -%}
               {%- endcapture -%}
 
-              <button href="{{ section.settings.button_link }}"
+              <!-- <button href="{{ section.settings.button_link }}" -->
+              <a href="{{ section.settings.button_link }}"
                 class="greenButton"
                 aria-label="{{ ariaLabel }}">
                 {{- section.settings.button_label | escape -}}
-              </button>
+              </a>
             {%- endif -%}
           </div>
 

@@ -9,7 +9,7 @@
       </div>
       <div class="product-card__textDetailsDiv">
         <p class="product-card__title" aria-hidden="true"> {{ product.title }} </p>
-        <p class="product-card__subTitle"> {{ product.vendor }} </p>
+        {% if product.vendor  != "none" %}<p class="product-card__subTitle"> {{ product.vendor }} </p>{% else %} <p class="product-card__subTitle"></p> {% endif %} 
         {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
       </div>
     <!-- </div> -->

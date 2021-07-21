@@ -54,11 +54,11 @@
           {%- endif -%}
         {%- endcapture -%}
 
-        <button href="{{ section.settings.button_link }}"
+        <a href="{{ section.settings.button_link }}"
           class="clearButton featured-row__button"
           aria-label="{{ ariaLabel }}">
           {{- section.settings.button_label | escape -}}
-        </button>
+        </a>
       {% endif %}
     </div>
 

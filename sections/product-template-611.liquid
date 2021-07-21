@@ -48,24 +48,32 @@
   <section class="product-single_heroSection--wrapper">
 
 <!-- IMAGE SECTION -->
-    <div>
+    <div class="product-single_heroSection--wrapper--images">
       <img src="{{ product | img_url: "720x784", crop: "center" }}" alt="">
-      <div class="product-single__thumbnails">
+      
+      <!-- <div class="product-single__thumbnailsArea">
         {% for media in product.media %}
           {% unless media.preview_image.alt contains "step" %}
-            <div >
+            <div>
               <img src="{{ media.preview_image | img_url: "200x200", crop: "center"}}" alt=""}>
             </div>
           {% endunless %}
         {% endfor%}
-      </div>
+      </div> -->
+
     </div >
 
     <div>
     <div class="product-single__formArea">
 
       <H1>{{product.title}}</H1>
-      <p class="product-single__formArea--subTitle">{{ product.vendor}}</p>
+
+      {% if product.vendor == "none" %}
+        <p class="product-single__formArea--subTitle"></p>
+      {% else %}
+        <p class="product-single__formArea--subTitle">{{ product.vendor }}</p>
+      {% endif %}
+
       <p class="product-single__formArea--price">{{product.price | money}}</p>
 
                    {{ product.description }}
@@ -215,47 +223,55 @@
               <section class="product-single__skinTypes ">
                 <div class="product-single__description ">
                   <h1>Details</h1>
-                   {{ product.description }}
+                   {{ product.metafields.global.productStory }}
 
                    <br/>
                    <br/>
 
-                  <h4>Skin Type</h4>
-                  <p>{{ product.metafields.details.skinType }}</p>
-                  <hr/>
+                  {% if product.metafields.global.skinType %}
+                    <h4>Skin Type</h4>
+                    <p>{{ product.metafields.global.skinType }}</p> 
+                    <hr/>
+                  {% endif %}
 
+                  {% if product.metafields.global.skinConcern %}
                   <h4>Skin Concern</h4>
-                  <p>{{ product.metafields.details.skinConcern }}</p>
+                  <p>{{ product.metafields.global.skinConcern }}</p>
                   <hr/>
+                  {% endif %}
 
+                  {% if product.metafields.global.skinFeel %}
                   <h4>Skin Feel</h4>
-                  <p>{{ product.metafields.details.skinFeel }}</p>
+                  <p>{{ product.metafields.global.skinFeel }}</p>
+                  {% endif %}
 
                 </div>
-                <div class="product-single__skinTypes--image">
-                    <img style="width: 100%;" src="{{ product | img_url: '1000x1000', crop: "center", format: "pjpg" }}" />
-                </div>
+
+                {% for media in product.media %}
+                  {% if media.preview_image.alt contains "description_image" %}
+                    <div class="product-single__skinTypes--image">
+                      <img src="{{ media.preview_image | img_url: "615x", crop: "center", format: "pjpg"}}" alt="Description image"}>
+                    </div>
+                  {% endif %}
+                {% endfor%}
+
+                <!-- <div class="product-single__skinTypes--image">
+                    <img  src="{{ product | img_url: '615px', crop: "center", format: "pjpg" }}" />
+                </div> -->
               </section>
 
 <!-- 6+1+1 SECTION -->
               <section class="product-single__611section">
-                <div class="product-single__611section--image">
-                  <!-- <div style="width: 100%; height: 100%; background: #86C5A7;"></div> -->
+             
+                {% for media in product.media %}
+                  {% if media.preview_image.alt contains "611_image" %}
+                    <div class="product-single__611section--image">
+                      <img src="{{ media.preview_image | img_url: "608x", crop: "center", format: "pjpg"}}" alt="611 image"}>
+                    </div>
+                  {% endif %}
+                {% endfor%}
+                  <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
 
-                  <!-- {{ '611image.jpg' | asset_url }} -->
-
-                  <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-                
-                  <!-- <img class="lazyload js"
-                    src="{{ section.settings.logo | img_url: '300x300' }}"
-                    data-src="{{ img_url }}"
-                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                    data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
-                    data-sizes="auto"
-                    alt="{{ logo_alt | escape }}"
-                    style="max-width: 150px"> -->
-
-                </div>
                  <div class="product-single__611section--info">
                   <p>Part of our</p>
                   <p>6+1+1 series</p>
@@ -273,7 +289,7 @@
     <!-- <div class="product-single__ingredientsSection--image"></div> -->
     <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
 
-    <img  src="{{ "Lotus_blk.jpg" | asset_img_url: "1000x" }}" />
+    <img  src="{{ "Lotus_blk.jpg" | asset_img_url: "66x" }}" />
     <div>
       <p>Centella Asiatica</p>
       <p>Boosts skins natural healing process and soothes irritated skin.</p>
@@ -283,7 +299,7 @@
   <div class="product-single__ingredientsSection--card">
     <!-- <div class="product-single__ingredientsSection--image"></div> -->
     <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "Lotus.jpg" | asset_img_url: "1000x" }}" />
+    <img  src="{{ "Lotus.jpg" | asset_img_url: "66x" }}" />
     <div>
       <p>Peony Root</p>
       <p>Provides antioxidant benefits and aids in regenerating skin.</p>
@@ -293,7 +309,7 @@
   <div class="product-single__ingredientsSection--card">
     <!-- <div class="product-single__ingredientsSection--image"></div> -->
     <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "okra_blk.jpg" | asset_img_url: "1000x" }}" />
+    <img  src="{{ "okra_blk.jpg" | asset_img_url: "66x" }}" />
     <div>
       <p>Cabbage Leaf</p>
       <p>Helps lower the temperature of skin to soothe inflammation.</p>
@@ -303,7 +319,7 @@
   <div class="product-single__ingredientsSection--card">
     <!-- <div class="product-single__ingredientsSection--image"></div> -->
     <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "okra.jpg" | asset_img_url: "1000x" }}" />
+    <img  src="{{ "okra.jpg" | asset_img_url: "66x" }}" />
     <div>
       <p>Okra Fruit</p>
       <p>Moisurises skin, relieves inflammation, and strengthens skin barrier.</p>
@@ -358,41 +374,57 @@
 
 
 <!-- HOW TO US -->
-<section class="product-single__howToSection">
-  <h1>HOW TO USE</h1>
-  <div  class="product-single__howToSection--cards">
-    <div  class="product-single__howToSection--card">
-      <!-- <div style="background: grey; width: 500px; height: 500px;">IMAGE</div> -->
-      <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-      
-      <!-- {% assign step1 = images['step1.png'] %} 
-      <img src="{{ step1 | img_url: "1000x1000" ,crop: "center"}}" /> -->
 
-      
-      <!-- <img src="{{ product.images["step1.png"] | img_url: "1000x1000" ,crop: "center"}}" /> -->
+ {% if product.metafields.global.step1 %}
+  <section class="product-single__howToSection">
+    <h1>HOW TO USE</h1>
+    <ul  class="product-single__howToSection--cards">
 
-      <img src="{{ 'step1.jpg' | img_url: "1000x1000" }}" />
+      {% if product.metafields.global.step1 %}
+        <li  class="product-single__howToSection--card">
+          {% for media in product.media %}
+            {% if media.preview_image.alt contains "step1" %}
+              <div >
+                <img src="{{ media.preview_image | img_url: "400x", crop: "center"}}" alt="step1"}>
+              </div>
+            {% endif %}
+          {% endfor%}
+          <p>Step 1</p>
+          <label>{{ product.metafields.global.step1 }}</label> 
+        </li>
+      {% endif %}
 
+      {% if product.metafields.global.step2 %}
+        <li  class="product-single__howToSection--card">
+           {% for media in product.media %}
+            {% if media.preview_image.alt contains "step2" %}
+              <div >
+                <img src="{{ media.preview_image | img_url: "400x", crop: "center"}}" alt="step2"}>
+              </div>
+            {% endif %}
+          {% endfor%}
+          <p>Step 2</p>
+          <label>{{ product.metafields.global.step2 }}</label> 
+        </li>
+      {% endif %}
 
-      <p>Step 1</p>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, quasi. Ullam ea laboriosam magnam totam.</p>
-    </div>
-    <div  class="product-single__howToSection--card">
-      <!-- <div style="background: grey; width: 500px; height: 500px;">IMAGE</div> -->
-      <img src="{{ '611image.jpg' | asset_img_url: "1000x1000" }}" />
-      <p>Step 2</p>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, quasi. Ullam ea laboriosam magnam totam.</p>
-    </div>
-    <div  class="product-single__howToSection--card">
-      <!-- <div style="background: grey; width: 500px; height: 500px;">IMAGE</div> -->
-      <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-      <img src="{{ '611image.jpg' | asset_img_url: "1000x1000" }}" />
+      {% if product.metafields.global.step3 %}
+        <li  class="product-single__howToSection--card">
+           {% for media in product.media %}
+            {% if media.preview_image.alt contains "step3" %}
+              <div >
+                <img src="{{ media.preview_image | img_url: "400x", crop: "center"}}" alt="step3"}>
+              </div>
+            {% endif %}
+          {% endfor%}
+          <p>Step 3</p>
+          <label>{{ product.metafields.global.step3 }}</label> 
+        </li>
+      {% endif %}
 
-      <p>Step 3</p>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, quasi. Ullam ea laboriosam magnam totam.</p>
-    </div>
-  </div>
-</section>
+    </ul>
+  </section>
+{% endif %}
 
 <!-- REVIEW WIDGET -->
 <section class="page-width">

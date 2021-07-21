@@ -1,3 +1,61 @@
+@font-face {
+  font-family: "Poppins";
+  src: url( "Poppins-Thin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url( "Poppins-ExtraLight.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url( "Poppins-Light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url( "Poppins-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url( "Poppins-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url( "Poppins-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Restora";
+  src: url( "RestoraThinItalic.woff2") format("woff2"),
+  url("RestoraThinItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Restora";
+  src: url( "RestoraExtraLight.woff2") format("woff2"),
+  url("RestoraExtraLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 200;
+}
+
 .redBorder {
   border: 1px solid red !important;
 }
@@ -13,44 +71,51 @@
   border: 1px solid black;
   padding: 16px 36px !important;
   font: 18px;
+  color: black;
   border-radius: 8px;
   min-width: 264px;
   transition: ease-in-out 250ms;
+  text-align: center;
 }
 
 .clearButton:hover {
   background-color: #008554;
   border: 1px solid #008554;
-  color: white;
+  color: white !important;
   padding: 16px 36px !important;
   font: 18px;
   font-weight: 300;
   border-radius: 8px;
   min-width: 264px;
   transition: ease-in-out 250ms;
+  text-align: center;
 }
 
 .greenButton {
   background-color: #008554;
   border: 1px solid #008554;
-  color: white;
+  min-width: 264px;
+  color: white !important;
+  text-decoration: none !important;
   padding: 16px 36px !important;
   font: 18px;
   font-weight: 300;
   border-radius: 8px;
   min-width: 264px;
   transition: ease-in-out 250ms;
+  text-align: center;
 }
 
 .greenButton:hover{
   background-color: rgb(255, 255, 255);
-  border: 1px solid black;;
-  color: black;
+  border: 1px solid black;
+  color: black !important;
   padding: 16px 36px !important;
   font: 18px;
   border-radius: 8px;
   min-width: 264px;
   transition: ease-in-out 250ms;
+  text-align: center;
 }
 
 /* FOOTER NEWSLETTER */
@@ -358,7 +423,11 @@
   margin: auto;
 }
 
-.product-single__thumbnails {
+.product-single_heroSection--wrapper--images{
+  border: 1px solid red;
+}
+
+/* .product-single__thumbnails {
   width: 100%; 
   display: flex; 
   flex-flow: row nowrap; 
@@ -367,7 +436,7 @@
 
 .product-single__thumbnails img {
   padding: 0 4px;
-}
+} */
 
 .product-single__formArea{
   max-width: 500px; 
@@ -540,10 +609,20 @@
 
 .product-single__skinTypes--image{
     width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 64px 0 50px;
+    margin: 0 64px 0 50px;
+    position: relative;
+    overflow: hidden;
+    /* background: grey; */
+}
+
+.product-single__skinTypes--image img{
+    position: absolute;
+    height: 100%;
+    width: unset;
+    /* min-width: 100%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* 6+1+1 SECTION */
@@ -558,14 +637,20 @@
 
 .product-single__611section--image{
     width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 62px 64px;
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid red; */
+    margin: 62px 64px;
+    height: 610px;
 }
 
 .product-single__611section--image img{
-  width: 100%
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100%;
+  width: unset;
 }
 
 .product-single__611section--info{
@@ -674,7 +759,6 @@
 
 /* HOW TO USE SECTION */
 .product-single__howToSection{
-  /* border: 1px solid red; */
   margin: auto;
   padding: 0 80px 120px 80px;
   max-width: 1440px;
@@ -689,28 +773,71 @@
 }
 
 .product-single__howToSection--cards {
-  /* border: 1px solid green; */
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 64px;
 }
 
 .product-single__howToSection--card {
   /* border: 1px solid red; */
-  margin-right: 64px;
+}
+
+.product-single__howToSection--card > div{
+  min-height: 323px;
+  min-width: 200px;
+  /* background-color: grey; */
+  position: relative;
+  overflow: hidden;
 }
 
 .product-single__howToSection--card img{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  min-width: 323px;
   width: 100%;
 }
 
-.product-single__howToSection--card:last-child {
-  margin-right: 0;
+
+.product-single__howToSection--card label{
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 12px;
 }
 
-.product-single__howToSection--card p:nth-child(3){
-  font-size: 16px;
-  color: #757575;
-  margin-top: 12px;
+
+@media (max-width: 900px){
+  .product-single__howToSection{
+    padding: 0 0 120px 80px;
+  }
+
+  .product-single__howToSection--cards {
+    overflow-x: auto;
+    padding-bottom: 64px;
+  }
+
+  .product-single__howToSection--card {
+    min-width: 323px;
+  }  
+}
+
+@media (max-width: 749px){
+  .product-single__howToSection{
+    padding: 0 0 120px 16px;
+  }
+
+  .product-single__howToSection h1{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    margin: 0 0 16px 0;
+  }
+
+  .product-single__howToSection--card {
+    min-width: 323px;
+  }  
 }
 
 
@@ -1455,6 +1582,7 @@
   word-break: break-word;
   text-align: center;
   font-size: 24px;
+  /* font-weight: 300; */
 }
 
 @media (max-width: 749px){
@@ -1540,6 +1668,7 @@
   padding: 24px 0;
   font-size: 40px;
   line-height: 80px;
+  font-weight: 500;
   border-bottom: 1px solid #E5E1E6;
 }
 
