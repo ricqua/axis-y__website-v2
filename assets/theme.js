@@ -3116,7 +3116,7 @@ theme.MobileNav = (function () {
 
     cache.pageContainer.style.transform =
       "translate3d(0, " + 0 + "px, 0)";
-      // "translate3d(0, " + cache.mobileNavContainer.scrollHeight + "px, 0)";
+      "translate3d(0, " + cache.mobileNavContainer.scrollHeight + "px, 0)";
 
 
     slate.a11y.trapFocus({

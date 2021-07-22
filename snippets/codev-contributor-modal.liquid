@@ -1,0 +1,93 @@
+<style>
+    .codev-page__modal-dark-overlay{
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow: auto;
+        animation-name: animateopacity;
+        animation-duration: 0.5s;
+    }
+
+    @keyframes animateopacity {
+        from {background-color:  rgba(0, 0, 0, 0.0)}
+        to {background-color: rgba(0, 0, 0, 0.7)}
+    }
+
+    .codev-page__contributors--popContainer{
+        display: none;
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .codev-page__contributors--popUpWindow{
+        position: relative;
+        width: 800px;
+        height: auto;
+        background-color: white;
+        top: 25%;
+        margin: 0 auto;
+    }
+
+    .codev-page__contributors--closeButton{
+
+    }
+
+</style>
+
+
+<button id="codev-page__contributors--openButton" >Open modal</button>
+
+<section class="codev-page__modal-dark-overlay"></section>
+
+<section class="codev-page__contributors--popContainer"> 
+    <div class="codev-page__contributors--popUpWindow">
+        <div>
+            <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
+            <h3>{{ block.settings.name }}</h3>
+            <p>{{ block.settings.location }}</p>
+        </div>     
+        <p>{{ block.settings.description }}</p>
+        <div>
+            <p>{{ block.settings.social1Tag }} <a href="{{ block.settings.social1Url }}">{{ block.settings.social1Name }}</a></p>
+            <p>{{ block.settings.social2Tag }} <a href="{{ block.settings.social2Url }}">{{ block.settings.social2Name }}</a></p>
+            <p>{{ block.settings.social3Tag }} <a href="{{ block.settings.social3Url }}">{{ block.settings.social3Name }}</a></p>
+        </div>
+        <div>
+            <p>Affiliate code</p>
+            <p>{{ block.settings.code }}</p>
+            <button id="codev-page__contributors--closeButton" class="codev-page__contributors--closeButton" >close</button>
+        </div>
+    </div>  
+</section>
+
+<script>
+    const showOverlay = () => document.querySelector(".codev-page__modal-dark-overlay").style.display = "block";
+    const showModal = () => document.querySelector(".codev-page__contributors--popContainer").style.display = "block";
+    const hideOverlay = () => document.querySelector(".codev-page__modal-dark-overlay").style.display = "none";
+    const hideModal = () => document.querySelector(".codev-page__contributors--popContainer").style.display = "none";
+
+    document.querySelector("#codev-page__contributors--openButton").onclick = function() {
+        showOverlay();
+        showModal();
+    }
+
+    document.querySelector("#codev-page__contributors--closeButton").onclick = function() {
+        hideOverlay();
+        hideModal();
+    }
+
+    window.onclick = function(event) {
+        if(event.target === document.querySelector('.codev-page__contributors--popContainer')) {
+            hideOverlay();
+             hideModal();
+        }
+    }
+
+</script>

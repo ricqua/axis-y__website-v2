@@ -146,7 +146,7 @@
       </div>
       <div>
         <p class="site-footer__slogans">Cruelty-free. Vegan. Paraben free.</p>
-        <p class="site-footer__slogans">No artificial colours & fragrance</p>
+        <p class="site-footer__slogans">No artificial colors & fragrance</p>
       </div>
     </div>
 
@@ -156,6 +156,8 @@
       {%- for block in section.blocks -%}
 
         <div class="site-footer__item
+
+        site-footer__item--{{ block.type }}
                     {% if section.blocks.size == 1 %} site-footer__item--center{% endif %}
                     {{ footer_item }}
                     {% if block.type == 'newsletter' and section.blocks.size == 3 %}site-footer-newsletter__one-half{% endif %}"

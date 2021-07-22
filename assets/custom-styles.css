@@ -140,7 +140,7 @@
 
   }
   .site-footer__logoSloganDiv > div:last-child{
-  margin: 0px 0 80px 0;
+  margin: 0px 0 48px 0;
   }
 }
 
@@ -156,11 +156,13 @@
 
 @media only screen and (max-width: 750px) {
   .site-footer__logo {
-    padding: 75px 0;
+    padding: 65px 0 40px 0;
   }
 }
 
 .newsletterSubmitBtn {
+  font-family:monospace;
+  font-weight: 100;
   font-size: 36px;
   background-color: rgba(255, 255, 255, 0);
   border: none;
@@ -313,8 +315,8 @@
 .collection__headerSection  h1 {
   text-align: left; 
   font-weight: 500;
-  font-size: 80px;
-  line-height: 96px;
+  font-size: 56px;
+  line-height: 80px;
 }
 
 @media only screen and (max-width: 749px) {
@@ -389,6 +391,45 @@
   max-height: 450px;
   max-width: 450px;
   overflow: hidden;
+  position: relative;
+}
+
+.product-card__imageDiv--soldOut {
+  z-index: 20;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 14px;
+  line-height: 24px;
+  color: white;
+  background-color: black;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.product-card__imageDiv--sale {
+  z-index: 20;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 14px;
+  line-height: 24px;
+  color: black;
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+@media (max-width: 749px){
+  .product-card__imageDiv--soldOut {
+    top: 4px;
+    right: 4px;
+  }
+
+  .product-card__imageDiv--sale {
+    top: 4px;
+    right: 4px;
+  }
 }
 
 
@@ -406,25 +447,50 @@
 
 /* PRODUCT PAGE  */
 
-.product-single_heroSection {
+/* .product-single_heroSection {
   width: 100%;
+} */
+
+
+.product-template{
+  max-width: 1440px;
+  margin: auto;
+  /* border: 1px solid black; */
 }
 
 .product-single_heroSection--wrapper {
    max-width: 1440px; 
    margin: auto; 
-   min-height: 500px; 
+   /* min-height: 500px;  */
    display: flex; 
    flex-flow: row nowrap;
 }
 
-.product-single_heroSection--wrapper > div {
+/* .product-single_heroSection--wrapper > div {
   width: 50%;
   margin: auto;
-}
+} */
 
 .product-single_heroSection--wrapper--images{
-  border: 1px solid red;
+  /* border: 1px solid green; */
+  position: relative;
+  width: 50%;
+}
+
+.product-single_heroSection--wrapper--details{
+  position: relative;
+  width: 50%;
+  padding: 0 80px;
+  /* border: 1px solid blue; */
+
+}
+
+.product-single_heroSection--wrapper--images > img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
 }
 
 /* .product-single__thumbnails {
@@ -464,6 +530,12 @@
   font-weight: 600;
   line-height: 28px;
   margin: 20px 0;
+}
+
+
+.product-single__heroDescription{
+
+  /* width: */
 }
 
 .product-page__bellowPriceHR{
@@ -526,14 +598,20 @@
 }
 /* ------- */
 
-
+.product-form__item__buttonSection{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  width: 100%;
+}
 
 .product-single__formArea--submitButtons{
   /* border: 1px solid red; */
-  margin: 38px 0 0 0;
-  display: flex;
-  flex-flow: row nowrap;
+  /* margin: 38px 0 0 0; */
+  /* display: flex;
+  flex-flow: row nowrap; */
   width: 100%;
+  /* text-align: center; */
 }
 
 .product-single__formArea--quantityContainer{
@@ -565,6 +643,8 @@
 }
 
 .product-single__skinTypes{
+  max-width: 1440px;
+  margin: auto;
   display: flex;
   flex-flow: row nowrap;
   margin: 120px 0 0 0 ;
@@ -1624,6 +1704,7 @@
 
 .ooo-instagram-container{
   max-width: 1440px;
+  padding: 0 32px;
   margin-bottom: 140px;
 }
 
@@ -1775,6 +1856,7 @@
   color: #008554;
 }
 
+
 @media only screen and (max-width: 749px) {
   .richTextSection {
     padding: 60px 16px 60px 16px;
@@ -1834,9 +1916,10 @@
 
 
 .codev-page__bigImage{
-  padding: 0 32px 0 32px;
+  padding: 0 32px 125px 32px;
   margin: auto;
 }
+
 
 @media (max-width: 749px) {
   .codev-page__bigImage{
@@ -2313,8 +2396,8 @@
   .transition;
   .transition-delay(.2s);
   
-  &:hover { background: #00d9ff; .transition; } */
-}
+  &:hover { background: #00d9ff; .transition; } 
+}*/
 
 /* .fineprint {
   font-style: italic;
@@ -2327,7 +2410,9 @@ a { color: #333; text-decoration: none; } */
 /* TIMELINE SECTION */
 .timelineSection{
   max-width: 1440px;
-  margin: 140px auto 160px auto;;
+  margin: auto;
+  padding: 140px 32px 160px 32px;
+  /* border: 1px solid red; */
   /* padding: 150px 80px !important; */
 }
 
@@ -2718,7 +2803,7 @@ a { color: #333; text-decoration: none; } */
 }
 
 .reveal:hover .hidden { 
-  z-index: 100000;
+  z-index: 10;
   opacity: 1;    
 }
 
@@ -2867,3 +2952,6 @@ a { color: #333; text-decoration: none; } */
   }
 }
 
+.shopify-challenge__container{
+  padding: 140px 80px;
+}
