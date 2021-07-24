@@ -37,9 +37,9 @@
 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
 
-<!-- <p>PRODUCT-TEMPLATE-611.LIQUID</p> -->
+<p>PRODUCT-TEMPLATE-MERCH.LIQUID</p>
 
-<!-- PRODUCT IMAGE AREA -->
+    <!-- PRODUCT IMAGE AREA -->
     <div class=" redBorder grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
@@ -134,155 +134,117 @@
       {% endif %}
     </div>
 
-  
-  </div>
-</div>
+<!-- PRODUCT DESCRIPTION AREA -->
+    <div class="grid__item {{ product_description_width }} redBorder">
+      <div class="product-single__meta">
 
+        <h1 class="product-single__title">{{ product.title }}</h1>
+        <script>window.performance.mark('debut:product:title_visible');</script>
 
-<section class="product-single_heroSection">
-  <section class="product-single_heroSection--wrapper">
+          <div class="product__price">
+            {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+          </div>
 
-<!-- IMAGE SECTION -->
-    <!-- <div class="product-single_heroSection--wrapper--images">
-      <img src="{{ product | img_url: "720x784", crop: "center" }}" alt=""> -->
-      
-      <!-- <div class="product-single__thumbnailsArea">
-        {% for media in product.media %}
-          {% unless media.preview_image.alt contains "step" %}
-            <div>
-              <img src="{{ media.preview_image | img_url: "200x200", crop: "center"}}" alt=""}>
+          {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+            <div class="product__policies rte" data-product-policies>
+              {%- if cart.taxes_included -%}
+                {{ 'products.product.include_taxes' | t }}
+              {%- endif -%}
+              {%- if shop.shipping_policy.body != blank -%}
+                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
             </div>
-          {% endunless %}
-        {% endfor%}
-      </div> -->
+          {%- endif -%}
 
-    <!-- </div > -->
+          {% capture "form_classes" -%}
+            product-form product-form-{{ section.id }}
+            {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants {%- endif -%}
+            {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
+          {%- endcapture %}
 
+          {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+            {{ form | payment_terms }}
 
-
-
-
-    <div>
-    <div class="product-single__formArea">
-
-      <H1>{{product.title}}</H1>
-
-      {% if product.vendor == "none" %}
-        <p class="product-single__formArea--subTitle"></p>
-      {% else %}
-        <p class="product-single__formArea--subTitle">{{ product.vendor }}</p>
-      {% endif %}
-
-      <p class="product-single__formArea--price">{{product.price | money}}</p>
-
-                   {{ product.description }}
-
-        <hr class="product-page__bellowPriceHR">
-
-
-      {% capture "form_classes" -%}
-        product-form product-form-{{ section.id }}
-        {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants {%- endif -%}
-        {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
-      {%- endcapture %}
-
-
-<!-- FORM AREA -->
-      {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
-        {{ form | payment_terms }}
-
-
-<!-- VARIANT AREA -->
-        {% unless product.has_only_default_variant %}
-            {% for option in product.options_with_values %}
-
-              <div class="selector-wrapper js">
-                <h4 for="SingleOptionSelector-{{ forloop.index0 }}">
-                  {{ option.name }}
-                </h4>
-                {% for value in option.values %}
-                  <div class="product-single__formArea--variantContainer">
-                     <input 
-                      type="radio" 
-                      name="variant" 
+            {% unless product.has_only_default_variant %}
+              <div class="product-form__controls-group">
+                {% for option in product.options_with_values %}
+                  <div class="selector-wrapper js product-form__item">
+                    <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                      {{ option.name }}
+                    </label>
+                    <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
                       id="SingleOptionSelector-{{ forloop.index0 }}"
                       data-index="option{{ forloop.index }}"
-                      value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
-                      <!-- {{ value }} -->
-                    </input>
-                    <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ value }}</label>
+                    >
+                      {% for value in option.values %}
+                        <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
                   </div>
-                  {% endfor %}
-                  
+                {% endfor %}
               </div>
-            {% endfor %}
-        {% endunless %}
-
-        <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
-          {% for variant in product.variants %}
-            <option value="{{ variant.id }}"
-              {%- if variant == current_variant %} selected="selected" {%- endif -%}
-            >
-              {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-            </option>
-          {% endfor %}
-        </select>
-        
-        <div class="product-single__formArea--submitButtons">
-
-<!-- QUANTITY SELECTOR -->
-
-      <!-- {% if section.settings.show_quantity_selector %} -->
-        <div class="product-single__formArea--quantityContainer">
-          <!-- <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label> -->
-          <input 
-            type="number" 
-            id="Quantity-{{ section.id }}"
-            name="quantity" 
-            value="1" 
-            min="1" 
-            pattern="[0-9]*"
-            data-quantity-input
-          >
-        </div>
-      <!-- {% endif %} -->
-
-        <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}"
-          data-error-message-wrapper
-          role="alert"
-        >
-          <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-          {% include 'icon-error' %}
-          <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
-        </div>
-
-
-<!-- PURCHASE BUTTONS -->
-        <button type="submit" name="add"
-          {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-          aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-          class="{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
-          {% if settings.enable_ajax %}aria-haspopup="dialog"{% endif %}
-          data-add-to-cart>
-          <span data-add-to-cart-text>
-            {% unless current_variant.available %}
-              {{ 'products.product.sold_out' | t }}
-            {% else %}
-              {{ 'products.product.add_to_cart' | t }}
             {% endunless %}
-          </span>
-          <span>   |  </span>
-          <span> {{product.price | money}} </span>
-          <span class="hide" data-loader>
-            {% include 'icon-spinner' %}
-          </span>
-        </button>
-        <!-- {% if section.settings.enable_payment_button %}
-          {{ form | payment_button }}
-        {% endif %} -->
-          
-      {% endform %}
 
+            <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}"
+                  {%- if variant == current_variant %} selected="selected" {%- endif -%}
+                >
+                  {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                </option>
+              {% endfor %}
+            </select>
+
+            {% if section.settings.show_quantity_selector %}
+              <div class="product-form__controls-group">
+                <div class="product-form__item">
+                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="Quantity-{{ section.id }}"
+                    name="quantity" value="1" min="1" pattern="[0-9]*"
+                    class="product-form__input product-form__input--quantity" data-quantity-input
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}"
+              data-error-message-wrapper
+              role="alert"
+            >
+              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              {% include 'icon-error' %}
+              <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
+            </div>
+
+            <div class="product-form__controls-group product-form__controls-group--submit">
+              <div class="product-form__item product-form__item--submit
+                {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
+                {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
+              >
+                <button type="submit" name="add"
+                  {% unless current_variant.available %} aria-disabled="true"{% endunless %}
+                  aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
+                  {% if settings.enable_ajax %}aria-haspopup="dialog"{% endif %}
+                  data-add-to-cart>
+                  <span data-add-to-cart-text>
+                    {% unless current_variant.available %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% endunless %}
+                  </span>
+                  <span class="hide" data-loader>
+                    {% include 'icon-spinner' %}
+                  </span>
+                </button>
+                {% if section.settings.enable_payment_button %}
+                  {{ form | payment_button }}
+                {% endif %}
+              </div>
+            </div>
+          {% endform %}
+        </div>
 
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
@@ -311,232 +273,16 @@
         >
         </div>
 
-    </div>
-    </div>
-
-  </section>
-</section>
-
-
-<!-- PRODUCT DESCRIPTION -->
-              <section class="product-single__skinTypes ">
-                <div class="product-single__description ">
-                  <h1>Details</h1>
-                   {{ product.metafields.global.productStory }}
-
-                   <br/>
-                   <br/>
-
-                  {% if product.metafields.global.skinType %}
-                    <h4>Skin Type</h4>
-                    <p>{{ product.metafields.global.skinType }}</p> 
-                    <hr/>
-                  {% endif %}
-
-                  {% if product.metafields.global.skinConcern %}
-                  <h4>Skin Concern</h4>
-                  <p>{{ product.metafields.global.skinConcern }}</p>
-                  <hr/>
-                  {% endif %}
-
-                  {% if product.metafields.global.skinFeel %}
-                  <h4>Skin Feel</h4>
-                  <p>{{ product.metafields.global.skinFeel }}</p>
-                  {% endif %}
-
-                </div>
-
-                {% for media in product.media %}
-                  {% if media.preview_image.alt contains "description_image" %}
-                    <div class="product-single__skinTypes--image">
-                      <img src="{{ media.preview_image | img_url: "615x", crop: "center", format: "pjpg"}}" alt="Description image"}>
-                    </div>
-                  {% endif %}
-                {% endfor%}
-
-                <!-- <div class="product-single__skinTypes--image">
-                    <img  src="{{ product | img_url: '615px', crop: "center", format: "pjpg" }}" />
-                </div> -->
-              </section>
-
-<!-- 6+1+1 SECTION -->
-              <section class="product-single__611section">
-             
-                {% for media in product.media %}
-                  {% if media.preview_image.alt contains "611_image" %}
-                    <div class="product-single__611section--image">
-                      <img src="{{ media.preview_image | img_url: "608x", crop: "center", format: "pjpg"}}" alt="611 image"}>
-                    </div>
-                  {% endif %}
-                {% endfor%}
-                  <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-
-                 <div class="product-single__611section--info">
-                  <p>Part of our</p>
-                  <p>6+1+1 series</p>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, porro! Rem totam labore omnis iusto?</p>
-                </div>
-              </section>
-
-
-
-<!-- INGREDIENTS SECTION -->
-<section class="product-single__ingredientsSection">
-  <h1 style="width: 100%;">6 base ingredients</h1>
-  
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-
-    <img  src="{{ "Lotus_blk.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Centella Asiatica</p>
-      <p>Boosts skins natural healing process and soothes irritated skin.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "Lotus.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Peony Root</p>
-      <p>Provides antioxidant benefits and aids in regenerating skin.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "okra_blk.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Cabbage Leaf</p>
-      <p>Helps lower the temperature of skin to soothe inflammation.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "okra.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Okra Fruit</p>
-      <p>Moisurises skin, relieves inflammation, and strengthens skin barrier.</p>
-    </div>                    
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-    <div>
-      <p>Spinach Leaf</p>
-      <p>Contains large amounts of minerals to help the skin absorb nutrients.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">              
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-    <div>                      
-      <p>Broccoli</p>
-      <p>Rich in Vitamin C and E which helps lighten hyperpigmentation.</p>
-    </div>
-  </div>
-            
-
-  <section class="product-single__ingredientsSection--specialSection">
-    <div class="width50">
-      <h1>1 core ingredient</h1>
-      <div class="product-single__ingredientsSection--card width100">
-        <!-- <div class="product-single__ingredientsSection--image"></div> -->
-      <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-        <div>  
-          <p>Mugwort extract (61%)</p>
-          <p>Protects the skin from harmful oxygen radicals, revitalises it from damage, sooths and cleanses the skin.</p>
+        <div class="product-single__description rte">
+          {{ product.description }}
         </div>
-      </div>                   
+
+        {% if section.settings.show_share_buttons %}
+          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
+        {% endif %}
     </div>
-    <div class="width50">                    
-      <h1>1 patent technology</h1>
-      <div class="product-single__ingredientsSection--card width100">
-        <!-- <div class="product-single__ingredientsSection--image"></div> -->
-      <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-        <div>                         
-          <p>MultiEx BSASM</p>
-          <p>Made with a blend of 7 plant extract that contain anti-inflammatory and curing properties.  This technology aids in the healing of irritated skin.</p>
-        </div>
-      </div>
-    </div>
-    <button class="product-single__ingredientsSection--seeMore">See all ingredients<span>+</span></button>
-  </section>
-</section>
-
-
-<!-- HOW TO US -->
-
- {% if product.metafields.global.step1 %}
-  <section class="product-single__howToSection">
-    <h1>HOW TO USE</h1>
-    <ul  class="product-single__howToSection--cards">
-
-      {% if product.metafields.global.step1 %}
-        <li  class="product-single__howToSection--card">
-          {% for media in product.media %}
-            {% if media.preview_image.alt contains "step1" %}
-              <div >
-                <img src="{{ media.preview_image | img_url: "400x", crop: "center"}}" alt="step1"}>
-              </div>
-            {% endif %}
-          {% endfor%}
-          <p>Step 1</p>
-          <label>{{ product.metafields.global.step1 }}</label> 
-        </li>
-      {% endif %}
-
-      {% if product.metafields.global.step2 %}
-        <li  class="product-single__howToSection--card">
-           {% for media in product.media %}
-            {% if media.preview_image.alt contains "step2" %}
-              <div >
-                <img src="{{ media.preview_image | img_url: "400x", crop: "center"}}" alt="step2"}>
-              </div>
-            {% endif %}
-          {% endfor%}
-          <p>Step 2</p>
-          <label>{{ product.metafields.global.step2 }}</label> 
-        </li>
-      {% endif %}
-
-      {% if product.metafields.global.step3 %}
-        <li  class="product-single__howToSection--card">
-           {% for media in product.media %}
-            {% if media.preview_image.alt contains "step3" %}
-              <div >
-                <img src="{{ media.preview_image | img_url: "400x", crop: "center"}}" alt="step3"}>
-              </div>
-            {% endif %}
-          {% endfor%}
-          <p>Step 3</p>
-          <label>{{ product.metafields.global.step3 }}</label> 
-        </li>
-      {% endif %}
-
-    </ul>
-  </section>
-{% endif %}
-
-<!-- REVIEW WIDGET -->
-<section class="page-width">
-  {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
-</section>
-
-
-<hr/>
-<!-- REVIEW PREVIEW BADEG -->
-<!-- {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %} -->
-
-<!-- <h1>Reviews</h1>
-<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> -->
+  </div>
+</div>
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
@@ -576,20 +322,6 @@
   },
   "settings": [
     {
-      "type": "color",
-      "id": "specialColor",
-      "label": "Special Color",
-      "default": "#000"
-    },
-    {
-      "type": "text",
-      "id": "text",
-      "label": "Text",
-      "default": "value",
-      "info": "Text",
-      "placeholder": "some text"
-    },
-    {
       "type": "checkbox",
       "id": "show_quantity_selector",
       "label": {
@@ -615,7 +347,7 @@
         "zh-CN": "显示数量选择器",
         "zh-TW": "顯示數量選擇器"
       },
-      "default": true
+      "default": false
     },
     {
       "type": "checkbox",
@@ -722,9 +454,8 @@
         "zh-CN": "显示社交分享按钮",
         "zh-TW": "顯示社群分享按鈕"
       },
-      "default": false
+      "default": true
     },
-    
     {
       "type": "header",
       "content": {

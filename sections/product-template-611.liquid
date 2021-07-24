@@ -50,12 +50,11 @@
       <noscript>
         {% capture product_image_size %}{{ height }}x{% endcapture %}
         <!-- <img src="{{ featured_media | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_media.alt }}" id="FeaturedMedia-{{ section.id }}" class="product-featured-media" style="max-width: {{ height }}px;"> -->
-        
          <img src="{{ featured_media | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_media.alt }}" id="FeaturedMedia-{{ section.id }}" class="" >
       </noscript>
 
 <!-- 3D MODEL CONTENT -->
-      <!-- {% assign first_3d_model = product.media | where: "media_type", "model" | first %}
+      {% assign first_3d_model = product.media | where: "media_type", "model" | first %}
 
       {%- if first_3d_model -%}
         <button
@@ -68,7 +67,7 @@
         >
           {% include 'icon-3d-badge-full-color' %}<span class='product-single__view-in-space-text'>{{ 'products.product.view_in_space' | t }}</span>
         </button>
-      {%- endif -%} -->
+      {%- endif -%}
 
 
   <!-- if there are multiple images then turn on thumbnails -->
@@ -262,9 +261,9 @@
                       <!-- Add to cart | {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %} -->
                     {% endunless %}
                   </span>
-                  <!-- <span class="hide" data-loader>
+                  <span class="hide" data-loader>
                     {% include 'icon-spinner' %}
-                  </span> -->
+                  </span>
                 </button>
                 <!-- {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
@@ -558,6 +557,7 @@
 
 <!-- REVIEW WIDGET -->
     <section class="page-width">
+      <!-- {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %} -->
       {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
     </section>
 
@@ -592,9 +592,9 @@
 </script>
 
 <style>
-  .product-single__description--truncate-container {
-    /* width:300px; */
-  }
+  /* .product-single__description--truncate-container {
+    width:300px;
+  } */
   .product-single__description--read-additional {
     margin-top: 8px;
     display: block;
