@@ -157,9 +157,9 @@
   },
   "cart": {
     "general": {
-      "title": "Your cart",
+      "title": "Bag",
       "note": "Add a note to your order",
-      "removed_item_html": "Removed <span class=\"cart__removed-product-details\">({{ quantity }}) {{ link }}</span> from your cart.",
+      "removed_item_html": "Removed <span class=\"cart__removed-product-details\">({{ quantity }}) {{ link }}</span> from your bag.",
       "remove": "Remove",
       "subtotal": "Subtotal",
       "savings": "You're saving",
@@ -169,10 +169,10 @@
       "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "update": "Update",
       "checkout": "Check out",
-      "empty": "Your cart is currently empty.",
-      "cookies_required": "Enable cookies to use the shopping cart",
+      "empty": "Your bag is currently empty.",
+      "cookies_required": "Enable cookies to use the shopping bag",
       "continue_shopping": "Continue shopping",
-      "cart_error": "There was an error while updating your cart. Please try again."
+      "cart_error": "There was an error while updating your bag. Please try again."
     },
     "label": {
       "discounted_total": "Discounted total",
@@ -188,7 +188,7 @@
       "update": "Update"
     },
     "popup": {
-      "added_to_cart": "Just added to your cart",
+      "added_to_cart": "Just added to your bag",
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"
@@ -381,15 +381,15 @@
       "from_lowest_price_html": "from {{ lowest_price }}",
       "sale_price": "Sale price",
       "quantity": "Quantity",
-      "add_to_cart": "Add to cart",
-      "loader_label": "Adding product to your cart",
+      "add_to_cart": "Add to bag",
+      "loader_label": "Adding product to your bag",
       "back_to_collection": "Back to",
       "vendor": "Vendor",
       "quantity_minimum_message": "Quantity must be 1 or more",
       "include_taxes": "Tax included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "unit_price_label": "Unit price",
-      "view_cart": "View cart",
+      "view_cart": "View bag",
       "view_in_space": "View in your space",
       "view_in_space_label": "View in your space, loads item in augmented reality window"
     }

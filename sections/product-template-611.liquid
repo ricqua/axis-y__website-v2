@@ -329,7 +329,13 @@
 <section class="product-single__skinTypes ">
   <div class="product-single__description ">
     <h1>Details</h1>
-      {{ product.metafields.global.productStory }}
+
+    <div class="product-single__description--truncate-container">
+    <div id="product-single__description--truncated-product-description">
+      {{ product.metafields.global.productStoryShort }}<span id="product-single__description--read-more" class="product-single__description--read-additional">Read more</span></div>
+    <div id="product-single__description--product-description">
+      {{ product.metafields.global.productStoryFull }} <span id="product-single__description--read-less" class="product-single__description--read-additional">Read less</span></div>
+    </div>
 
       <br/>
       <br/>
@@ -370,20 +376,18 @@
 
 <!-- 6+1+1 SECTION -->
 <section class="product-single__611section">
-  <!-- {% for media in product.media %}
-    {% if media.preview_image.alt contains "611_image" %} -->
+  <div class="product-single__611section--wrapper">
       <div class="product-single__611section--image">
         <img src="{{ "611series.png" | asset_img_url: "608x", crop: "center", format: "pjpg"}}" alt="611 image"}>
       </div>
-    <!-- {% endif %}
-  {% endfor%} -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
 
-    <div class="product-single__611section--info">
-    <p>Part of our</p>
-    <p>6+1+1 series</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, porro! Rem totam labore omnis iusto?</p>
+      <div class="product-single__611section--info">
+      <p>Part of our</p>
+      <p>6+1+1 series</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, porro! Rem totam labore omnis iusto?</p>
+    </div>
   </div>
+
 </section>
 
 
@@ -476,7 +480,20 @@
         </div>
       </div>
     </div>
-    <button class="product-single__ingredientsSection--seeMore">See all ingredients<span>+</span></button>
+
+    <div class="product-single__allIngredients--truncate-container product-single__ingredientsSection--seeMore">
+      <div id="product-single__allIngredients--truncated-product-description">
+         <span id="product-single__allIngredients--read-more" class="product-single__allIngredients--read-additional">See all ingredients <span class="product-single__allIngredients--plus">+</span></span></div>
+      <div id="product-single__allIngredients--product-description">
+        All ingredients:
+        <p class="smallGreyText">
+          {{ product.metafields.global.allIngredients }} 
+        </p>
+        <span id="product-single__allIngredients--read-less" class="product-single__allIngredients--read-additional smallGreyText">Read less</span></div>
+    </div>
+
+
+    <!-- <button class="product-single__ingredientsSection--seeMore">See all ingredients<span>+</span></button> -->
   </section>
 </section>
 
@@ -545,7 +562,7 @@
     </section>
 
 
-    <hr/>
+    <!-- <hr/> -->
     <!-- REVIEW PREVIEW BADEG -->
     <!-- {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %} -->
 
@@ -553,7 +570,80 @@
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> -->
 
 
+<script>
+  let product_single__description__read_more = document.getElementById('product-single__description--read-more')
+  let product_single__description__read_less = document.getElementById('product-single__description--read-less');
+  let product_single__description__truncated_description = document.getElementById('product-single__description--truncated-product-description');
+  let product_single__description__full_description = document.getElementById('product-single__description--product-description');
 
+  product_single__description__read_more.addEventListener('click', showHideDescription)
+  product_single__description__read_less.addEventListener('click', showHideDescription)
+
+  function showHideDescription(){
+    let ID = this.id
+    if(ID === "product-single__description--read-more"){
+      product_single__description__truncated_description.style.display = "none";
+      product_single__description__full_description.style.display = "block";
+    }else {
+      product_single__description__truncated_description.style.display = "block";
+      product_single__description__full_description.style.display = "none";    
+    }
+  }
+</script>
+
+<style>
+  .product-single__description--truncate-container {
+    /* width:300px; */
+  }
+  .product-single__description--read-additional {
+    margin-top: 8px;
+    display: block;
+    color: #757575;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    /* text-decoration: underline; */
+  }
+  .product-single__description--read-additional:hover {
+    cursor: pointer;
+  }
+  #product-single__description--product-description {
+    display: none;
+  }
+
+  #product-single__allIngredients--product-description{
+    display: none;
+  }
+
+  .smallGreyText{
+    color: #757575;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+</style>
+
+
+<script>
+  let product_single__allingredients__read_more = document.getElementById('product-single__allIngredients--read-more')
+  let product_single__allingredients__read_less = document.getElementById('product-single__allIngredients--read-less');
+  let product_single__allingredients__truncated_description = document.getElementById('product-single__allIngredients--truncated-product-description');
+  let product_single__allingredients__full_description = document.getElementById('product-single__allIngredients--product-description');
+
+  product_single__allingredients__read_more.addEventListener('click', showHideDescription)
+  product_single__allingredients__read_less.addEventListener('click', showHideDescription)
+
+  function showHideDescription(){
+    let ID = this.id
+    if(ID === "product-single__allIngredients--read-more"){
+      product_single__allingredients__truncated_description.style.display = "none";
+      product_single__allingredients__full_description.style.display = "block";
+    }else {
+      product_single__allingredients__truncated_description.style.display = "block";
+      product_single__allingredients__full_description.style.display = "none";    
+    }
+  }
+</script>
 
 
 {% schema %}
