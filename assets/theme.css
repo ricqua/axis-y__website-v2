@@ -4289,6 +4289,8 @@ hr {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 98px;
 }
 .blog-filter .icon-chevron-down {
   fill: var(--color-text-field-text);
@@ -7193,6 +7195,8 @@ hr {
 
 /*================ Module | Filters and Sort toolbar and selection ================*/
 .filters-toolbar-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
   /* border-bottom: 1px solid var(--color-border); */
   /* border-top: 1px solid var(--color-border); */
   /* margin-bottom: 22px; */
