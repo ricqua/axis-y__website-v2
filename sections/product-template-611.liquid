@@ -323,7 +323,6 @@
 <!-- PRODUCT EXTENDED DETAILS 611 -->
 
 
-
 <!-- PRODUCT DESCRIPTION -->
 <section class="product-single__skinTypes ">
   <div class="product-single__description ">
@@ -331,29 +330,29 @@
 
     <div class="product-single__description--truncate-container">
     <div id="product-single__description--truncated-product-description">
-      {{ product.metafields.global.productStoryShort }}<span id="product-single__description--read-more" class="product-single__description--read-additional">Read more</span></div>
+      {{ product.metafields.global.json.productStoryShort }}<span id="product-single__description--read-more" class="product-single__description--read-additional">Read more</span></div>
     <div id="product-single__description--product-description">
-      {{ product.metafields.global.productStoryFull }} <span id="product-single__description--read-less" class="product-single__description--read-additional">Read less</span></div>
+      {{ product.metafields.global.json.productStoryFull }} <span id="product-single__description--read-less" class="product-single__description--read-additional">Read less</span></div>
     </div>
 
       <br/>
       <br/>
 
-    {% if product.metafields.global.skinType %}
+    {% if product.metafields.global.json.skinType %}
       <h4>Skin Type</h4>
-      <p>{{ product.metafields.global.skinType }}</p> 
+      <p>{{ product.metafields.global.json.skinType }}</p> 
       <hr/>
     {% endif %}
 
-    {% if product.metafields.global.skinConcern %}
+    {% if product.metafields.global.json.skinConcern %}
     <h4>Skin Concern</h4>
-    <p>{{ product.metafields.global.skinConcern }}</p>
+    <p>{{ product.metafields.global.json.skinConcern }}</p>
     <hr/>
     {% endif %}
 
-    {% if product.metafields.global.skinFeel %}
+    {% if product.metafields.global.json.skinFeel %}
     <h4>Skin Feel</h4>
-    <p>{{ product.metafields.global.skinFeel }}</p>
+    <p>{{ product.metafields.global.json.skinFeel }}</p>
     {% endif %}
 
   </div>
@@ -396,86 +395,38 @@
 <section class="product-single__ingredientsSection">
   <h1 style="width: 100%;">6 base ingredients</h1>
   
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-
-    <img  src="{{ "Lotus_blk.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Centella Asiatica</p>
-      <p>Boosts skins natural healing process and soothes irritated skin.</p>
+  {% for item in product.metafields.global.json.baseIngredients %}
+    <div class="product-single__ingredientsSection--card">
+      <img  src="{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].imgUrl | asset_img_url: "66x" }}" />
+      <div>
+        <p>{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].title }}</p>
+        <p>{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].description }}</p>
+      </div>
     </div>
-  </div>
+  {% endfor %}
 
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "Lotus.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Peony Root</p>
-      <p>Provides antioxidant benefits and aids in regenerating skin.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "okra_blk.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Cabbage Leaf</p>
-      <p>Helps lower the temperature of skin to soothe inflammation.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-    <img  src="{{ "okra.jpg" | asset_img_url: "66x" }}" />
-    <div>
-      <p>Okra Fruit</p>
-      <p>Moisurises skin, relieves inflammation, and strengthens skin barrier.</p>
-    </div>                    
-  </div>
-
-  <div class="product-single__ingredientsSection--card">
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-    <div>
-      <p>Spinach Leaf</p>
-      <p>Contains large amounts of minerals to help the skin absorb nutrients.</p>
-    </div>
-  </div>
-
-  <div class="product-single__ingredientsSection--card">              
-    <!-- <div class="product-single__ingredientsSection--image"></div> -->
-    <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
-    <div>                      
-      <p>Broccoli</p>
-      <p>Rich in Vitamin C and E which helps lighten hyperpigmentation.</p>
-    </div>
-  </div>
             
 
   <section class="product-single__ingredientsSection--specialSection">
     <div class="width50">
       <h1>1 core ingredient</h1>
       <div class="product-single__ingredientsSection--card width100">
-        <!-- <div class="product-single__ingredientsSection--image"></div> -->
-      <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
+      <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
+      <img  src="{{ product.metafields.global.json.coreIngredient.imgUrl | asset_img_url: "66x" }}" />
         <div>  
-          <p>Mugwort extract (61%)</p>
-          <p>Protects the skin from harmful oxygen radicals, revitalises it from damage, sooths and cleanses the skin.</p>
+          <p>{{ product.metafields.global.json.coreIngredient.title }}</p>
+          <p>{{ product.metafields.global.json.coreIngredient.description }}</p>
         </div>
       </div>                   
     </div>
     <div class="width50">                    
       <h1>1 patent technology</h1>
       <div class="product-single__ingredientsSection--card width100">
-        <!-- <div class="product-single__ingredientsSection--image"></div> -->
-      <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" />
+      <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
+      <img  src="{{ product.metafields.global.json.patentTechnology.imgUrl | asset_img_url: "66x" }}" />
         <div>                         
-          <p>MultiEx BSASM</p>
-          <p>Made with a blend of 7 plant extract that contain anti-inflammatory and curing properties.  This technology aids in the healing of irritated skin.</p>
+          <p>{{ product.metafields.global.json.patentTechnology.title }}</p>
+          <p>{{ product.metafields.global.json.patentTechnology.description }}</p>
         </div>
       </div>
     </div>
@@ -486,7 +437,7 @@
       <div id="product-single__allIngredients--product-description">
         All ingredients:
         <p class="smallGreyText">
-          {{ product.metafields.global.allIngredients }} 
+          {{ product.metafields.global.json.allIngredients }} 
         </p>
         <span id="product-single__allIngredients--read-less" class="product-single__allIngredients--read-additional smallGreyText">Read less</span></div>
     </div>
@@ -501,12 +452,12 @@
 
 <!-- HOW TO US -->
 
- {% if product.metafields.global.step1 %}
+ {% if product.metafields.global.json.step1 %}
   <section class="product-single__howToSection">
     <h1>HOW TO USE</h1>
     <ul  class="product-single__howToSection--cards">
 
-      {% if product.metafields.global.step1 %}
+      {% if product.metafields.global.json.step1 != "" %}
         <li  class="product-single__howToSection--card">
           {% for media in product.media %}
             {% if media.preview_image.alt contains "step1" %}
@@ -516,11 +467,11 @@
             {% endif %}
           {% endfor%}
           <p>Step 1</p>
-          <label>{{ product.metafields.global.step1 }}</label> 
+          <label>{{ product.metafields.global.json.step1 }}</label> 
         </li>
       {% endif %}
 
-      {% if product.metafields.global.step2 %}
+      {% if product.metafields.global.json.step2 != "" %}
         <li  class="product-single__howToSection--card">
            {% for media in product.media %}
             {% if media.preview_image.alt contains "step2" %}
@@ -530,11 +481,11 @@
             {% endif %}
           {% endfor%}
           <p>Step 2</p>
-          <label>{{ product.metafields.global.step2 }}</label> 
+          <label>{{ product.metafields.global.json.step2 }}</label> 
         </li>
       {% endif %}
 
-      {% if product.metafields.global.step3 %}
+      {% if product.metafields.global.json.step3 != "" %}
         <li  class="product-single__howToSection--card">
            {% for media in product.media %}
             {% if media.preview_image.alt contains "step3" %}
@@ -544,7 +495,7 @@
             {% endif %}
           {% endfor%}
           <p>Step 3</p>
-          <label>{{ product.metafields.global.step3 }}</label> 
+          <label>{{ product.metafields.global.json.step3 }}</label> 
         </li>
       {% endif %}
 
