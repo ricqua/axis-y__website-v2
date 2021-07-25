@@ -5,7 +5,8 @@
 <!-- HEADER SECTION -->
 <header class="blog-page__header">
   <h1>Community</h1>
-  {% if blog.tags.size > 0 %}
+
+  <!-- {% if blog.tags.size > 0 %}
     <div class="blog-filter">
       <div class="select-group">
         <select id="BlogTagFilter" aria-describedby="a11y-refresh-page-message a11y-selection-message" data-blog-tag-filter>
@@ -17,7 +18,17 @@
         {% include 'icon-chevron-down' %}
       </div>
     </div>
-  {% endif %}
+  {% endif %} -->
+  
+
+
+<div class="blog-page__tagFilterContainer">
+  <a href="{{ blog.url }}"  {% if current_tags contains "" %}selected{% endif %}>All</a>
+  {% for tag in blog.all_tags %}
+  <a href="{{ blog.url }}/tagged/{{ tag | handleize }}"  {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</a>
+  {% endfor %}
+</div>
+
 </header>
 
 
@@ -276,7 +287,7 @@
 </section>
 
 <!-- OLD BLOG POSTS SECTION -->
-<section class="blog-page__oldArticles">
+<section class="blog-page blog-page__oldArticles">
      <ul>
     {% for article in blog.articles offset:0 %}
       <li>

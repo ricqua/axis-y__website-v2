@@ -44,15 +44,33 @@
       <!-- {% unless collection.all_tags.size == 0 %}   -->
 
         <select class="filters-toolbar__button" name="FilterTags" id="FilterTags" aria-describedby="a11y-refresh-page-message a11y-selection-message" data-select-input>
-          <option>Filter</option>
-          <option value="{{ collection.url }}">{{ 'collections.filters.all_tags' | t }}</option>
+            <option>Filter</option>
+            
+            <option value="{{ collection.url }}">{{ 'collections.filters.all_tags' | t }}</option>
+       
+            <optgroup label="Skin type">
+              <option value="/collections/frontpage/normal">Normal</option>
+              <option value="/collections/frontpage/normal">Oily</option>
+              <option value="/collections/frontpage/dry">Dry</option>
+              <option value="/collections/frontpage/combination">Combination</option>
+            </optgroup>
 
-          {% for tag in collection.all_tags %}
-            {%- assign new_url = tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first -%}
-            <option value="{{ new_url }}"{% if current_tags contains tag %} selected="selected"{% endif %}>{{ tag }}</option>
-          {% endfor %}
+            <optgroup label="Skin Concern">
+              <option value="/collections/frontpage/blemished">Blemished</option>
+              <option value="/collections/frontpage/dehydrated">Dehydrated</option>
+              <option value="/collections/frontpage/sensitive">Sensitive</option>
+              <option value="/collections/frontpage/congested">Congested</option>
+            </optgroup>
 
+            <optgroup label="Product type">
+              {% for tag in collection.all_tags %}
+                {%- assign new_url = tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first -%}
+                <option value="{{ new_url }}"{% if current_tags contains tag %} selected="selected"{% endif %}>{{ tag }} </option>
+              {% endfor %}
+            </optgroup>
         </select>
+
+                {%- assign new_url = collection.all_tags | link_to_tag: tag | split: 'href="' | last | split: '"' | first -%}
 
 
       <!-- {% endunless %} -->

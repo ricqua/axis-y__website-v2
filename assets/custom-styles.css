@@ -330,27 +330,36 @@
 }
 
 .collection__filterWindow {
-  /* width: 500px;
-  height: 500px; */
-  /* background: grey; */
-  /* position: absolute; */
-  /* top:0;
-  left: 0; */
   z-index: 13;
 }
 
-.collection__sortButton {
+.collection__sortButton, .filters-toolbar__button {
   border: 1px solid black;
   border-radius: 8px;
-  padding: 8px 40px;
+  padding: 16px 24px;
   text-align: center;
   margin-left: 32px;
+  width: unset !important;
+  font-family: Poppins;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.collection__sortButton  option, .filters-toolbar__button  option {
+  font-family: Poppins;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.collection__sortButton  option:last-child, .filters-toolbar__button  option:last-child {
+  padding-bottom: 32px;
 }
 
 @media only screen and (max-width: 749px) {
   .collection__filterButton,
   .collection__sortButton {
-    /* width: auto; */
     padding: auto;
     flex-grow: 1;
   }
@@ -2791,6 +2800,7 @@ a { color: #333; text-decoration: none; } */
   }
 } */
 
+
 /* RECOVER PASSWORD SECTION ON LOGIN PAGE */
 
 .login-page__passwordRecoverSection {
@@ -2925,6 +2935,34 @@ a { color: #333; text-decoration: none; } */
   max-width: 1440px;
   margin: auto;
   padding: 0 32px;
+}
+
+.blog-page__tagFilterContainer{
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 48px 32px 98px 32px;
+}
+
+.blog-page__tagFilterContainer a {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 16px;
+  color: black;
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blog-page__tagFilterContainer a:hover {
+    background: hsl(152, 21%, 84%);
+}
+
+.blog-page__tagFilterContainer a:selected {
+  background: red;
 }
 
 .blog-page__header h1{
