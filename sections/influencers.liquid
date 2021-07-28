@@ -1,0 +1,225 @@
+
+<section class="codev-page__influencers">
+    <h2>{{ section.settings.title}}</h2>
+    <div class="codev-page__influencers--items">
+      {% for block in section.blocks %}  
+        <div class="codev-page__influencers--item" id="codev-page__influencers--openButton" for="influencers-{{ block.settings.name }}"> 
+          <img src="{{ block.settings.image | img_url: "400x"}}" alt="{{ block.settings.image.alt }}">  
+          <div class="codev-page__influencers--socialIcons">
+            <h3>{{ block.settings.name }}</h3>
+            {% if block.settings.social0Url != "" %}<a href="https://www.tiktok.com/{{ block.settings.social0Url }}/" target="_blank">{% include 'icon-tiktok' %}</a>{% endif %}
+            {% if block.settings.social1Url != "" %}<a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>{% endif %}
+            <!-- {% if block.settings.social2Url != "" %}<a href="https://www.facebook.com/{{ block.settings.social2Url }}/" target="_blank">{% include 'icon-facebook' %}</a>{% endif %} -->
+            {% if block.settings.social2Url != "" %}<a href="{{ block.settings.social2Url }}" target="_blank">{% include 'icon-blog' %}</a>{% endif %}
+            {% if block.settings.social3Url != "" %}<a href="https://www.youtube.com/{{ block.settings.social3Url }}/" target="_blank">{% include 'icon-youtube' %}</a>{% endif %}
+          </div>
+          <p >{{ block.settings.location }}</p>
+          <p class="codev-page__influencers--item--story">{{ block.settings.description }}</p>
+          
+          {% if block.settings.product %}
+            <a class="codev-page__influencers--recommended">
+              <img src="{{ block.settings.product.featured_image | img_url: "150x"}}" alt="recommended product image">
+              {{ block.settings.product.title }}
+            </a>
+          {% endif %}
+
+          <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="myInput">
+
+        </div>
+      {% endfor %}
+    </div>
+</section>
+
+<style>
+  .codev-page__influencers {
+    max-width: 1440px;
+    margin: auto;
+    padding: 140px 80px 0 80px;
+  }
+
+  .codev-page__influencers--items {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 64px;
+  }
+  
+  .codev-page__influencers--item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 33%;
+    height: auto;
+  }
+
+  .codev-page__influencers--item--story{
+    color: #757575;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 16px 0 !important;
+  }
+
+  .codev-page__influencers--item input{
+    margin-top: 16px;
+    width: 100% !important;
+    min-width: unset;
+  }
+
+  .codev-page__influencers--item a{
+    cursor: pointer;
+  }
+
+   .codev-page__influencers--item img:last-child{
+    width: 33% ;
+    margin-right: 16px;
+  }
+
+  .codev-page__influencers--socialIcons{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .codev-page__influencers > h2 {
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 80px;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .codev-page__influencers--socialIcons h3{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 16px auto 8px 0;
+  }
+
+  .codev-page__influencers--item p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  .codev-page__influencers--recommended{
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .codev-page__influencers--item:last-child {
+    margin-right: 0px;
+  }
+
+  @media (max-width: 749px) {
+    .codev-page__influencers {
+      padding: 32px 16px;
+    }
+
+    .codev-page__influencers > h2 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 48px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .codev-page__influencers--items {
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 32px;
+    }
+
+    .codev-page__influencers--item {
+      width: 100%;
+      /* margin-right: auto !important;
+      margin: auto; */
+    }
+
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Influencers",
+	"max_blocks": 100,
+  "settings": [ 
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Our influencers"
+      }
+  ],
+  "blocks": [
+    {
+      "type": "Contributor",
+      "name": "Add contributor",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+       		"label": "select image"
+        },
+        {
+          "id": "name",
+          "type": "text",
+          "label": "Name"
+        },
+        {
+          "id": "location",
+          "type": "text",
+          "label": "Location"
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description"
+        },
+        {
+          "id": "social0Url",
+          "type": "text",
+          "label": "TikTok tag (no @)"
+        },
+        {
+          "id": "social1Url",
+          "type": "text",
+          "label": "Instagram tag (no @)"
+        },
+        {
+          "id": "social2Url",
+          "type": "text",
+          "label": "Blog url"
+        },
+        {
+          "id": "social3Url",
+          "type": "text",
+          "label": "Youtube tag (no @)"
+        },
+        {
+          "id": "code",
+          "type": "text",
+          "label": "Affiliate code",
+          "default": "SKNQUAJ"
+        },
+        {
+          "id": "product",
+          "type": "product",
+          "label": "Recommended product"
+        }
+        
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -7,11 +7,11 @@
         <img class="hidden" src="{{ product.images[1] | img_url: '450x450', crop: "center"  }}" alt="{{ product.images.last.alt | escape }}" />
         
         {% if product.available == false %}
-           <span class="product-card__imageDiv--soldOut">sold out</span> 
+           <span class="product-card__imageDiv--soldOut">Sold out</span> 
         {% endif %}
 
         {% if product.available == false %}
-           <span class="product-card__imageDiv--soldOut">sold out</span> 
+           <span class="product-card__imageDiv--soldOut">Sold out</span> 
         {% endif %}
 
         {% if product.price != product.compare_at_price and product.compare_at_price > 0  %}

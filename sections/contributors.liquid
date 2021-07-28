@@ -3,138 +3,148 @@
     <h2>{{ section.settings.title}}</h2>
     <div class="codev-page__contributors--items">
       {% for block in section.blocks %}  
-        <!-- <input type="checkbox" id="contributor-{{ blcok.settings.name }}"> -->
-        <!-- <div class="codev-page__contributors--item" id="call-to-action" for="contributor-{{ blcok.settings.name }}">  -->
-        <div class="codev-page__contributors--item" id="codev-page__contributors--openButton" for="contributor-{{ blcok.settings.name }}"> 
-
+        <div class="codev-page__contributors--item" id="codev-page__contributors--openButton" for="contributor-{{ block.settings.name }}"> 
           <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
-          <h3>{{ block.settings.name }}</h3>
-          <p>{{ block.settings.location }}</p>
-          <!-- <a href="{{ block.settings.link }}" class="btn">{{ block.settings.linktext }}</a> -->
-        </div> 
-        <!-- <section class="codev-page__contributors--popUpWindow">   
-          <div>
-            <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
+          <div class="codev-page__contributors--socialIcons">
             <h3>{{ block.settings.name }}</h3>
-            <p>{{ block.settings.location }}</p>
-          </div>     
-          <p>{{ block.settings.description }}</p>
-          <div>
-            <p>{{ block.settings.social1Tag }} <a href="{{ block.settings.social1Url }}">{{ block.settings.social1Name }}</a></p>
-            <p>{{ block.settings.social2Tag }} <a href="{{ block.settings.social2Url }}">{{ block.settings.social2Name }}</a></p>
-            <p>{{ block.settings.social3Tag }} <a href="{{ block.settings.social3Url }}">{{ block.settings.social3Name }}</a></p>
+            <a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>
           </div>
-          <div>
-            <p>Affiliate code</p>
-            <p>{{ block.settings.code }}</p>
-            <button class="clearButton" >Copy to clipboard</button>
-          </div>
-        </section> -->
-
-        <!-- <button id="codev-page__contributors--openButton" >Open modal</button> -->
-
-        <section class="codev-page__modal-dark-overlay"></section>
-
-        <section class="codev-page__contributors--popContainer"> 
-            <div class="codev-page__contributors--popUpWindow">
-                <div>
-                    <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
-                    <h3>{{ block.settings.name }}</h3>
-                    <p>{{ block.settings.location }}</p>
-                </div>     
-                <p>{{ block.settings.description }}</p>
-                <div>
-                    <p>{{ block.settings.social1Tag }} <a href="{{ block.settings.social1Url }}">{{ block.settings.social1Name }}</a></p>
-                    <p>{{ block.settings.social2Tag }} <a href="{{ block.settings.social2Url }}">{{ block.settings.social2Name }}</a></p>
-                    <p>{{ block.settings.social3Tag }} <a href="{{ block.settings.social3Url }}">{{ block.settings.social3Name }}</a></p>
-                </div>
-                <div>
-                    <p>Affiliate code</p>
-                    <p>{{ block.settings.code }}</p>
-                    <button id="codev-page__contributors--closeButton" class="codev-page__contributors--closeButton" >close</button>
-                </div>
-            </div>  
-        </section>
-
-
-        <!-- {% render "codev-contributor-modal" %} -->
+          <p >{{ block.settings.location }}</p>
+          <p class="codev-page__contributors--item--story">{{ block.settings.description }}</p>
+          
+          <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="myInput">
+        </div>
       {% endfor %}
     </div>
 </section>
 
+
 <style>
-    .codev-page__modal-dark-overlay{
-        position: fixed;
-        display: none;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        overflow: auto;
-        animation-name: animateopacity;
-        animation-duration: 0.5s;
+
+/* CONTRIBUTORS SECTION */
+  .codev-page__contributors {
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 80px;
+    margin-bottom: 160px;
+  }
+
+  .codev-page__contributors > h2 {
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 80px;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .codev-page__contributors--items {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 40px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .codev-page__contributors--item {
+    flex-grow: 1;
+    max-width: 224px; 
+    display: flex;
+    flex-direction: column;
+  }
+
+  .codev-page__contributors--item input {
+    min-width: unset !important;
+    margin-top: auto;
+    justify-content: flex-end;
+  }
+
+
+  .codev-page__contributors--item:last-child {
+    margin-right: 0px;
+  }
+
+  .codev-page__contributors--item h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .codev-page__contributors--item p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+
+  @media (max-width: 749px) {
+    .codev-page__contributors {
+      padding: 0 16px;
+      margin-bottom: 80px;
     }
 
-    @keyframes animateopacity {
-        from {background-color:  rgba(0, 0, 0, 0.0)}
-        to {background-color: rgba(0, 0, 0, 0.7)}
+    .codev-page__contributors > h2 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 48px;
+      margin-bottom: 24px;
     }
 
-    .codev-page__contributors--popContainer{
-        display: none;
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+    .codev-page__contributors--items {
+      position: relative;
+      justify-content: space-around;
+      gap: 16px;
+      row-gap: 32px;;
     }
 
-    .codev-page__contributors--popUpWindow{
-        position: relative;
-        width: 800px;
-        height: auto;
-        background-color: white;
-        top: 25%;
-        margin: 0 auto;
+    .codev-page__contributors--item {
+      width: calc(50% - 16px);
     }
 
-    .codev-page__contributors--closeButton{
-
+    .codev-page__contributors--item--story{
+      color: #757575;
+      font-weight: 300;
+      font-size: 16px !important;
+      line-height: 24px;
+      margin-top: 8px !important;
+      margin-bottom: 8px !important;
     }
+  }
 
+  .codev-page__contributors--item--story{
+    color: #757575;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .codev-page__contributors--socialIcons{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .codev-page__contributors--item input{
+    color: #757575;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+
+  }
 </style>
-
-<script>
-    const showOverlay = () => document.querySelector(".codev-page__modal-dark-overlay").style.display = "block";
-    const showModal = () => document.querySelector(".codev-page__contributors--popContainer").style.display = "block";
-    const hideOverlay = () => document.querySelector(".codev-page__modal-dark-overlay").style.display = "none";
-    const hideModal = () => document.querySelector(".codev-page__contributors--popContainer").style.display = "none";
-
-    document.querySelector("#codev-page__contributors--openButton").onclick = function() {
-        showOverlay();
-        showModal();
-    }
-
-    document.querySelector("#codev-page__contributors--closeButton").onclick = function() {
-        hideOverlay();
-        hideModal();
-    }
-
-    window.onclick = function(event) {
-        if(event.target === document.querySelector('.codev-page__contributors--popContainer')) {
-            hideOverlay();
-             hideModal();
-        }
-    }
-
-</script>
-
 
 
 {% schema %}
 {
-  "name": "Co-Development page",
+  "name": "Contributors",
 	"max_blocks": 100,
   "settings": [ 
       {
@@ -164,80 +174,24 @@
           "id": "location",
           "type": "text",
           "label": "Location",
-          "default": "Location"
+          "default": "None"
         },
         {
           "id": "description",
           "type": "text",
           "label": "Description",
-          "default": "Description text"
-        },
-        {
-          "id": "social1Name",
-          "type": "text",
-          "label": "Social 1 Name",
-          "default": "Instagram, Facebook, etc"
-        },
-        {
-          "id": "social1Tag",
-          "type": "text",
-          "label": "Social 1 account ID",
-          "default": "@accountID"
+          "default": "Description"
         },
         {
           "id": "social1Url",
           "type": "text",
-          "label": "Social 1 URL",
-          "default": "e.g. https://instagram.com/accountID"
-        },
-        {
-          "id": "social2Name",
-          "type": "text",
-          "label": "Social 2 Name",
-          "default": "Instagram, Facebook, etc"
-        },
-        {
-          "id": "social2Tag",
-          "type": "text",
-          "label": "Social 2 account ID",
-          "default": "@accountID"
-        },
-        {
-          "id": "social2Url",
-          "type": "text",
-          "label": "Social 2 URL",
-          "default": "e.g. https://instagram.com/accountID"
-        },
-        {
-          "id": "social3Name",
-          "type": "text",
-          "label": "Social 3 Name",
-          "default": "Instagram, Facebook, etc"
-        },
-        {
-          "id": "social3Tag",
-          "type": "text",
-          "label": "Social 3 account ID",
-          "default": "@accountID"
-        },
-        {
-          "id": "social3Url",
-          "type": "text",
-          "label": "Social 3 URL",
-          "default": "e.g. https://instagram.com/accountID"
+          "label": "instagram tag (no @)"
         },
         {
           "id": "code",
           "type": "text",
-          "label": "Affiliate code",
-          "default": "SKNQUAJ"
-        },
-        {
-          "id": "product",
-          "type": "product",
-          "label": "Recommended product"
-        }
-        
+          "label": "Affiliate code"
+        }      
       ]
     }
   ]

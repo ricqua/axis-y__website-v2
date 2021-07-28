@@ -1,15 +1,22 @@
 <!-- SECTION ON HOME PAGE WITH LARGE WIDE IMAGE AND TEXT/BUTTONS BELLOW -->
 
 <section class="featureImageTextStack">
+  {%- assign blog = blogs.clarity  -%}
   <div>
-    <img src="{{section.settings.image | img_url: "1200x"}}" alt="{{section.secttings.image.alt | escape}}">
+    <!-- <img src="{{section.settings.image | img_url: "1200x"}}" alt="{{section.secttings.image.alt | escape}}"> -->
+    <img src="{{ blog.articles[0].image.src | img_url: "1200x"}}" alt="{{ blog.articles[0].image.alt }}">
+ 
   </div>
 
-  <h2>{{ section.settings.title | escape }}</h2>
+  <!-- <h2>{{ section.settings.title | escape }}</h2> -->
+  <h2>{{ blog.articles[0].title | escape }}</h2>
 
-  {{ section.settings.text }}
+
+  <!-- {{ section.settings.text }} -->
+  {{ blog.articles[0].excerpt }}
+
   
-  <a href="{{ section.settings.button_link }}"
+  <a href="{{ blog.articles[0].url }}"
     class="clearButton featureImageTextStack__button"
     aria-label="Button link">
     {{- section.settings.button_label | escape -}}

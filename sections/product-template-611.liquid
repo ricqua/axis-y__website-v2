@@ -233,7 +233,7 @@
             {% if section.settings.show_quantity_selector %}
               <div class="product-single__formArea--quantityContainer">
                 <div class="product-form__item">
-                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <!-- <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label> -->
                   <input type="number" id="Quantity-{{ section.id }}"
                     name="quantity" value="1" min="1" pattern="[0-9]*"
                     class="product-form__input product-form__input--quantity" data-quantity-input
@@ -324,33 +324,37 @@
 
 
 <!-- PRODUCT DESCRIPTION -->
+
 <section class="product-single__skinTypes ">
+  {% if product.metafields.global.json.productStoryShort != "" %}
   <div class="product-single__description ">
     <h1>Details</h1>
 
+    {% if product.metafields.global.json.productStoryShort != "" %}
     <div class="product-single__description--truncate-container">
     <div id="product-single__description--truncated-product-description">
       {{ product.metafields.global.json.productStoryShort }}<span id="product-single__description--read-more" class="product-single__description--read-additional">Read more</span></div>
     <div id="product-single__description--product-description">
       {{ product.metafields.global.json.productStoryFull }} <span id="product-single__description--read-less" class="product-single__description--read-additional">Read less</span></div>
-    </div>
+    </div> 
+    {% endif %}
 
       <br/>
       <br/>
 
-    {% if product.metafields.global.json.skinType %}
+    {% if product.metafields.global.json.skinType != "" %}
       <h4>Skin Type</h4>
       <p>{{ product.metafields.global.json.skinType }}</p> 
       <hr/>
     {% endif %}
 
-    {% if product.metafields.global.json.skinConcern %}
+    {% if product.metafields.global.json.skinConcern != "" %}
     <h4>Skin Concern</h4>
     <p>{{ product.metafields.global.json.skinConcern }}</p>
     <hr/>
     {% endif %}
 
-    {% if product.metafields.global.json.skinFeel %}
+    {% if product.metafields.global.json.skinFeel != "" %}
     <h4>Skin Feel</h4>
     <p>{{ product.metafields.global.json.skinFeel }}</p>
     {% endif %}
@@ -368,21 +372,26 @@
   <!-- <div class="product-single__skinTypes--image">
       <img  src="{{ product | img_url: '615px', crop: "center", format: "pjpg" }}" />
   </div> -->
+  {% endif %}
 </section>
-
 
 
 <!-- 6+1+1 SECTION -->
 <section class="product-single__611section">
   <div class="product-single__611section--wrapper">
-      <div class="product-single__611section--image">
-        <img src="{{ "611series.png" | asset_img_url: "608x", crop: "center", format: "pjpg"}}" alt="611 image"}>
-      </div>
+
+    {% for media in product.media %}
+        {% if media.preview_image.alt contains "611" %}
+            <div class="product-single__611section--image">
+              <img src="{{ media.preview_image | img_url: "615x", crop: "center"}}" alt="611 Image"}>
+           </div>
+        {% endif %}
+      {% endfor%}
 
       <div class="product-single__611section--info">
       <p>Part of our</p>
       <p>6+1+1 series</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, porro! Rem totam labore omnis iusto?</p>
+      <p>Each product in our 611 line is carefully formulated to address a skin concern personal to our community using natural, effective ingredients.</p>
     </div>
   </div>
 
@@ -392,72 +401,79 @@
 
 
 <!-- INGREDIENTS SECTION -->
+{% if product.metafields.global.json.baseIngredients[0].title != "baseIngredient" %}
 <section class="product-single__ingredientsSection">
-  <h1 style="width: 100%;">6 base ingredients</h1>
   
+  <h1 style="width: 100%;">6 base ingredients</h1>
+  <ul >
   {% for item in product.metafields.global.json.baseIngredients %}
-    <div class="product-single__ingredientsSection--card">
-      <img  src="{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].imgUrl | asset_img_url: "66x" }}" />
+    <li class="product-single__ingredientsSection--card">
+      <!-- <img  src="{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].imgUrl | asset_img_url: "66x" }}" /> -->
+      <img  src="{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].imgUrl | file_img_url: "66x" }}" />
       <div>
         <p>{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].title }}</p>
         <p>{{ product.metafields.global.json.baseIngredients[ forloop.index0 ].description }}</p>
       </div>
-    </div>
+    </li>
   {% endfor %}
-
+  </ul>
             
 
   <section class="product-single__ingredientsSection--specialSection">
-    <div class="width50">
-      <h1>1 core ingredient</h1>
-      <div class="product-single__ingredientsSection--card width100">
-      <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-      <img  src="{{ product.metafields.global.json.coreIngredient.imgUrl | asset_img_url: "66x" }}" />
-        <div>  
-          <p>{{ product.metafields.global.json.coreIngredient.title }}</p>
-          <p>{{ product.metafields.global.json.coreIngredient.description }}</p>
+    <ul>
+      <li >
+        <h1>1 core ingredient</h1>
+        <div class="product-single__ingredientsSection--card">
+        <img  src="{{ product.metafields.global.json.coreIngredient.imgUrl | file_img_url: "66x" }}" />
+          <div>  
+            <p>{{ product.metafields.global.json.coreIngredient.title }}</p>
+            <p>{{ product.metafields.global.json.coreIngredient.description }}</p>
+          </div>
+        </div>                   
+      </li>
+      <li class="width50">                    
+        <h1>1 effective technology</h1>
+        <div class="product-single__ingredientsSection--card ">
+          <img  src="{{ product.metafields.global.json.patentTechnology.imgUrl | file_img_url: "66x" }}" />
+            <div>                         
+              <p>{{ product.metafields.global.json.patentTechnology.title }}</p>
+              <p>{{ product.metafields.global.json.patentTechnology.description }}</p>
+            </div>
         </div>
-      </div>                   
-    </div>
-    <div class="width50">                    
-      <h1>1 patent technology</h1>
-      <div class="product-single__ingredientsSection--card width100">
-      <!-- <img src="{{ '611image.jpg' | asset_img_url: "//cdn.shopify.com/s/files/1/0578/0157/2530/t/3/assets/611image.jpg?v=13919391558922701815"}}" /> -->
-      <img  src="{{ product.metafields.global.json.patentTechnology.imgUrl | asset_img_url: "66x" }}" />
-        <div>                         
-          <p>{{ product.metafields.global.json.patentTechnology.title }}</p>
-          <p>{{ product.metafields.global.json.patentTechnology.description }}</p>
-        </div>
-      </div>
-    </div>
+      </li>
 
-    <div class="product-single__allIngredients--truncate-container product-single__ingredientsSection--seeMore">
-      <div id="product-single__allIngredients--truncated-product-description">
-         <span id="product-single__allIngredients--read-more" class="product-single__allIngredients--read-additional">See all ingredients <span class="product-single__allIngredients--plus">+</span></span></div>
-      <div id="product-single__allIngredients--product-description">
-        All ingredients:
-        <p class="smallGreyText">
-          {{ product.metafields.global.json.allIngredients }} 
-        </p>
-        <span id="product-single__allIngredients--read-less" class="product-single__allIngredients--read-additional smallGreyText">Read less</span></div>
-    </div>
 
+    </ul>
+      
 
     <!-- <button class="product-single__ingredientsSection--seeMore">See all ingredients<span>+</span></button> -->
   </section>
+
+  <div class="product-single__allIngredients--truncate-container product-single__ingredientsSection--seeMore">
+        <div id="product-single__allIngredients--truncated-product-description">
+          <span id="product-single__allIngredients--read-more" class="product-single__allIngredients--read-additional">See all ingredients <span class="product-single__allIngredients--plus">+</span></span></div>
+        <div id="product-single__allIngredients--product-description">
+          All ingredients:
+          <p class="smallGreyText">
+            {{ product.metafields.global.json.allIngredients }} 
+          </p>
+          <span id="product-single__allIngredients--read-less" class="product-single__allIngredients--read-additional smallGreyText">Read less</span></div>
+      </div>
 </section>
+{% endif %}
+
 
 
 
 
 <!-- HOW TO US -->
 
- {% if product.metafields.global.json.step1 %}
+ {% if product.metafields.global.json.step1 != "" %}
   <section class="product-single__howToSection">
+    {% if product.metafields.global.json.step1 != "" %}
     <h1>HOW TO USE</h1>
     <ul  class="product-single__howToSection--cards">
 
-      {% if product.metafields.global.json.step1 != "" %}
         <li  class="product-single__howToSection--card">
           {% for media in product.media %}
             {% if media.preview_image.alt contains "step1" %}

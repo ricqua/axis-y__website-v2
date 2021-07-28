@@ -18,7 +18,7 @@
 
 <section data-section-id="{{ section.id }}" data-section-type="hero-section">
 
-<!-- FIXED WIDTH -->
+<!-- FIXED WIDTH (AXIS-Y WEBSITE DOES NOT USE THIS VERSION)-->
   {%- if section.settings.hero_layout == 'fixed_width' -%}
     <section class="page-width">
   {%- endif -%}
@@ -76,7 +76,7 @@
 <!-- BACKGROUND IMAGE -->
     <!-- <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js" -->
 
-    <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} {% endif %} box ratio-container lazyload js"
+    <div class="hero  hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} {% endif %} box ratio-container lazyload js"
          id="Hero-{{ section.id }}"
          data-layout="{{ section.settings.hero_layout }}"
          {%- if section.settings.image -%}
@@ -110,7 +110,7 @@
                 <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
               {%- endif -%}
               {%- if section.settings.text != blank -%}
-                <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+                <div class="rte-setting {% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
               {%- endif -%}
             </div>
 
@@ -141,7 +141,7 @@
 
 
     <noscript>
-      <div class="hero hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+      <div class="hero   hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
     </noscript>
   {%- endif -%}
 

@@ -23,9 +23,9 @@
 
 
 <div class="blog-page__tagFilterContainer">
-  <a href="{{ blog.url }}"  {% if current_tags contains "" %}selected{% endif %}>All</a>
+  <a href="{{ blog.url }}"  {% if current_tags contains "" %}selected {% endif %}>All</a>
   {% for tag in blog.all_tags %}
-  <a href="{{ blog.url }}/tagged/{{ tag | handleize }}"  {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</a>
+    <a href="{{ blog.url }}/tagged/{{ tag | handleize }}"  {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</a>
   {% endfor %}
 </div>
 
@@ -159,7 +159,7 @@
           </h2>
         </a>
 
-        <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
+        <div class="">
           <!-- {% if section.settings.blog_show_author %}
             <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
           {% endif %} -->
@@ -297,7 +297,7 @@
             {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
             {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-            {% include 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
+            {% include 'image-style', image: article.image, height: 600, wrapper_id: img_wrapper_id, img_id: img_id %}
             <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
               <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;" data-image-loading-animation>
                 <img id="{{ img_id }}"
@@ -316,12 +316,12 @@
             </noscript>
           {% endif %}
 
-          <h2 class="article__title h3{% if article.image %} article__title--has-image{% endif %}">
+          <h2 class="">
             {{ article.title | escape }}
           </h2>
         </a>
 
-        <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
+        <div >
           <!-- {% if section.settings.blog_show_author %}
             <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
           {% endif %} -->

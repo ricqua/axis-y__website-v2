@@ -39,12 +39,12 @@
 <!-- FILTER BY -->
   <!-- <label for="collection-filterButton" name="collection-filterButton"  class="collection__filterButton">Filter</label>
   <input type="checkbox" id="collection-filterButton" hidden/> -->
-  <div class="collection__filterWindow">
-    <!-- {% if section.settings.tags_enable %} -->
+  <div>
+    <!-- {% if  section.settings.tags_enable %} -->
       <!-- {% unless collection.all_tags.size == 0 %}   -->
 
         <select class="filters-toolbar__button" name="FilterTags" id="FilterTags" aria-describedby="a11y-refresh-page-message a11y-selection-message" data-select-input>
-            <option>Filter</option>
+            <!-- <option>Filter</option> -->
             
             <option value="{{ collection.url }}">{{ 'collections.filters.all_tags' | t }}</option>
        
@@ -90,7 +90,7 @@
         data-default-sortby="{{ collection.default_sort_by }}"
         data-select-input
       >
-        <option>Sort by</option>
+        <!-- <option>Sort by</option> -->
         {%- for option in collection.sort_options -%}
           <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
         {%- endfor -%}
