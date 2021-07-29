@@ -95,7 +95,6 @@
 .greenButton {
   background-color: #008554;
   border: 1px solid #008554;
-  min-width: 264px;
   color: white !important;
   text-decoration: none !important;
   padding: 16px 36px !important;
@@ -107,7 +106,8 @@
   text-align: center;
 }
 
-.greenButton:hover {
+.greenButton:hover,
+.greenButton:focus  {
   background-color: rgb(255, 255, 255);
   border: 1px solid black;
   color: black !important;
@@ -310,7 +310,7 @@
   /* line-height: 80px; */
 }
 
-@media only screen and (max-width: 1010px) {
+/* @media only screen and (max-width: 1010px) {
   .collection__headerSection {
     display: flex;
     flex-flow: row wrap;
@@ -319,7 +319,7 @@
     margin-bottom: 50px;
     margin-top: 32px;
   }
-}
+} */
 
 @media only screen and (max-width: 749px) {
   .collection__headerSection {
@@ -353,6 +353,13 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 28px;
+}
+
+
+@media (max-width: 749px){
+  .collection__sortButton, .filters-toolbar__button {
+    /* width: 50% !important; */
+  }
 }
 
 .collection__sortButton {
@@ -455,31 +462,21 @@
 
 /* PRODUCT PAGE  */
 
-/* .product-single_heroSection {
-  width: 100%;
-} */
 
 .product-template {
   max-width: 1440px;
   margin: auto;
-  /* border: 1px solid black; */
 }
 
 .product-single_heroSection--wrapper {
   max-width: 1440px;
   margin: auto;
-  /* min-height: 500px;  */
   display: flex;
   flex-flow: row nowrap;
 }
 
-/* .product-single_heroSection--wrapper > div {
-  width: 50%;
-  margin: auto;
-} */
 
 .product-single_heroSection--wrapper--images {
-  /* border: 5px solid red; */
   position: relative;
   width: 50%;
   height: 100%;
@@ -491,7 +488,6 @@
   padding: 0 80px;
   display: flex;
   align-items: center;
-  /* border: 1px solid blue; */
 }
 
 .product-single_heroSection--wrapper--images > img {
@@ -501,17 +497,6 @@
   transform: translate(-50%, -50%);
   min-width: 100%;
 }
-
-/* .product-single__thumbnails {
-  width: 100%; 
-  display: flex; 
-  flex-flow: row nowrap; 
-  justify-content: space-between;
-}
-
-.product-single__thumbnails img {
-  padding: 0 4px;
-} */
 
 .product-single__formArea {
   max-width: 500px;
@@ -560,11 +545,65 @@
   margin: 0;
 }
 
-/* .product-single__infoDiv {
-  border: 1px solid green;
-  margin: auto;
-  max-width: 500px;
-} */
+.product-single__title {
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 48px; 
+  font-family: sans-serif;
+}
+
+@media (max-width: 920px){
+  .product-single_heroSection--wrapper--images {
+    /* position: relative; */
+    width: 45%;
+    /* height: 100%; */
+  }
+
+  .product-single_heroSection--wrapper--details {
+    width: 55%;
+    /* padding: 0 16px; */
+    padding: 0 64px;
+  }
+}
+
+@media (max-width: 749px){
+  .product-single_heroSection--wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-single_heroSection--wrapper--images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .product-single_heroSection--wrapper--images > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+  }
+
+  .product-single_heroSection--wrapper--details {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .product-single__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    margin-top: 40px;
+  }
+
+
+
+
+}
+
 
 /* The container */
 .product-single__formArea--variantContainer {
@@ -623,7 +662,7 @@
   /* margin: 38px 0 0 0; */
   /* display: flex;
   flex-flow: row nowrap; */
-  width: 100%;
+  min-width: unset;
   /* text-align: center; */
 }
 
@@ -2865,7 +2904,7 @@ a { color: #333; text-decoration: none; } */
   font-weight: 600;
   font-size: 24px;
   line-height: 40px;
-  padding: 56px 0 32px 0;
+  padding: 56px 0 16px 0;
   margin: 0;
 }
 
@@ -3062,6 +3101,15 @@ a { color: #333; text-decoration: none; } */
   padding: 64px 32px 200px 32px !important;
 }
 
+@media (max-width: 749px) {
+  .whereToBuy-page h1{
+    font-weight: 500 !important;
+    font-size: 48px !important;
+    line-height: 64px !important;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+}
 
 @media (max-width: 749px) {
   .blog-page{
@@ -3155,4 +3203,72 @@ a { color: #333; text-decoration: none; } */
     width: 100%;
   }
 
+}
+
+/* VARIANT SELECTOR ON PRODUCT PAGE */
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }

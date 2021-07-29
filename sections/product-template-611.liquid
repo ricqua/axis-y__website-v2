@@ -76,19 +76,24 @@
           {%- assign enable_thumbnail_slides = true -%}
         {% endif %}
 
-        <div data-thumbnail-slider class="product-single__thumbnailsContainer">
-          <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} slider-active{% endif %}" data-slider>
-            {% if enable_thumbnail_slides == true %}
+        <!-- <div data-thumbnail-slider class="product-single__thumbnailsContainer"> -->
+        <!-- <div  class="product-single__thumbnailsContainer"> -->
+          <!-- <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} slider-active{% endif %}" data-slider> -->
+          <!-- <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} slider-active{% endif %}" > -->
+            <!-- {% if enable_thumbnail_slides == true %}
               <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}" data-slider-button>
                 {% include 'icon-chevron-left' %}
                 <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
               </button>
-            {% endif %}
+            {% endif %} -->
 
-            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" data-slider-container>
-              {% if enable_thumbnail_slides == true %}
-                <div class="product-single__thumbnails-slider-track" data-slider-track>
-              {% endif %}
+            <!-- <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" data-slider-container> -->
+            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+              <!-- {% if enable_thumbnail_slides == true %}
+                <div class="product-single__thumbnails-slider-track" > -->
+                <!-- <div class="product-single__thumbnails-slider-track" data-slider-track> -->
+
+              <!-- {% endif %} -->
 
               {% for media in product.media %}
                {% if media.alt contains "featured" %}
@@ -128,18 +133,18 @@
                 {% endif %}
               {% endfor %}
 
-              {% if enable_thumbnail_slides == true %}
+              <!-- {% if enable_thumbnail_slides == true %}
                 </div>
-              {% endif %}
+              {% endif %} -->
             </ul>
-            {% if enable_thumbnail_slides == true %}
+            <!-- {% if enable_thumbnail_slides == true %}
               <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}" data-slider-button data-slider-button-next>
                 {% include 'icon-chevron-right' %}
                 <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
               </button>
-            {% endif %}
-          </div>
-        </div>
+            {% endif %} -->
+          <!-- </div> -->
+        <!-- </div> -->
       {% endif %}
     </div>
 
@@ -188,7 +193,7 @@
             {{ form | payment_terms }}
 
             {% unless product.has_only_default_variant %}
-              <div class="product-form__controls-group">
+              <div class="product-form__controls-group" >
                 {% for option in product.options_with_values %}
                   <div class="selector-wrapper js product-form__item">
                     <label for="SingleOptionSelector-{{ forloop.index0 }}">
@@ -206,6 +211,8 @@
                 {% endfor %}
               </div>
             {% endunless %}
+
+          
 
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}
