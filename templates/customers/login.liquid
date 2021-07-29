@@ -3,7 +3,7 @@
     {% include 'icon-chevron-left' %}
   </a> -->
 
-  <a href="/" class="login-page__closeButton"> {% include 'icon-close' %} </a>
+  <!-- <a href="/" class="login-page__closeButton"> {% include 'icon-close' %} </a> -->
 
   <div
     class="form-message form-message--success hide"
@@ -15,47 +15,46 @@
 
   <!-- LOGIN FORM -->
   {% form 'customer_login', novalidate: 'novalidate' %}
+      <h1 id="LoginHeading">{{ "customer.login.title" | t }}</h1>
 
-  <h1 id="LoginHeading">{{ "customer.login.title" | t }}</h1>
+      <!-- MESSAGE ERRORS -->
+      {%- if form.errors -%}
+      <div class="form-message form-message--error">
+        <h2 class="h3 form-message__title" tabindex="-1" data-form-status>
+          {{ "contact.form.error_heading" | t }}
+        </h2>
+        {{ form.errors | default_errors }}
+      </div>
+      {%- endif -%}
 
-  <!-- MESSAGE ERRORS -->
-  {%- if form.errors -%}
-  <div class="form-message form-message--error">
-    <h2 class="h3 form-message__title" tabindex="-1" data-form-status>
-      {{ "contact.form.error_heading" | t }}
-    </h2>
-    {{ form.errors | default_errors }}
-  </div>
-  {%- endif -%}
+      <label for="CustomerEmail">Email</label>
+      <input type="email" name="customer[email]" id="CustomerEmail"
+      autocomplete="email" autocorrect="off" autocapitalize="off" {%- if form.errors
+      contains 'form' -%} class="input--error" aria-invalid="true" {%- endif -%} >
 
-  <label for="CustomerEmail">Email</label>
-  <input type="email" name="customer[email]" id="CustomerEmail"
-  autocomplete="email" autocorrect="off" autocapitalize="off" {%- if form.errors
-  contains 'form' -%} class="input--error" aria-invalid="true" {%- endif -%} >
+      <label for="CustomerPassword">Password</label>
+      <input type="password" value="" name="customer[password]"
+      id="CustomerPassword" {%- if form.errors contains 'form' -%}
+      class="input--error" aria-invalid="true" {%- endif -%} >
 
-  <label for="CustomerPassword">Password</label>
-  <input type="password" value="" name="customer[password]"
-  id="CustomerPassword" {%- if form.errors contains 'form' -%}
-  class="input--error" aria-invalid="true" {%- endif -%} >
+      <!-- REMEMBER ME AND FORGOT PASSWORD BUTTONS -->
+      <div class="login-page__recoverPassword">
+        <!-- <p>Keep me logged in</p>        -->
+        <!-- <p><a href="/account/recover_password">{{ 'customer.login.forgot_password' | t }}</a></p> -->
+        <p>
+          <a href="#recover" id="RecoverPassword">{{
+            "customer.login.forgot_password" | t
+          }}</a>
+        </p>
+      </div>
 
-  <!-- REMEMBER ME AND FORGOT PASSWORD BUTTONS -->
-  <div class="login-page__recoverPassword">
-    <!-- <p>Keep me logged in</p>        -->
-    <!-- <p><a href="/account/recover_password">{{ 'customer.login.forgot_password' | t }}</a></p> -->
-    <p>
-      <a href="#recover" id="RecoverPassword">{{
-        "customer.login.forgot_password" | t
-      }}</a>
-    </p>
-  </div>
-
-  <button type="submit" class="login-page__loginButton">
-    {{ "customer.login.sign_in" | t }}
-  </button>
+      <button type="submit" class="login-page__loginButton">
+        {{ "customer.login.sign_in" | t }}
+      </button>
   {% endform %}
 
   <!-- CREATE ACCOUNT SECTION -->
-  <div class="login-page__createAccount">
+  <div class="login-page__createAccount ">
     <strong>Don't have an account?</strong>
     <p>
       Creating an account saves your details for faster checkout and earns you
@@ -87,8 +86,9 @@
       </div>
 
       <div class="form-vertical">
-        {% form 'recover_customer_password' %} {% comment %} Add a hidden span
-        to indicate the form was submitted succesfully. {% endcomment %} {% if
+        {% form 'recover_customer_password' %} 
+  
+        {% if
         form.posted_successfully? %}
         <span class="hide reset-password-success"></span>
         {% endif %}
@@ -127,9 +127,7 @@
           <button type="submit" class="greenButton">
             {{ "customer.recover_password.submit" | t }}
           </button>
-          <!-- <p>
-              <input type="submit" class="greenButton" value="{{ 'customer.recover_password.submit' | t }}">
-            </p> -->
+    
         </div>
         {% endform %}
       </div>
@@ -159,3 +157,4 @@
     padding-top: 64px;
   }
 </style>
+

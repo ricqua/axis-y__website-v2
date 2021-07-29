@@ -401,6 +401,7 @@
   .collection__grid {
     grid-template-columns: 1fr 1fr;
     grid-gap: 7px;
+    row-gap: 32px;
   }
 }
 
@@ -1278,18 +1279,29 @@
 .login-page {
   max-width: 720px;
   /* border: 1px solid red; */
-  padding: 120px 64px;
+  padding: 64px 64px;
   margin: auto auto;
   position: relative;
 }
 
 .login-page__backButton {
-  position: absolute;
-  top: 28px;
-  left: 20px;
-  width: 22px;
-  height: 22px;
+  margin-top: 32px;
+
+  /* position: absolute; */
+  /* top: 28px; */
+  /* left: 20px; */
+  /* width: 22px; */
+  /* height: 22px; */
   /* font-size: 48px; */
+}
+
+.login-page__backButton a {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  text-decoration-line: underline;
+  color: #008554;
+  padding-left: 16px;
 }
 
 .login-page__closeButton {
@@ -1310,7 +1322,7 @@
 
 @media (max-width: 749px) {
   .login-page {
-    padding: 96px 16px;
+    padding: 32px 16px;
   }
 
   .login-page h1 {
@@ -1399,7 +1411,7 @@
 /* REGISTRATOIN / SIGN UP PAGE  */
 .register-page {
   max-width: 720px;
-  padding: 160px 64px;
+  padding: 64px 64px;
   margin: 0 auto;
   display: block;
   position: relative;
@@ -1414,7 +1426,7 @@
 
 @media (max-width: 749px) {
   .register-page {
-    padding: 120px 16px;
+    padding: 32px 16px;
   }
 
   .register-page h1 {
@@ -3027,15 +3039,21 @@ a { color: #333; text-decoration: none; } */
   margin-bottom: 36px;
 }
 
+.article-page__tagsContainer{
+  margin-top: 16px;
+}
+
 .blog-page__tag{
-  font-size: 14px;
-  line-height: 24px;
-  text-align: center;
+  font-size: 14px !important;
+  line-height: 24px !important;
+  text-align: center !important;
   color: hsl(158, 100%, 26%);
   background: hsl(152, 21%, 84%);
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 16px;
+  text-decoration: none !important;
+  font-weight: 300 !important;
 }
 
 .blog-page__tag:hover {

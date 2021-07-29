@@ -1,12 +1,12 @@
 <section class="register-page">
 
-  <a href="/account/login" class="login-page__backButton">
+  <!-- <a href="/account/login" class="login-page__backButton">
     {% include 'icon-chevron-left' %}
-  </a>
+  </a> -->
   
-  <a href="/" class="login-page__closeButton">
+  <!-- <a href="/" class="login-page__closeButton">
             {% include 'icon-close' %}
-  </a>
+  </a> -->
 
   <h1>{{ 'customer.register.title' | t }}</h1>
 
@@ -77,4 +77,10 @@
     <input type="submit" value="{{ 'customer.register.submit' | t }}" >
 
   {% endform %}
+
+  <p class="login-page__backButton">Already have an account?
+    <a href="/account/login" >
+      Login
+    </a>
+  </p>
 </section>

@@ -3,7 +3,7 @@
     <h2>{{ section.settings.title}}</h2>
     <div class="codev-page__contributors--items">
       {% for block in section.blocks %}  
-        <div class="codev-page__contributors--item" id="codev-page__contributors--openButton" for="contributor-{{ block.settings.name }}"> 
+        <div class="codev-page__contributors--item" id="{{ block.settings.name }}" for="contributor-{{ block.settings.name }}"> 
           <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
           <div class="codev-page__contributors--socialIcons">
             <h3>{{ block.settings.name }}</h3>

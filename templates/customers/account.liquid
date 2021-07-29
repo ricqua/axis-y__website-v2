@@ -1,8 +1,12 @@
-<div class="page-width">
+<section class="account-page">
   <div class="section-header text-center">
-    <h1>{{ 'customer.account.title' | t }}</h1>
-    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+    <h1>Hi, {{ customer.first_name }}</h1>
+    <a href="/" class="login-page__closeButton" style="color: black">
+            {% include 'icon-close' %}
+    </a>
   </div>
+
+
 
   <div class="grid myaccount">
     <div class="grid__item myaccount__order-history">
@@ -48,30 +52,7 @@
     </div>
     <div class="grid__item myaccount__account-details">
     
-    <div class="redBorder"">
-      <!-- SkinType:  -->
-     <!-- {{ customer || json}} -->
-     <!-- {{ customer }} -->
 
-     
-     {% assign collection = collections["all"] %}
-     <!-- {% assign collection = collections["testCollection"] %} -->
-
-     {{ collection.title}}
- 
-     <ul>
-       {% for item in collection.products  %}
-        <li >
-          <a href="{{item.url}}">
-            {{item.title}}  - {{item.price | money}}
-           {% if item.available == true %}
-            (AVAILABLE)
-           {% endif%}
-          </a>
-        </li>
-       {% endfor %}
-     </ul>
-    </div> 
 
       <h2>{{ 'customer.account.details' | t }}</h2>
 
@@ -80,4 +61,148 @@
       <p><a href="{{ routes.account_addresses_url }}" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
     </div>
   </div>
+<div class="account-page__logoutDiv">
+
+  <a href="/account/logout" id="customer_logout_link" class="clearButton">Log out</a>
 </div>
+
+
+</section>
+
+
+
+
+<style>
+  .account-page{
+    max-width: 1040px;
+    padding: 125px 32px 125px 32px;
+    margin: auto;
+    position: relative;
+  }
+
+  .account-page:first-child{
+    padding: 125px 32px 0 32px;
+  }
+
+ .account-page .grid{
+    margin-left: 0;
+  }
+
+  /* .account-page .grid__item{
+    padding-left: 0;
+  } */
+
+  .account-page h1 {
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 80px;
+  }
+
+  .account-page h2 {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: 0px;
+    margin-bottom: 32px;
+  }
+
+  .account-page h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 32px;
+  }
+
+  .account-page img {
+    /* margin-top: 120px;
+    margin-bottom: 144px; */
+    /* width: unset; */
+  }
+
+  .account-page p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+  }
+  .account-page label {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    color: #757575;
+  }
+
+  .account-page button {
+    margin-top: 64px;
+    display: inline-block;
+  }
+/* 
+  .account-page a {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    text-decoration-line: underline;
+    color: #008554;
+  } */
+
+  .account-page > ul{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    gap: 32px;
+    padding-top: 64px;
+
+  }
+
+  .account-page >ul > li{
+   width: 100%;    
+   border-bottom: 1px solid rgb(184, 184, 184);
+   padding-bottom: 16px;
+  }
+
+  .account-page__editAddressSection{
+    margin-top: 32px;
+  }
+
+.account-page__logoutDiv{
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  @media (min-width: 750px){
+    .account-page .medium-up--one-half:first-child {
+      padding-right: 16px;
+    }
+  }
+
+  @media only screen and (max-width: 749px) {
+  .account-page__hero{
+    height: 375px;
+  } 
+
+    .account-page {
+      padding: 60px 16px 60px 16px;
+    }
+
+    .account-page h1 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 48px;
+    }
+
+    .account-page:last-child {
+      padding-bottom: 120px;
+    }
+
+    .account-page button {
+      margin-top: 64px;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+
+  
+</style>

@@ -5,19 +5,18 @@
     Example: http://shopname.myshopify.com/blogs/news/2022072-my-post?comment=3721372
 {%- endcomment -%}
 
+
 {%- if comment.status == 'pending' -%}
   {%- assign number_of_comments = article.comments_count | plus: 1 -%}
 {%- else -%}
   {%- assign number_of_comments = article.comments_count -%}
 {%- endif -%}
 
-<article class="page-width" aria-labelledby="title-0">
-  <div class="grid">
-    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-      {% section 'article-template' %}
-    </div>
-  </div>
+<article  aria-labelledby="title-0">
+    {% section 'article-template' %}
 </article>
+
+
 
 {% if blog.comments_enabled? %}
   {% if number_of_comments > 0 %}
