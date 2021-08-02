@@ -3,8 +3,8 @@
   <section  class="product-card">
     <!-- <div> -->
       <div class="reveal product-card__imageDiv">
-        <img src="{{ product.images[0] | img_url: '450x450', crop: "center" }}" alt="{{ product.image.alt | escape }}">
-        <img class="hidden" src="{{ product.images[1] | img_url: '450x450', crop: "center"  }}" alt="{{ product.images.last.alt | escape }}" />
+        <img src="{{ product.images[0] | img_url: '800x800', crop: "center" }}" alt="{{ product.image.alt | escape }}">
+        <img class="hidden" src="{{ product.images[1] | img_url: '800x800', crop: "center" }}" alt="{{ product.images.last.alt | escape }}" />
         
         {% if product.available == false %}
            <span class="product-card__imageDiv--soldOut">Sold out</span> 

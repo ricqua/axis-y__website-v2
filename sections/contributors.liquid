@@ -12,7 +12,7 @@
           <p >{{ block.settings.location }}</p>
           <p class="codev-page__contributors--item--story">{{ block.settings.description }}</p>
           
-          <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="myInput">
+          <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="{{ block.settings.code }}">
         </div>
       {% endfor %}
     </div>

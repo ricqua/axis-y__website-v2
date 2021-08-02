@@ -149,7 +149,7 @@
       </div>
       <div>
         <p class="site-footer__slogans">Cruelty-free. Vegan. Paraben free.</p>
-        <p class="site-footer__slogans">No artificial colours & fragrance</p>
+        <p class="site-footer__slogans">No artificial colors & fragrance</p>
       </div>
     </div>
 
@@ -341,47 +341,12 @@
               {%- endif -%}
             {%- endfor -%}
 
-            <!-- {%- if request.page_type == 'blog' or request.page_type == 'article' -%}
-              <li>
-                <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
-                  {% include 'icon-rss' %}
-                  <span class="icon__fallback-text">RSS</span>
-                </a>
-              </li>
-            {%- endif -%} -->
+      
           </ul>
-        <!-- {%- else -%} -->
-          <!-- <div class="small--hide site-footer-item-align-right {% if show_selectors or show_payment_icons %}site-footer-item-center-vertically{% endif %} site-footer__bellowBreakSection">
-            <div>
-              <p class="site-footer__copyright-content">Cruelty-free. Vegan. Paraben free.</p>
-              <p class="site-footer__copyright-content">No artificial colours & fragrance</p>
-            </div>
-            <div>
-              <p class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }} All rights reserved.</p>
-            </div>
-          </div> -->
-        <!-- {%- endif -%} -->
+ 
       </div>
 
-      <!-- {%- if show_selectors -%}
-        <div class="grid__item small--hide {{ payment_width_class }}">{{ payment_icon_markup }}</div>
-      {%- endif -%}
-
-      <div class="grid__item medium-up--hide {{ payment_width_class }} small--one-whole">{{ payment_icon_markup }}</div> -->
-
-      <!-- {%- if social_icons and show_selectors -%}
-        <div class="grid__item small--hide site-footer-item-align-right {% if show_payment_icons %}one-half{% endif %} site-footer__bellowBreakSection">
-          
-          <div>
-            <small class="site-footer__copyright-content">Cruelty-free. Vegan. Paraben free.</small>
-         <small class="site-footer__copyright-content">No artificial colours & fragrance</small>
-          </div>
-          <div>
-            <small class="site-footer__copyright-content">&copy; {{ shop.name | link_to: routes.root_url }}, {{ 'now' | date: "%Y" }}</small>
-            <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">All rights reserved.</small>
-          </div>
-        </div>
-      {%- endif -%} -->
+ 
 
       <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right site-footer__bellowBreakSection">
         <div>

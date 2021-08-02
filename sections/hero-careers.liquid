@@ -38,14 +38,14 @@
           {%- if section.settings.title != blank -%}
             <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
           {%- endif -%}
-          {%- if section.settings.text != blank -%}
+          <!-- {%- if section.settings.text != blank -%}
             <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
-          {%- endif -%}
-          {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+          {%- endif -%} -->
+          <!-- {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
             <a href="{{ section.settings.button_link }}" class="btn hero__btn">
               {{ section.settings.button_label | escape }}
             </a>
-          {%- endif -%}
+          {%- endif -%} -->
         </div>
       </div>
       {%- if section.settings.image != blank -%}
@@ -108,12 +108,12 @@
               {%- if section.settings.title != blank -%}
                 <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
               {%- endif -%}
-              {%- if section.settings.text != blank -%}
+              <!-- {%- if section.settings.text != blank -%}
                 <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
-              {%- endif -%}
+              {%- endif -%} -->
             </div>
 
-            <div class="hero2__item">
+            <!-- <div class="hero2__item">
             {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
               {%- capture ariaLabel -%}
                 {{- section.settings.button_label -}}
@@ -132,7 +132,7 @@
                 {{- section.settings.button_label | escape -}}
               </button>
             {%- endif -%}
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -786,9 +786,6 @@
         "vi": "Nhãn nút",
         "zh-CN": "按钮标签",
         "zh-TW": "按鈕標籤"
-      },
-      "default": {
-        "en": ""
       }
     },
     {

@@ -116,7 +116,7 @@
    
    
     <p>
-      <button type="button" class=" address-new-toggle greenButton" id="AddressNewButton" aria-expanded="false" aria-owns="AddressNewForm">{{ 'customer.addresses.add_new' | t }}</button>
+      <button type="button" class=" address-new-toggle greenButton addresses-page--addAddress" id="AddressNewButton" aria-expanded="false" aria-owns="AddressNewForm">{{ 'customer.addresses.add_new' | t }}</button>
     </p>
 </section>
 
@@ -179,7 +179,7 @@
         <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
 
         <div><input type="submit" class="btn" value="{{ 'customer.addresses.add' | t }}"></div>
-        <div><button type="button" class="text-link address-new-toggle">{{ 'customer.addresses.cancel' | t }}</button></div>
+        <div><button type="button" class="text-link address-new-toggle addresses-page--addAddress">{{ 'customer.addresses.cancel' | t }}</button></div>
 
       {% endform %}
       <hr>
@@ -249,7 +249,7 @@
     color: #757575;
   }
 
-  .addresses-page button {
+  .addresses-page--addAddress {
     margin-top: 64px;
     display: inline-block;
   }
@@ -314,7 +314,7 @@
       padding-bottom: 120px;
     }
 
-    .addresses-page button {
+    .addresses-page--addAddress {
       margin-top: 64px;
       width: 100%;
       display: inline-block;

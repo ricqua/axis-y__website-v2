@@ -189,13 +189,15 @@
             {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
           {%- endcapture %}
 
+
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+          
             {{ form | payment_terms }}
 
             {% unless product.has_only_default_variant %}
               <div class="product-form__controls-group" >
                 {% for option in product.options_with_values %}
-                  <div class="selector-wrapper js product-form__item">
+                  <div class="selector-wrapper js product-form__item" style="margin-bottom: 32px; width: 100%;">
                     <label for="SingleOptionSelector-{{ forloop.index0 }}">
                       {{ option.name }}
                     </label>
@@ -213,7 +215,6 @@
             {% endunless %}
 
           
-
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}
                 <option value="{{ variant.id }}"
@@ -240,7 +241,7 @@
             {% if section.settings.show_quantity_selector %}
               <div class="product-single__formArea--quantityContainer">
                 <div class="product-form__item">
-                  <!-- <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label> -->
+                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
                   <input type="number" id="Quantity-{{ section.id }}"
                     name="quantity" value="1" min="1" pattern="[0-9]*"
                     class="product-form__input product-form__input--quantity" data-quantity-input
@@ -277,6 +278,7 @@
                 {% endif %} -->
               </div>
             </div>
+  
             </div>
           {% endform %}
         </div>
@@ -390,7 +392,7 @@
     {% for media in product.media %}
         {% if media.preview_image.alt contains "611" %}
             <div class="product-single__611section--image">
-              <img src="{{ media.preview_image | img_url: "615x", crop: "center"}}" alt="611 Image"}>
+              <img src="{{ media.preview_image | img_url: "1000x", crop: "center"}}" alt="611 Image"}>
            </div>
         {% endif %}
       {% endfor%}
@@ -408,7 +410,7 @@
 
 
 <!-- INGREDIENTS SECTION -->
-{% if product.metafields.global.json.baseIngredients[0].title != "baseIngredient" %}
+{% if product.metafields.global.json.baseIngredients[0].title != "" %}
 <section class="product-single__ingredientsSection">
   
   <h1 style="width: 100%;">6 base ingredients</h1>

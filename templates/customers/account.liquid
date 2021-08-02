@@ -63,7 +63,7 @@
   </div>
 <div class="account-page__logoutDiv">
 
-  <a href="/account/logout" id="customer_logout_link" class="clearButton">Log out</a>
+  <a href="/account/logout" id="customer_logout_link" class="clearButton account-page--addAddress">Log out</a>
 </div>
 
 
@@ -96,6 +96,7 @@
     font-weight: 500;
     font-size: 56px;
     line-height: 80px;
+    text-align: left;
   }
 
   .account-page h2 {
@@ -132,7 +133,7 @@
     color: #757575;
   }
 
-  .account-page button {
+  .account-page--addAddress {
     margin-top: 64px;
     display: inline-block;
   }
@@ -178,9 +179,9 @@
   }
 
   @media only screen and (max-width: 749px) {
-  .account-page__hero{
-    height: 375px;
-  } 
+    .account-page__hero{
+      height: 375px;
+    } 
 
     .account-page {
       padding: 60px 16px 60px 16px;
@@ -192,15 +193,20 @@
       line-height: 48px;
     }
 
-    .account-page:last-child {
+    /* .account-page:last-child {
       padding-bottom: 120px;
-    }
+    } */
 
-    .account-page button {
+    .account-page--addAddress {
       margin-top: 64px;
       width: 100%;
       display: inline-block;
     }
+
+    .account-page tr {
+     border-bottom: 1px solid #757575;
+    }
+
   }
 
 

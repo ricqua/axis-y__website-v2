@@ -1,24 +1,25 @@
 <section class="col_list-image">
-
-  <ul>
-    <li>Vegan</li>
-    <li>No parabens</li>
-    <li>Cruelty-free</li>
-    <li>No artificial colours</li>
-    <li>No artificial fragrances</li>
-    <a href="{{ section.settings.button_link }}"
-      class="clearButton"
-      aria-label="{{ ariaLabel }}">
-      {{- section.settings.button_label | escape -}}
-    </a>
-  </ul>
+  <div>
+    <ul>
+      <li>Vegan</li>
+      <li>No parabens</li>
+      <li>Cruelty-free</li>
+      <li>No artificial colors</li>
+      <li>No artificial fragrances</li>
+    </ul>
+     <a href="{{ section.settings.button_link }}"
+        class="clearButton"
+        aria-label="{{ ariaLabel }}">
+        {{- section.settings.button_label | escape -}}
+      </a>
+</div>
 
   <div>
     <img src="{{section.settings.image | img_url: "556x720"}}" alt="{{section.secttings.image.alt | escape}}">
     <div class="col_list-image--legalBadge">
       {{ 'legalWarningbadge.svg' | asset_url | img_tag: 'legal warning badge' }}
     </div>
-  </div>
+  </div> 
 </section>
 
 
