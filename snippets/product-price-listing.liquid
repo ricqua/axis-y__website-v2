@@ -65,7 +65,19 @@
     </dd>
   </div>
   <div class="price__sale">
-    <dt>
+   
+    <div class="price__compare">
+      <dt>
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
+      </dt>
+      <dd>
+        <s class="price-item price-item--regular">
+          {{ compare_at_price | money }}
+        </s>
+      </dd>
+    </div>
+    
+     <dt>
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
     </dt>
     <dd>
@@ -77,16 +89,6 @@
         {%- endif -%}
       </span>
     </dd>
-    <div class="price__compare">
-      <dt>
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
-      </dt>
-      <dd>
-        <s class="price-item price-item--regular">
-          {{ compare_at_price | money }}
-        </s>
-      </dd>
-    </div>
   </div>
   <div class="price__unit">
     <dt>

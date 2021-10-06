@@ -7168,23 +7168,25 @@ hr {
 }
 
 .price-item {
-  color: var(--color-body-text);
   /* font-weight: var(--font-weight-body--bolder); */
+  color: var(--color-body-text);
   font-weight: 600;
 }
 
 .price-item--sale {
   /* color: var(--color-sale-text); */
-  color: #757575;
-  font-weight: 300;
+  font-weight: 600; 
   font-size: 18px;
   line-height: 28px;
-  text-decoration-line: line-through;
 }
 
 .price--on-sale .price-item--regular {
-  /* text-decoration: line-through; */
-  text-decoration: none !important;
+  text-decoration: line-through;
+  color: #757575;
+  font-weight: 300;
+  line-height: 28px;
+  font-size: 18px;
+
 }
 
 .price-unit-price {

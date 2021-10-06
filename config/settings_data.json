@@ -1,32 +1,83 @@
 {
   "current": {
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
+    "social_facebook_link": "https:\/\/www.facebook.com\/axisy.official\/?eid=ARD340YRIsdFy5K95_2t4XE0PaEUhsAzD6NjcZ7EqqPnRorl5QzKDPLMrbi6w_hMBVbe2eDEcXcDOxkm",
+    "social_instagram_link": "https:\/\/www.instagram.com\/axisy_official\/",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UC034bTqvgDGr05diKFO_K7w",
+    "favicon": "shopify:\/\/shop_images\/axis-ySimpleLogoAv1.png",
+    "enable_ajax": true,
+    "checkout_logo_image": "shopify:\/\/shop_images\/AXIS-Y_NewLogo-02.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_accent_color": "#008554",
+    "checkout_button_color": "#008554",
     "sections": {
       "header": {
         "type": "header",
-        "settings": {}
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/AXIS-Y_LogoAv1_0c1be428-b161-4780-99e5-7887ebb09a51.png",
+          "logo_max_width": 170,
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": true,
+          "message_text": "Free international shipping on applicable orders of $50+ or $80+ | Click to learn more",
+          "message_link": "shopify:\/\/pages\/faq",
+          "color_bg": "#86c5a7",
+          "color_text": "#000000"
+        }
       },
       "hero-1": {
         "type": "hero",
         "settings": {
-          "hero_size": "large",
-          "text_size": "large"
+          "title1": "Beyond",
+          "title2": "clean beauty",
+          "image1": "shopify:\/\/shop_images\/axisy10574d_3_editedHOMEPAGE_RESIZE.jpg",
+          "image2": "shopify:\/\/shop_images\/home.jpg",
+          "button_label": "Shop all",
+          "button_link": "shopify:\/\/collections\/frontpage"
         }
       },
       "feature-image-text-stack": {
         "type": "feature-image-text-stack",
-        "settings": {}
+        "settings": {
+          "image": "shopify:\/\/shop_images\/AXIS-Y_GelCleanser6.jpg",
+          "title": "Clarity Blog",
+          "text": "<p>Informative insights into K-beauty, skincare trends, tips, and tricks to help guide you through your skincare journey<\/p>",
+          "button_label": "Read more",
+          "button_link": "shopify:\/\/blogs\/clarity"
+        }
       },
       "2col_list-image": {
         "type": "2col_list-image",
-        "settings": {}
+        "settings": {
+          "image": "shopify:\/\/shop_images\/axisy10735d_2_copyRESIZE.jpg",
+          "button_label": "See our products",
+          "button_link": "shopify:\/\/collections\/frontpage"
+        }
       },
       "hero-text-stack": {
         "type": "hero-text-stack",
-        "settings": {}
+        "settings": {
+          "title": "It's not about conforming to someone else's standards.",
+          "title2": "It's about your unique story.",
+          "text": "<p>You're not alone in your skin care journey.  We're here to deliver personalized skin care to you wherever you are.<\/p>",
+          "button_label": "Read our story",
+          "button_link": "shopify:\/\/pages\/about-us"
+        }
       },
       "feature-row": {
         "type": "feature-row",
-        "settings": {}
+        "settings": {
+          "image": "shopify:\/\/shop_images\/210902_AXIS-Y_spot_treatment_image_03_1.jpg",
+          "layout": "left",
+          "title": "New: Spot the Difference Blemish Treatment",
+          "text": "<p>This light gel provides effective relief from breakouts and blemishes and is infused with hydrating Ceramide capsules to help restore the skin barrier.<br\/> <\/p>",
+          "button_label": "Shop now",
+          "button_link": "shopify:\/\/products\/spot-the-difference-blemish-treatment"
+        }
       },
       "feature-columns": {
         "type": "feature-columns",
@@ -56,13 +107,12 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "grid": 4
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "settings": {
-          "text_size": "large"
+          "title": "Our most popular",
+          "collection": "mostpopular",
+          "grid": 3,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": false
         }
       },
       "quotes": {
@@ -118,19 +168,617 @@
         "blocks": {
           "footer-0": {
             "type": "link_list",
-            "settings": {}
+            "settings": {
+              "title": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "d4c10dcc-35c8-4e60-802f-283fba95ee7b": {
+            "type": "link_list",
+            "settings": {
+              "title": "Quick links",
+              "menu": "footer-quick-links"
+            }
           },
           "footer-1": {
             "type": "newsletter",
-            "settings": {}
+            "settings": {
+              "title": "Newsletter"
+            }
           }
         },
         "block_order": [
           "footer-0",
+          "d4c10dcc-35c8-4e60-802f-283fba95ee7b",
           "footer-1"
         ],
         "settings": {
-          "show_payment_icons": true
+          "show_payment_icons": true,
+          "color_footer_bg": "#cedfd7",
+          "color_footer_text": "#000000",
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 8,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "162632585454b6824d": {
+        "type": "maestrooo-instagram",
+        "settings": {
+          "title": "Follow us on Instagram",
+          "subheading": "",
+          "button_text": "",
+          "button_link": "",
+          "layout": "grid",
+          "image_size": "large",
+          "full_width": false,
+          "add_spacing": true,
+          "rows_count": 1,
+          "show_author": false,
+          "show_caption": true,
+          "show_date": true,
+          "click_action": "open_instagram",
+          "heading_color": "#000000",
+          "subheading_color": "#000000",
+          "button_background": "#ffffff",
+          "button_color": "#000000",
+          "overlay_color": "#ffffff",
+          "overlay_text_color": "#000000",
+          "overlay_opacity": 73
+        }
+      },
+      "rich-text": {
+        "type": "rich-text",
+        "settings": {
+          "section_title": "A line made for and by the community",
+          "text": "<p>At AXIS-Y, we have always been focused on developing and adjusting our products based off of feedback from our community. We wanted to take it a step even further, however, by launching an entire line created by our community. Through a series of surveys, polls, and sampling by members of our community, we were able to create our new line: AXIS-Y & Me.ddddddd<\/p>"
+        }
+      },
+      "timeline": {
+        "type": "timeline",
+        "settings": {
+          "title": "What's next?",
+          "image1": "shopify:\/\/shop_images\/co-development_timeline_horiz-03_1440x_8693d7e8-c0e0-46df-8898-d007d193137e.png",
+          "image2": "shopify:\/\/shop_images\/timeline_vertical.png"
+        }
+      },
+      "hero-careers": {
+        "type": "hero-careers",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/office5.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "large",
+          "text_size": "medium",
+          "title": "Careers",
+          "text": "",
+          "button_label": "Shop all",
+          "button_link": ""
+        }
+      },
+      "hero-about": {
+        "type": "hero-about",
+        "settings": {
+          "title1": "We are",
+          "image1": "shopify:\/\/shop_images\/axisy10903_edited_2_ABOUTUS_RESIZE.jpg",
+          "image2": "shopify:\/\/shop_images\/climate_inspired.jpg"
+        }
+      },
+      "contributors": {
+        "type": "contributors",
+        "blocks": {
+          "9ca3ce94-0801-460e-9648-0a0d06fd0044": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Tanya_OttoCROP.jpg",
+              "name": "Tanya Otto",
+              "location": "South Africa",
+              "description": "Catch your dreams before they slip away ✨",
+              "social1Url": "tanyaotto26",
+              "code": "FOR TANYA"
+            }
+          },
+          "901cc72d-0e7f-44e0-a732-c2a943785589": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM-_Azia_Ramadhani.jpg",
+              "name": "Azia Ramadhani",
+              "location": "Indonesia",
+              "description": "Always be yourself no matter what they say and never be anyone else even if they look better than you",
+              "social1Url": "aziaasr__",
+              "code": "FOR AZIA"
+            }
+          },
+          "f2b5735a-5b42-42a1-920c-fd0da81438e0": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Janeth_Warrick.jpg",
+              "name": "Janeth Warrick",
+              "location": "Chile",
+              "description": "Sunscreen and passport, and ready to go",
+              "social1Url": "janethw",
+              "code": "FOR JANETH"
+            }
+          },
+          "97f88e11-e1dd-4cd1-a345-3597ea2c2c6a": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Ina_Marlina.jpg",
+              "name": "Ina Marlina",
+              "location": "Indonesia",
+              "description": "Love my self",
+              "social1Url": "inmarlyn__",
+              "code": "FOR INA"
+            }
+          },
+          "df2d711b-4947-4a55-817d-318738199da6": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Jimin_Ha.jpg",
+              "name": "Jimin Ha",
+              "location": "USA",
+              "description": "All grown ups were once children, but very few of them remember it",
+              "social1Url": "jeemeenha",
+              "code": "FOR JIMIN"
+            }
+          },
+          "ea55ff25-bca8-474b-9b4b-33b30766111d": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Lynn_Tran.jpg",
+              "name": "Lynn Tran",
+              "location": "USA",
+              "description": "“Go confidently in the direction of your dreams! Live the life you’ve imagined.”",
+              "social1Url": "itsnnyl",
+              "code": "FOR LYNN"
+            }
+          },
+          "9c3746ee-d5ce-4a7f-a0d4-ea665b6abac6": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Ria_Baasch.jpg",
+              "name": "Ria Baasch",
+              "location": "Germany",
+              "description": "Girl, do it for you. Trust the timing of your life.",
+              "social1Url": "riapauline",
+              "code": "FOR RIA"
+            }
+          },
+          "a2c33ccd-7f2c-4fde-9495-98c0db9e7075": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Moelly_Chintia.jpg",
+              "name": "Moelly Chintia",
+              "location": "Indonesia",
+              "description": "Solitude matters and for some people, it’s the air they breathe",
+              "social1Url": "moellyc",
+              "code": "FOR MOELLY"
+            }
+          },
+          "973747b2-eecc-4023-ae7d-0e6eb8d5218d": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Val_Pillay.jpg",
+              "name": "Val Pillay",
+              "location": "South Africa",
+              "description": "You will be amazed by what you attract after you start believing in what you deserve.",
+              "social1Url": "vxl_p",
+              "code": "FOR VAL"
+            }
+          },
+          "7d2f1f10-5b8b-476c-84fa-ee58ca7af577": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Putri_Lasim.jpg",
+              "name": "Putri Lasim",
+              "location": "Indonesia",
+              "description": "Be yourself, because to look beautiful is not to satisfy the views of others, but to love yourself more",
+              "social1Url": "anandadppl",
+              "code": "FOR PUTRI"
+            }
+          },
+          "46605d6d-cb83-4543-97cc-8ad345fe97a3": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM-_Mikee_Borja.jpg",
+              "name": "Mikee Borja",
+              "location": "Philippines",
+              "description": "Grab every opportunity that comes on your way.",
+              "social1Url": "_emineeeeeeem",
+              "code": "FOR MIKEE"
+            }
+          },
+          "4df9fe74-12f9-4671-a336-47b0a930582b": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Janelle_DyCROP.jpg",
+              "name": "Janelle Dy",
+              "location": "Philippines",
+              "description": "\"You are allowed to be both a masterpiece and a work in progress, simultaneously. ✌️\"",
+              "social1Url": "stanskincare",
+              "code": "FOR JANELLE"
+            }
+          },
+          "aabf5aa5-bc08-4547-b0f9-8094b95f906e": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Chalsy_Marcella.jpg",
+              "name": "Chalsy Marcella",
+              "location": "Indonesia",
+              "description": "\"Good skin for better life\"",
+              "social1Url": "Chalsymarcella",
+              "code": "FOR CHALSY"
+            }
+          },
+          "fb729d83-a7fd-40e9-a37c-cb6c5c45f162": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM-_Silvi_Taruna.jpg",
+              "name": "Sylvia Taruna",
+              "location": "Indonesia",
+              "description": "You don’t need a perfect skin to be beautiful",
+              "social1Url": "tarunasylvia",
+              "code": "FOR SYLVIA"
+            }
+          },
+          "de09785c-eec8-4b3a-b229-013363e66b00": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM-_Cindy_Deveau.jpg",
+              "name": "Cindy Deveau",
+              "location": "Canada",
+              "description": "Essences are the heart of skincare, layering is caring.",
+              "social1Url": "cindys.way",
+              "code": "FOR CINDY"
+            }
+          },
+          "653dd99e-2d88-4336-b8a2-1f21642dd5e4": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Elle_Celine.jpg",
+              "name": "Elle Celine",
+              "location": "Indonesia",
+              "description": "Beauty begins the moment you decide to be YOURSELF",
+              "social1Url": "elle.skin",
+              "code": "FOR ELLE"
+            }
+          },
+          "eb09d242-2879-4899-a748-9455af911cab": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Annisa_Diviyanti.jpg",
+              "name": "Nisa Diviyanti",
+              "location": "Indonesia",
+              "description": "\"Adhere to that which is beneficial for you. Keep asking Almighty for help and do not feel helpless.\"",
+              "social1Url": "annisadivi",
+              "code": "FOR NISA"
+            }
+          },
+          "8a6da4fa-ad37-4e79-8e3a-8b37ab62dc45": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Leah_Reyes.jpg",
+              "name": "Leah Reyes",
+              "location": "Philippines",
+              "description": "Love and kindness are never wasted",
+              "social1Url": "oilyskinguru",
+              "code": "FOR LEAH"
+            }
+          },
+          "613b0dd9-aa9b-4f20-a9c5-6fec4862259c": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Image_from_iOS_1.jpg",
+              "name": "Alexandra Grabow",
+              "location": "Germany",
+              "description": "We are all mad here",
+              "social1Url": "shiaswelt",
+              "code": "FOR ALEXANDRA"
+            }
+          },
+          "466abab4-b901-4bdd-bca0-1d1654edc53b": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Nindy_Lestari.jpg",
+              "name": "Nindy Lestari",
+              "location": "Indonesia",
+              "description": "Know your worth, never settle for less",
+              "social1Url": "nindunia",
+              "code": "FOR NINDY"
+            }
+          },
+          "b84c1508-ebfb-4466-9ad4-591b2f9054b5": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Eliana_van_Renterghem.jpg",
+              "name": "Eliana van Renterghem",
+              "location": "USA",
+              "description": "A positive outlook leads to a positive life. And everything is better with a cup of tea. :)",
+              "social1Url": "ellebebach",
+              "code": "FOR ELIANA"
+            }
+          },
+          "2d7c265e-eee5-4bcc-b7ea-8e58069e8edf": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Joey_Teo.jpg",
+              "name": "Joey Teo",
+              "location": "Singapore",
+              "description": "Hidden beneath the clouds lies a rainbow bright as sunshine! 🌈",
+              "social1Url": "joeyteoxy",
+              "code": "FOR JOEY"
+            }
+          },
+          "d1e0b3da-13d3-4edb-a20f-eec4f7700238": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Fui_Ping_Michelle_Chia.jpg",
+              "name": "Michelle Chia",
+              "location": "Malaysia",
+              "description": "No rain, no flowers. Enjoy the little things in life.",
+              "social1Url": "michelleeeechia",
+              "code": "FOR MICHELLE"
+            }
+          },
+          "c1625859-a772-4e2b-875c-4c15d6e41fb5": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Ferina_Jatnika.jpg",
+              "name": "Ferina Jatnika",
+              "location": "Germany",
+              "description": "When things are too hard to handle, retreat & count your blessings instead :)",
+              "social1Url": "ferinaindriyani",
+              "code": "FOR FERINA"
+            }
+          },
+          "6d1b4c3b-7134-4aaa-b6a3-f55df52da38e": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image4.jpg",
+              "name": "J Kim",
+              "location": "USA",
+              "description": "Be picky with your time, friends, and skincare",
+              "social1Url": "prettyprivatethings",
+              "code": "FOR J"
+            }
+          },
+          "0c31c1fe-d942-4c25-b14e-d6d060504548": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Bec_Love.jpg",
+              "name": "Bec Love",
+              "location": "United Kingdom",
+              "description": "Be your authentic self, share your real skin and never compare yourself to others!",
+              "social1Url": "becbuysbeauty",
+              "code": "FOR BEC"
+            }
+          },
+          "a6eeeb59-dfe1-4c25-9d85-a4d8bfbbdf5b": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_PatriciaMae_Atienza.jpg",
+              "name": "PatriciaMae Atienza",
+              "location": "USA",
+              "description": "“Feel natural, be natural. Discover the beauty within.”",
+              "social1Url": "lovelifebeauty.blog",
+              "code": "FOR PATRICIAMAE"
+            }
+          },
+          "ac1dc140-da14-48b0-98ec-e92767b81ace": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/MFMBM_-_Irina_Yes.jpg",
+              "name": "Irina Stefan",
+              "location": "Romania",
+              "description": "\"Those who follow the line usually get lost in it\" - Rick Watson",
+              "social1Url": "irina_stefan0319",
+              "code": "FOR IRINA"
+            }
+          },
+          "3fe3042e-a816-4bc0-aebb-6873a76bf10f": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/B7F0C4A2-4EA5-4BD5-BA89-5B586F436702_-_Carles_Van_Cutsem.jpg",
+              "name": "Carlès Arturo Van Cutsem",
+              "location": "Belgium",
+              "description": "You don't owe anyone anything.",
+              "social1Url": "okcarles",
+              "code": "FOR CARLES"
+            }
+          },
+          "ae2d5415-6d29-4003-9342-0438199e6ff2": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/695B2095-5462-4F53-98DC-21110CCA6BC9_-_Hayley_Williamson.jpg",
+              "name": "Hayley Williamson",
+              "location": "United Kingdom",
+              "description": "A negative mind will never give you a positive life",
+              "social1Url": "Milkandhonie",
+              "code": "FOR HAYLEY"
+            }
+          },
+          "08910c88-3a52-482a-ad9c-2a1acc728fda": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/IMG_6266_-_Ophelia_Skin.jpg",
+              "name": "Kerry Jappe",
+              "location": "United States",
+              "description": "Life is what happens while you're busy making other plans.",
+              "social1Url": "ophelia.skin",
+              "code": "FOR KERRY"
+            }
+          },
+          "8911530e-6237-4d25-ad21-c9bf09b45ca6": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/7E0E0B9D-8488-43B6-8CD7-E187BD6B4237_-_TRACYLIM_TRACY.jpg",
+              "name": "Tracy Lim",
+              "location": "Malaysia",
+              "description": "\"Beauty is a deeply personal journey that manifests itself on the inside and outside.\"",
+              "social1Url": "yy31__",
+              "code": "FOR TRACY"
+            }
+          }
+        },
+        "block_order": [
+          "9ca3ce94-0801-460e-9648-0a0d06fd0044",
+          "901cc72d-0e7f-44e0-a732-c2a943785589",
+          "f2b5735a-5b42-42a1-920c-fd0da81438e0",
+          "97f88e11-e1dd-4cd1-a345-3597ea2c2c6a",
+          "df2d711b-4947-4a55-817d-318738199da6",
+          "ea55ff25-bca8-474b-9b4b-33b30766111d",
+          "9c3746ee-d5ce-4a7f-a0d4-ea665b6abac6",
+          "a2c33ccd-7f2c-4fde-9495-98c0db9e7075",
+          "973747b2-eecc-4023-ae7d-0e6eb8d5218d",
+          "7d2f1f10-5b8b-476c-84fa-ee58ca7af577",
+          "46605d6d-cb83-4543-97cc-8ad345fe97a3",
+          "4df9fe74-12f9-4671-a336-47b0a930582b",
+          "aabf5aa5-bc08-4547-b0f9-8094b95f906e",
+          "fb729d83-a7fd-40e9-a37c-cb6c5c45f162",
+          "de09785c-eec8-4b3a-b229-013363e66b00",
+          "653dd99e-2d88-4336-b8a2-1f21642dd5e4",
+          "eb09d242-2879-4899-a748-9455af911cab",
+          "8a6da4fa-ad37-4e79-8e3a-8b37ab62dc45",
+          "613b0dd9-aa9b-4f20-a9c5-6fec4862259c",
+          "466abab4-b901-4bdd-bca0-1d1654edc53b",
+          "b84c1508-ebfb-4466-9ad4-591b2f9054b5",
+          "2d7c265e-eee5-4bcc-b7ea-8e58069e8edf",
+          "d1e0b3da-13d3-4edb-a20f-eec4f7700238",
+          "c1625859-a772-4e2b-875c-4c15d6e41fb5",
+          "6d1b4c3b-7134-4aaa-b6a3-f55df52da38e",
+          "0c31c1fe-d942-4c25-b14e-d6d060504548",
+          "a6eeeb59-dfe1-4c25-9d85-a4d8bfbbdf5b",
+          "ac1dc140-da14-48b0-98ec-e92767b81ace",
+          "3fe3042e-a816-4bc0-aebb-6873a76bf10f",
+          "ae2d5415-6d29-4003-9342-0438199e6ff2",
+          "08910c88-3a52-482a-ad9c-2a1acc728fda",
+          "8911530e-6237-4d25-ad21-c9bf09b45ca6"
+        ],
+        "settings": {
+          "title": "Our community contributors"
+        }
+      },
+      "hero-codev": {
+        "type": "hero-codev",
+        "settings": {
+          "title1": "Made for me",
+          "title2": "by me",
+          "image1": "shopify:\/\/shop_images\/axisy10534d_2_editedCODEV_RESIZE_CROP.jpg",
+          "image2": "shopify:\/\/shop_images\/madeformebyme_1.jpg"
+        }
+      },
+      "product-template-merch": {
+        "type": "product-template-merch",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_vendor": true,
+          "enable_payment_button": true,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
+        }
+      },
+      "product-template-611": {
+        "type": "product-template-611",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "list",
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "image": "shopify:\/\/shop_images\/001_33_1.jpg",
+          "bannerLayout": "left",
+          "title": "Our 611 Skincare Routine",
+          "text": "<p><br\/>Learn more about what makes our 611 line unique and how to gain the benefits of our products.<br\/><\/p>",
+          "button_label": "Read more",
+          "button_link": "shopify:\/\/blogs\/clarity\/our-611-skincare-routine"
+        }
+      },
+      "influencers": {
+        "type": "influencers",
+        "blocks": {
+          "a3519548-4560-4f66-ad3f-02edd08c0a41": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Ben_Neiley.jpg",
+              "name": "Ben Neiley",
+              "location": "USA",
+              "description": "Ben is one of the top skincare content creators on TikTok, and is passionate about helping his viewers find products that truly work. He has worked in the beauty industry for four years, working in editorial, marketing, and now content creation. He has a passion for great ingredients that are effective yet still gentle on the skin, and can't wait to help create amazing formulas with AXIS-Y.",
+              "social0Url": "@benneiley",
+              "social1Url": "benneiley",
+              "social2Url": "",
+              "social3Url": "channel\/UCQdy_TEjOzpk_kAfSOjB0nw",
+              "code": "FOR BEN",
+              "product": "new-skin-resolution-gel-mask"
+            }
+          },
+          "814d1837-818d-480b-9d8f-f7897b6886e6": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mehdi.jpg",
+              "name": "Mehdi the Jipdori",
+              "location": "France",
+              "description": "Mehdi is a lifestyle vlogger based in Seoul. Fashion, food, travel are all things you can enjoy through his videos but skincare is where he shines and he’s tested it all. His own experience, his knowledge acquired through hosting multiple skincare shows mixed with his honesty and dedication to his community made him the perfect fit for taking AXIS-Y’s formulas to the next level.",
+              "social0Url": "@thejipdori",
+              "social1Url": "thejipdori",
+              "social2Url": "",
+              "social3Url": "channel\/UCg2GSPcxN7pZRH_MEOoRAkg",
+              "code": "FOR MEHDI",
+              "product": "dark-spot-correcting-glow-serum"
+            }
+          },
+          "1666dd36-ec19-4b86-a264-fd43422f1590": {
+            "type": "Contributor",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/claudia.jpg",
+              "name": "Claudia Christin",
+              "location": "Indonesia",
+              "description": "Claudia has a PhD in Dermatology (SNU). She is passionate about writing, skincare and everything related to beauty which inspired her to start a platform where she can reach people from all around the world. She is experienced in skincare formulation R&D and believes good skincare should not only be backed up by data and science, but also add extra joy (and fun) in someone's life.",
+              "social0Url": "",
+              "social1Url": "funskincare",
+              "social2Url": "https:\/\/funfunteatime.wordpress.com\/tag\/funskincare\/",
+              "social3Url": "",
+              "code": "FOR CLAUDIA",
+              "product": "mugwort-pore-clarifying-wash-off-pack"
+            }
+          }
+        },
+        "block_order": [
+          "a3519548-4560-4f66-ad3f-02edd08c0a41",
+          "814d1837-818d-480b-9d8f-f7897b6886e6",
+          "1666dd36-ec19-4b86-a264-fd43422f1590"
+        ],
+        "settings": {
+          "title": "Our influencers"
         }
       }
     },
@@ -140,7 +788,8 @@
       "collection",
       "feature-row",
       "feature-image-text-stack",
-      "2col_list-image"
+      "2col_list-image",
+      "162632585454b6824d"
     ]
   },
   "presets": {
@@ -159,7 +808,7 @@
         },
         "feature-row": {
           "type": "feature-row",
-          "settings": {} 
+          "settings": {}
         },
         "feature-image-text-stack": {
           "type": "feature-image-text-stack",
@@ -310,9 +959,9 @@
       "share_twitter": true,
       "share_pinterest": true,
       "social_twitter_link": "",
-      "social_facebook_link": "https://www.facebook.com/axisy.official/?eid=ARD340YRIsdFy5K95_2t4XE0PaEUhsAzD6NjcZ7EqqPnRorl5QzKDPLMrbi6w_hMBVbe2eDEcXcDOxkm",
+      "social_facebook_link": "https:\/\/www.facebook.com\/axisy.official\/?eid=ARD340YRIsdFy5K95_2t4XE0PaEUhsAzD6NjcZ7EqqPnRorl5QzKDPLMrbi6w_hMBVbe2eDEcXcDOxkm",
       "social_pinterest_link": "",
-      "social_instagram_link": "https://www.instagram.com/axisy_official/",
+      "social_instagram_link": "https:\/\/www.instagram.com\/axisy_official\/",
       "social_tumblr_link": "",
       "social_snapchat_link": "",
       "social_youtube_link": "",
@@ -389,17 +1038,6 @@
             "rows": 1,
             "show_vendor": true,
             "show_view_all": true
-          }
-        },
-        "product-template": {
-          "type": "product-template",
-          "settings": {
-            "show_quantity_selector": false,
-            "show_vendor": false,
-            "show_share_buttons": true,
-            "media_size": "medium",
-            "enable_image_zoom": true,
-            "enable_video_looping": false
           }
         },
         "collection-template": {

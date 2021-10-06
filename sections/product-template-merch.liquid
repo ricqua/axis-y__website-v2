@@ -76,19 +76,24 @@
           {%- assign enable_thumbnail_slides = true -%}
         {% endif %}
 
-        <div data-thumbnail-slider class="product-single__thumbnailsContainer">
-          <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} slider-active{% endif %}" data-slider>
-            {% if enable_thumbnail_slides == true %}
+        <!-- <div data-thumbnail-slider class="product-single__thumbnailsContainer"> -->
+        <!-- <div  class="product-single__thumbnailsContainer"> -->
+          <!-- <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} slider-active{% endif %}" data-slider> -->
+          <!-- <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} slider-active{% endif %}" > -->
+            <!-- {% if enable_thumbnail_slides == true %}
               <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}" data-slider-button>
                 {% include 'icon-chevron-left' %}
                 <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
               </button>
-            {% endif %}
+            {% endif %} -->
 
-            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" data-slider-container>
-              {% if enable_thumbnail_slides == true %}
-                <div class="product-single__thumbnails-slider-track" data-slider-track>
-              {% endif %}
+            <!-- <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" data-slider-container> -->
+            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+              <!-- {% if enable_thumbnail_slides == true %}
+                <div class="product-single__thumbnails-slider-track" > -->
+                <!-- <div class="product-single__thumbnails-slider-track" data-slider-track> -->
+
+              <!-- {% endif %} -->
 
               {% for media in product.media %}
                {% if media.alt contains "featured" %}
@@ -128,18 +133,18 @@
                 {% endif %}
               {% endfor %}
 
-              {% if enable_thumbnail_slides == true %}
+              <!-- {% if enable_thumbnail_slides == true %}
                 </div>
-              {% endif %}
+              {% endif %} -->
             </ul>
-            {% if enable_thumbnail_slides == true %}
+            <!-- {% if enable_thumbnail_slides == true %}
               <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}" data-slider-button data-slider-button-next>
                 {% include 'icon-chevron-right' %}
                 <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
               </button>
-            {% endif %}
-          </div>
-        </div>
+            {% endif %} -->
+          <!-- </div> -->
+        <!-- </div> -->
       {% endif %}
     </div>
 
@@ -184,13 +189,15 @@
             {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
           {%- endcapture %}
 
+
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+          
             {{ form | payment_terms }}
 
             {% unless product.has_only_default_variant %}
-              <div class="product-form__controls-group">
+              <div class="product-form__controls-group" >
                 {% for option in product.options_with_values %}
-                  <div class="selector-wrapper js product-form__item">
+                  <div class="selector-wrapper js product-form__item" style="margin-bottom: 32px; width: 100%;">
                     <label for="SingleOptionSelector-{{ forloop.index0 }}">
                       {{ option.name }}
                     </label>
@@ -207,6 +214,7 @@
               </div>
             {% endunless %}
 
+          
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}
                 <option value="{{ variant.id }}"
@@ -270,6 +278,7 @@
                 {% endif %} -->
               </div>
             </div>
+  
             </div>
           {% endform %}
         </div>
@@ -320,108 +329,13 @@
 {% endunless %}
 
 
-<!-- PRODUCT EXTENDED DETAILS 611 -->
-
-
-
-<!-- PRODUCT DESCRIPTION -->
-  <!-- <section class="product-single__skinTypes ">
-    <div class="product-single__description ">
-      <h1>Details</h1>
-
-      <div class="product-single__description--truncate-container">
-      <div id="product-single__description--truncated-product-description">
-        {{ product.metafields.global.productStoryShort }}<span id="product-single__description--read-more" class="product-single__description--read-additional">Read more</span></div>
-      <div id="product-single__description--product-description">
-        {{ product.metafields.global.productStoryFull }} <span id="product-single__description--read-less" class="product-single__description--read-additional">Read less</span></div>
-      </div>
-
-        <br/>
-        <br/>
-
-      {% if product.metafields.global.skinType %}
-        <h4>Skin Type</h4>
-        <p>{{ product.metafields.global.skinType }}</p> 
-        <hr/>
-      {% endif %}
-
-      {% if product.metafields.global.skinConcern %}
-      <h4>Skin Concern</h4>
-      <p>{{ product.metafields.global.skinConcern }}</p>
-      <hr/>
-      {% endif %}
-
-      {% if product.metafields.global.skinFeel %}
-      <h4>Skin Feel</h4>
-      <p>{{ product.metafields.global.skinFeel }}</p>
-      {% endif %}
-
-    </div>
-
-    {% for media in product.media %}
-      {% if media.preview_image.alt contains "description_image" %}
-        <div class="product-single__skinTypes--image">
-          <img src="{{ media.preview_image | img_url: "615x", crop: "center", format: "pjpg"}}" alt="Description image"}>
-        </div>
-      {% endif %}
-    {% endfor%}
-  </section> -->
-
-
-
-<!-- 6+1+1 SECTION -->
-  <!-- <section class="product-single__611section">
-    <div class="product-single__611section--wrapper">
-        <div class="product-single__611section--image">
-          <img src="{{ "611series.png" | asset_img_url: "608x", crop: "center", format: "pjpg"}}" alt="611 image"}>
-        </div>
-
-        <div class="product-single__611section--info">
-        <p>Part of our</p>
-        <p>6+1+1 series</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, porro! Rem totam labore omnis iusto?</p>
-      </div>
-    </div>
-  </section> -->
-
 <!-- REVIEW WIDGET -->
-    <section class="page-width">
-      <!-- {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %} -->
-      {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
-    </section>
+<section class="page-width">
+  {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
+</section>
 
-
-
-
-
-
-
-
-<script>
-  let product_single__description__read_more = document.getElementById('product-single__description--read-more')
-  let product_single__description__read_less = document.getElementById('product-single__description--read-less');
-  let product_single__description__truncated_description = document.getElementById('product-single__description--truncated-product-description');
-  let product_single__description__full_description = document.getElementById('product-single__description--product-description');
-
-  product_single__description__read_more.addEventListener('click', showHideDescription)
-  product_single__description__read_less.addEventListener('click', showHideDescription)
-
-  function showHideDescription(){
-    let ID = this.id
-    if(ID === "product-single__description--read-more"){
-      product_single__description__truncated_description.style.display = "none";
-      product_single__description__full_description.style.display = "block";
-    }else {
-      product_single__description__truncated_description.style.display = "block";
-      product_single__description__full_description.style.display = "none";    
-    }
-  }
-</script>
 
 <style>
-  /* .product-single__description--truncate-container {
-    width:300px;
-  } */
   .product-single__description--read-additional {
     margin-top: 8px;
     display: block;
@@ -429,7 +343,6 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 24px;
-    /* text-decoration: underline; */
   }
   .product-single__description--read-additional:hover {
     cursor: pointer;
@@ -450,27 +363,6 @@
   }
 </style>
 
-
-<script>
-  let product_single__allingredients__read_more = document.getElementById('product-single__allIngredients--read-more')
-  let product_single__allingredients__read_less = document.getElementById('product-single__allIngredients--read-less');
-  let product_single__allingredients__truncated_description = document.getElementById('product-single__allIngredients--truncated-product-description');
-  let product_single__allingredients__full_description = document.getElementById('product-single__allIngredients--product-description');
-
-  product_single__allingredients__read_more.addEventListener('click', showHideDescription)
-  product_single__allingredients__read_less.addEventListener('click', showHideDescription)
-
-  function showHideDescription(){
-    let ID = this.id
-    if(ID === "product-single__allIngredients--read-more"){
-      product_single__allingredients__truncated_description.style.display = "none";
-      product_single__allingredients__full_description.style.display = "block";
-    }else {
-      product_single__allingredients__truncated_description.style.display = "block";
-      product_single__allingredients__full_description.style.display = "none";    
-    }
-  }
-</script>
 
 
 
@@ -526,7 +418,7 @@
         "zh-CN": "显示数量选择器",
         "zh-TW": "顯示數量選擇器"
       },
-      "default": false
+      "default": true
     },
     {
       "type": "checkbox",

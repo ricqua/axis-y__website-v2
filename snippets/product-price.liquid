@@ -60,21 +60,21 @@
       </dd>
     </div>
     <div class="price__sale">
-      <dt>
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
-      </dt>
-      <dd>
-        <span class="price-item price-item--sale" data-sale-price>
-          {{ money_price }}
-        </span>
-      </dd>
-      <dt>
+            <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
       </dt>
       <dd>
         <s class="price-item price-item--regular" data-regular-price>
           {{ compare_at_price | money }}
         </s>
+      </dd>
+      <dt>
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
+      </dt>
+      <dd>
+        <span class="price-item price-item--sale" data-sale-price>
+          {{ money_price }} 
+        </span>
       </dd>
     </div>
     
