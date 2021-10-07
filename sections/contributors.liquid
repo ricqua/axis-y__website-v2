@@ -7,12 +7,14 @@
           <img src="{{ block.settings.image | img_url: "180x"}}" alt="{{ block.settings.image.alt }}">  
           <div class="codev-page__contributors--socialIcons">
             <h3>{{ block.settings.name }}</h3>
-            <a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>
+            {% if block.settings.socialUrl != "" %}<a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>{% endif %}
+            {% if block.settings.articleLink != "" %}<a href="{{ block.settings.articleLink }}/" target="_blank">{% include 'icon-article' %}</a>{% endif %}
           </div>
           <p >{{ block.settings.location }}</p>
           <p class="codev-page__contributors--item--story">{{ block.settings.description }}</p>
           
-          <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="{{ block.settings.code }}">
+
+          <!-- <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="{{ block.settings.code }}"> -->
         </div>
       {% endfor %}
     </div>
@@ -68,8 +70,8 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
-    margin-top: 16px;
-    margin-bottom: 8px;
+    margin: 16px auto 8px 0;
+
   }
 
   .codev-page__contributors--item p {
@@ -129,6 +131,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
   }
 
 
@@ -191,7 +194,12 @@
           "id": "code",
           "type": "text",
           "label": "Affiliate code"
-        }      
+        },
+        {
+          "id": "articleLink",
+          "type": "text",
+          "label": "Article link"
+        }        
       ]
     }
   ]

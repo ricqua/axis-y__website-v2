@@ -9,7 +9,6 @@
             <h3>{{ block.settings.name }}</h3>
             {% if block.settings.social0Url != "" %}<a href="https://www.tiktok.com/{{ block.settings.social0Url }}/" target="_blank">{% include 'icon-tiktok' %}</a>{% endif %}
             {% if block.settings.social1Url != "" %}<a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>{% endif %}
-            <!-- {% if block.settings.social2Url != "" %}<a href="https://www.facebook.com/{{ block.settings.social2Url }}/" target="_blank">{% include 'icon-facebook' %}</a>{% endif %} -->
             {% if block.settings.social2Url != "" %}<a href="{{ block.settings.social2Url }}" target="_blank">{% include 'icon-blog' %}</a>{% endif %}
             {% if block.settings.social3Url != "" %}<a href="https://www.youtube.com/{{ block.settings.social3Url }}/" target="_blank">{% include 'icon-youtube' %}</a>{% endif %}
           </div>
@@ -17,13 +16,13 @@
           <p class="codev-page__influencers--item--story">{{ block.settings.description }}</p>
           
           {% if block.settings.product %}
-            <a class="codev-page__influencers--recommended">
+            <a class="codev-page__influencers--recommended" href="{{ block.settings.product.url }}">
               <img src="{{ block.settings.product.featured_image | img_url: "150x"}}" alt="recommended product image">
               {{ block.settings.product.title }}
             </a>
           {% endif %}
 
-          <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="{{ block.settings.code }}">
+          <!-- <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="{{ block.settings.code }}"> -->
 
         </div>
       {% endfor %}
