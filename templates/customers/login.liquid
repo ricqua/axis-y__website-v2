@@ -1,76 +1,82 @@
-<section class="login-page">
+<section class="signinPage">
   <!-- <a href="/" class="login-page__backButton">
     {% include 'icon-chevron-left' %}
   </a> -->
 
-  <a href="/" class="login-page__closeButton"> {% include 'icon-close' %} </a>
+  <section class="signinPage__card">
+    {% form 'customer_login', novalidate: 'novalidate' %}
 
-  <div
-    class="form-message form-message--success hide"
-    id="ResetSuccess"
-    tabindex="-1"
-  >
-    {{ "customer.recover_password.success" | t }}
-  </div>
+      <a href="/" class="login-page__closeButton"> {% include 'icon-close' %} </a>
 
-  <!-- LOGIN FORM -->
-  {% form 'customer_login', novalidate: 'novalidate' %}
-      <h1 id="LoginHeading">{{ "customer.login.title" | t }}</h1>
+        <div class="signinPage__card--image">
+          {{ 'axis-ySimpleLogoAv1.svg' | asset_url  | img_tag: 'AXIS-Y Logo' }}
+        </div>
 
-      <!-- MESSAGE ERRORS -->
-      {%- if form.errors -%}
-      <div class="form-message form-message--error">
-        <h2 class="h3 form-message__title" tabindex="-1" data-form-status>
-          {{ "contact.form.error_heading" | t }}
-        </h2>
-        {{ form.errors | default_errors }}
-      </div>
-      {%- endif -%}
+        <h1 id="LoginHeading">{{ "customer.login.title" | t }}</h1>
 
-      <label for="CustomerEmail">Email</label>
-      <input type="email" name="customer[email]" id="CustomerEmail"
-      autocomplete="email" autocorrect="off" autocapitalize="off" {%- if form.errors
-      contains 'form' -%} class="input--error" aria-invalid="true" {%- endif -%} >
+        <!-- <div
+            class="form-message form-message--success hide"
+            id="ResetSuccess"
+            tabindex="-1"
+          >
+            {{ "customer.recover_password.success" | t }}
+          </div> -->
 
-      <label for="CustomerPassword">Password</label>
-      <input type="password" value="" name="customer[password]"
-      id="CustomerPassword" {%- if form.errors contains 'form' -%}
-      class="input--error" aria-invalid="true" {%- endif -%} >
+        <!-- MESSAGE ERRORS -->
+        {%- if form.errors -%}
+        <section class="form-message form-message--error">
+          <p  tabindex="-1" data-form-status>
+            {{ "contact.form.error_heading" | t }}
+          </p>
+          {{ form.errors | default_errors }}
+        </section>
+        {%- endif -%}
 
-      <!-- REMEMBER ME AND FORGOT PASSWORD BUTTONS -->
-      <div class="login-page__recoverPassword">
-        <!-- <p>Keep me logged in</p>        -->
-        <!-- <p><a href="/account/recover_password">{{ 'customer.login.forgot_password' | t }}</a></p> -->
-        <p>
-          <a href="#recover" id="RecoverPassword">{{
-            "customer.login.forgot_password" | t
-          }}</a>
-        </p>
-      </div>
+        <input type="email" name="customer[email]" id="CustomerEmail" placeholder="Email *"
+        autocomplete="email" autocorrect="off" autocapitalize="off" {%- if form.errors
+        contains 'form' -%} class="input--error" aria-invalid="true" {%- endif -%} >
 
-      <button type="submit" class="login-page__loginButton">
-        {{ "customer.login.sign_in" | t }}
-      </button>
-  {% endform %}
+        <input type="password" value="" name="customer[password]" placeholder="Password *"
+        id="CustomerPassword" {%- if form.errors contains 'form' -%}
+        class="input--error" aria-invalid="true" {%- endif -%} >
 
-  <!-- CREATE ACCOUNT SECTION -->
-  <div class="login-page__createAccount ">
-    <strong>Don't have an account?</strong>
-    <p>
-      Creating an account saves your details for faster checkout and earns you
-      reward points for discounts on future purchases.
-    </p>
-    <p class="login-page__createAccount--button">
-      {{ "layout.customer.create_account" | t | customer_register_link }}
-    </p>
-  </div>
+        <!-- FORGOT PASSWORD BUTTONS -->
+        <div>
+          <p>
+            <a href="#recover" id="RecoverPassword">{{
+              "customer.login.forgot_password" | t
+            }}</a>
+          </p>
+          <button type="submit" class="login-page__loginButton">
+            {{ "customer.login.sign_in" | t }}
+          </button>
+        </div>
+
+
+      <!-- CREATE ACCOUNT SECTION -->
+        <!-- <label> -->
+          <a href="/account/register">Create an account</a>
+          <!-- <label>
+            Creating an account saves your details for faster checkout and earns you
+            reward points for discounts on future purchases.
+          </label> -->
+          <!-- <p class="login-page__createAccount--button">
+            {{ "layout.customer.create_account" | t | customer_register_link }}
+          </p> -->
+        <!-- </label> -->
+
+       
+    {% endform %}
+  </section>
+
+
 
   <!-- RECOVER PASSWORD MODAL -->
   <section
     id="RecoverPasswordForm"
     class="hide login-page__passwordRecoverSection"
   >
-    <div class="login-page">
+    <div class="signinPage__card">
       <a
         href="#LoginHeading"
         id="HideRecoverPasswordLink"
@@ -80,10 +86,13 @@
       </a>
       <!-- <a href="#LoginHeading" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a> -->
 
-      <div class="text-center">
+        
+        <!-- <label>{{ "customer.recover_password.subtext" | t }}</label> -->
+
+      <!-- <div class="text-center">
         <h1 id="RecoverHeading">{{ "customer.recover_password.title" | t }}</h1>
         <p>{{ "customer.recover_password.subtext" | t }}</p>
-      </div>
+      </div> -->
 
       <div class="form-vertical">
         {% form 'recover_customer_password' %} 
@@ -93,11 +102,18 @@
         <span class="hide reset-password-success"></span>
         {% endif %}
 
-        <label for="RecoverEmail">{{
+        <div class="signinPage__card--image">
+          {{ 'axis-ySimpleLogoAv1.svg' | asset_url  | img_tag: 'AXIS-Y Logo' }}
+        </div>
+
+        <h1 >{{ "customer.recover_password.title" | t }}</h1>
+
+        <!-- <label for="RecoverEmail">{{
           "customer.recover_password.email" | t
-        }}</label>
+        }}</label> -->
         <input
           type="email"
+          placeholder="Email *"
           value=""
           name="email"
           id="RecoverEmail"
@@ -123,12 +139,12 @@
           <span>{{ form.errors.messages["form"] }}</span>
         </span>
         {%- endif -%}
-        <div class="text-center">
-          <button type="submit" class="greenButton">
+        <!-- <div class="text-center"> -->
+          <button type="submit" class="">
             {{ "customer.recover_password.submit" | t }}
           </button>
     
-        </div>
+        <!-- </div> -->
         {% endform %}
       </div>
     </div>

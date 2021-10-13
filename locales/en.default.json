@@ -310,7 +310,7 @@
       "track_shipment": "Track shipment"
     },
     "recover_password": {
-      "title": "Reset your password",
+      "title": "Reset password",
       "email": "Email",
       "submit": "Submit",
       "cancel": "Cancel",

@@ -373,7 +373,7 @@
   {% for media in product.media %}
     {% if media.preview_image.alt contains "description_image" %}
       <div class="product-single__skinTypes--image">
-        <img src="{{ media.preview_image | img_url: "615x", crop: "center", format: "pjpg"}}" alt="Description image"}>
+        <img src="{{ media.preview_image | img_url: "1000x", crop: "center", format: "pjpg"}}" alt="Description image"}>
       </div>
     {% endif %}
   {% endfor%}

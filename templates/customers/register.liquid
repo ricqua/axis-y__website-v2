@@ -1,36 +1,45 @@
-<section class="register-page">
+<section class="signinPage">
+  <section class="signinPage__card">
+
 
   <!-- <a href="/account/login" class="login-page__backButton">
     {% include 'icon-chevron-left' %}
   </a> -->
   
-  <a href="/" class="login-page__closeButton">
-            {% include 'icon-close' %}
-  </a>
-
-  <h1>{{ 'customer.register.title' | t }}</h1>
+  <!-- <h1>{{ 'customer.register.title' | t }}</h1> -->
 
   {%- assign formId = 'RegisterForm' -%}
   {% form 'create_customer', id: formId, novalidate: 'novalidate' %}
-  {% include 'form-status', form: form, form_id: formId %}
+  <!-- {% include 'form-status', form: form, form_id: formId %} -->
+
+      <a href="/" class="login-page__closeButton">
+                {% include 'icon-close' %}
+      </a>
+
+    <div class="signinPage__card--image">
+      {{ 'axis-ySimpleLogoAv1.svg' | asset_url  | img_tag: 'AXIS-Y Logo' }}
+    </div>
+
+    <h1 id="LoginHeading">{{ "customer.register.title" | t }}</h1>
 
   <!-- <label for="{{ formId }}-Name">Full name</label>
   <input type="text" name="customer[name]" id="{{ formId }}-Name" {% if form.name %}value="{{ form.name }}"{% endif %} autocomplete="name"> -->
 
-  <label for="{{ formId }}-FirstName">{{ 'customer.register.first_name' | t }}</label>
-  <input type="text" name="customer[first_name]" id="{{ formId }}-FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocomplete="given-name">
+  <!-- <label for="{{ formId }}-FirstName">{{ 'customer.register.first_name' | t }}</label> -->
+  <input type="text" placeholder="First Name *"  name="customer[first_name]" id="{{ formId }}-FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocomplete="given-name">
 
-  <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
-  <input type="text" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name">
+  <!-- <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label> -->
+  <input type="text" placeholder="Last Name *" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name">
 
 <!-- TESTING ADDITIONAL FIELDS -->
     <!-- <label for="{{ formId }}-SkinType">Skin Type</label>
     <input type="text" name="customer[account][skin_type]" id="{{ formId }}-SkinType" {% if form.skin_type %}value="{{ form.skin_type }}"{% endif %} autocomplete="skin-type"> -->
 
-    <label for="{{ formId }}-email">{{ 'customer.register.email' | t }}</label>
+    <!-- <label for="{{ formId }}-email">{{ 'customer.register.email' | t }}</label> -->
     <input
       type="email"
       name="customer[email]"
+      placeholder="Email *"
       id="{{ formId }}-email"
       class="{% if form.errors contains 'email' %} input--error{% endif %}"
       {% if form.email %} value="{{ form.email }}"{% endif %}
@@ -45,18 +54,19 @@
       {%- endif -%}
     >
 
-    {%- if form.errors contains 'email' -%}
+    <!-- {%- if form.errors contains 'email' -%}
       <span id="{{ formId }}-email-error" class="input-error-message">
         <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
         {% include 'icon-error' %}
         <span class="register-page__errorText">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
       </span>
-    {%- endif -%}
+    {%- endif -%} -->
 
-    <label for="{{ formId }}-password">{{ 'customer.register.password' | t }}</label>
+    <!-- <label for="{{ formId }}-password">{{ 'customer.register.password' | t }}</label> -->
     <input
       type="password"
       name="customer[password]"
+      placeholder="Create Password *"
       id="{{ formId }}-password"
       class="{% if form.errors contains 'password' %} input--error{% endif %}"
       aria-required="true"
@@ -67,20 +77,24 @@
       {%- endif -%}
     >
 
-    {%- if form.errors contains 'password' -%}
+    <!-- {%- if form.errors contains 'password' -%}
       <span id="{{ formId}}-password-error" class="input-error-message">
         {% include 'icon-error' %}
         <span class="register-page__errorText">{{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.</span>
       </span>
-    {%- endif -%}
+    {%- endif -%} -->
 
-    <input type="submit" value="{{ 'customer.register.submit' | t }}" >
+    <button type="submit" class="login-page__loginButton"> {{ 'customer.register.submit' | t }}</button>
 
+
+     <label class="login-page__loginPageNav">Already have an account?
+        <a href="/account/login" >
+          Login
+        </a>
+     </label>
   {% endform %}
 
-  <p class="login-page__loginPageNav">Already have an account?
-    <a href="/account/login" >
-      Login
-    </a>
-  </p>
+ 
+
+  </section>
 </section>

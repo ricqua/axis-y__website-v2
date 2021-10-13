@@ -6328,23 +6328,23 @@ hr {
 
 /*================ Mobile Site Nav ================*/
 .mobile-nav {
-  /* border: 1px solid red; */
-  display: block;
+display: flex;
+flex-flow: column nowrap;
+justify-content: center;
+  /* display: block; */
   -ms-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
-  padding-top: 80px;
-  position: absolute;
-  height: calc(100% - 64px);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  /* position: absolute; */
+  /* height: calc(100% - 64px); */
 }
 
 .mobile-nav-wrapper > div {
-  /* border: 1px solid green; */
-  position: absolute;
   bottom: 0;
   left: 0;
-  /* right: 0; */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -6485,9 +6485,11 @@ hr {
   top:0;
   left: 0;
   z-index: 1;
-  /* border: 1px solid red; */
   background-color: var(--color-body);
-  height: calc(100vh - 64px);
+
+  /* height: calc(100vh - 64px - 60px); */
+  /* height: calc(100vh); */
+
   transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
   display: none;
   overflow: hidden;

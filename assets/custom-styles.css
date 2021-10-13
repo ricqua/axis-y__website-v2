@@ -198,10 +198,20 @@
 }
 
 .mobile-nav__regionSelect {
-  border: none;
-  padding-right: 0;
-  font-size: 18px;
+  width: 100%;
 }
+
+.mobile-nav__regionSelect label {
+  margin-left: auto;
+}
+
+.mobile-nav__regionSelect a {
+  padding-left: 16px;
+  padding-right: 10px;
+  font-weight: 500;
+}
+
+
 
 /* SHOP */
 .page-width__store {
@@ -1300,13 +1310,92 @@
 }
 
 /* LOGIN PAGE */
+.signinPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
 
-.login-page {
-  max-width: 720px;
-  /* border: 1px solid red; */
-  padding: 64px 64px;
-  margin: auto auto;
+.signinPage__card {
+  max-width: 320px;
   position: relative;
+  width: 100%;
+  border-radius: 12px;
+ /* box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1); */
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.signinPage__card--image{
+  width: 90px;
+  margin-bottom: 16px;
+}
+
+.signinPage form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+}
+
+.signinPage h1 {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.signinPage form p, .signinPage form li  {
+  font-size: 11pt;
+}
+
+.signinPage input{
+   border: solid rgba(0, 0, 0, 0.25) 1px;
+    font-size: 11pt;
+    padding: 16px;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+.signinPage form > input:focus{
+  outline: none;
+  border: solid rgba(0, 0, 0, 0.5) 1px;
+}
+
+.signinPage form > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signinPage button {
+  margin: 0;
+  /* background-color: rgb(206, 223, 215); */
+  background-color: #008554;
+  border: 0px;
+  color: white;
+  font-size: 12pt;
+  padding: 10px 30px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.signinPage button:hover {
+  background-color: hsl(158, 100%, 22%);
+  /* background-color: hsl(152, 21%, 74%); */
+  color: white
+}
+
+.signinPage a {
+  font-size: 11px;
+  color: #008554;
+  font-weight: bold;
+}
+
+.signinPage a:hover {
+  color: hsl(158, 100%, 15%);
+}
+
+.signinPage label {
+  font-size: 11px;
 }
 
 .login-page__backButton {
@@ -1317,6 +1406,14 @@
   height: 22px;
 }
 
+.login-page__closeButton {
+  position: absolute;
+  /* top: 28px; */
+  right: 22px;
+  width: 22px;
+  height: 22px;
+}
+/* 
 .login-page__loginPageNav a {
   font-weight: 600;
   font-size: 18px;
@@ -1324,14 +1421,6 @@
   text-decoration-line: underline;
   color: #008554;
   padding-left: 16px;
-}
-
-.login-page__closeButton {
-  position: absolute;
-  top: 28px;
-  right: 20px;
-  width: 22px;
-  height: 22px;
 }
 
 .login-page h1 {
@@ -1427,7 +1516,8 @@
   width: 100%;
   height: 100%;
   padding: 16px 0;
-}
+} */
+
 
 /* REGISTRATOIN / SIGN UP PAGE  */
 .register-page {
@@ -2916,6 +3006,8 @@ a { color: #333; text-decoration: none; } */
   right: 0;
   bottom: 0;
   background: white;
+  display: flex;
+  justify-content: center;
 }
 
 .login-page__passwordRecoverSection p {
