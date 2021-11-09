@@ -14,7 +14,7 @@
 {% if section.settings.layout == 'grid' %}
   {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% else %}
-  {%- assign limit = 16 -%}
+  {%- assign limit = 30 -%}
 {% endif %}
 
 {% paginate collection.products by limit %}
@@ -385,9 +385,9 @@
         "zh-CN": "每行产品数（仅限网格）",
         "zh-TW": "每頁列數 (僅限網格)"
       },
-      "default": 2,
+      "default": 20,
       "min": 2,
-      "max": 8,
+      "max": 20,
       "step": 1
     },
     {

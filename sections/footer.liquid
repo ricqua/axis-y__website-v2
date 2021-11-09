@@ -125,7 +125,7 @@
 
 {%- capture payment_icon_markup -%}
   {%- if show_payment_icons -%}
-    <div class="grid__item site-footer__payment-icons">
+    <div class="site-footer__payment-icons">
       <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
       <ul class="payment-icons list--inline site-footer__icon-list">
         {%- for type in shop.enabled_payment_types -%}
@@ -133,6 +133,11 @@
             {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
           </li>
         {%- endfor -%}
+
+        <li class="site-footer__DHLLogo">
+          {{ 'DHL_Logo.svg' | asset_url | img_tag: 'dhl logo' }}
+        </li>
+
       </ul>
     </div>
   {%- endif -%}
@@ -149,6 +154,7 @@
         <p class="site-footer__slogans">No artificial colors & fragrance</p>
       </div>
     </div>
+
 
     <div class="site-footer__content">
       {%- for block in section.blocks -%}
@@ -250,38 +256,40 @@
     
     <br/>
 
-    <div>
+    <div class="site-footer__companyInfo"> 
       <p> Asia Master Trade Co., Ltd.</p>
       <p>RM 1201 SK V1 Center, Seonyu-ro 9-gil 10, Yeongdeungpo-gu, Seoul, South Korea (07281)</p>
       <p>Business Registration: 107-88-01119</p>
     </div>
+
+    <div class="small--hide {{ payment_width_class }} {% if show_payment_icons %}site-footer-item-center-vertically{% endif %}">{{ payment_icon_markup }}</div>
     
   </div>
 
+  
+  <hr class="site-footer__hr">
+  
+  
+  {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
+  
+  <section class="page-width site-footer__bellowBreakSection">
+    <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
+      {%- for social in socials -%}
+      {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
+      {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
+      {%- if settings[social_link] != blank -%}
+      <li class="social-icons__item">
+        <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
+          {%- include icon_link -%}
+          <span class="icon__fallback-text">{{ social }}</span>
+        </a>
+      </li>
+      {%- endif -%}
+      {%- endfor -%}
+    </ul>
+    
 
 
-    <hr class="site-footer__hr">
-
-
-
-
-    {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
-
-    <section class="page-width site-footer__bellowBreakSection">
-      <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
-        {%- for social in socials -%}
-          {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
-          {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
-          {%- if settings[social_link] != blank -%}
-            <li class="social-icons__item">
-              <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
-                {%- include icon_link -%}
-                <span class="icon__fallback-text">{{ social }}</span>
-              </a>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
 
       <p class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }} All rights reserved.</p>
     </section>

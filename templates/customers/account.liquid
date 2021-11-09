@@ -1,7 +1,9 @@
 <section class="account-page">
-  <div class="section-header text-center">
+  <section class="account-page__card">
+
+  <div class="section-header text-center ">
     <h1>Hi, {{ customer.first_name }}</h1>
-    <a href="/" class="login-page__closeButton" style="color: black">
+    <a href="/" class="account-page__closeButton" style="color: black">
             {% include 'icon-close' %}
     </a>
   </div>
@@ -9,7 +11,8 @@
 
 
   <div class="grid myaccount">
-    <div class="grid__item myaccount__order-history">
+    <!-- <div class="grid__item myaccount__order-history"> -->
+    <div class=" myaccount__order-history">
       <h2>{{ 'customer.orders.title' | t }}</h2>
 
       {% paginate customer.orders by 20 %}
@@ -50,7 +53,10 @@
         {%- endif -%}
       {% endpaginate %}
     </div>
-    <div class="grid__item myaccount__account-details">
+
+    <!-- <div class="grid__item myaccount__account-details"> -->
+    <div class="myaccount__account-details">
+
     
 
 
@@ -61,11 +67,12 @@
       <p><a href="{{ routes.account_addresses_url }}" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
     </div>
   </div>
-<div class="account-page__logoutDiv">
+  <div class="account-page__logoutDiv">
 
-  <a href="/account/logout" id="customer_logout_link" class="clearButton account-page--addAddress">Log out</a>
-</div>
+    <a href="/account/logout" id="customer_logout_link" class="clearButton account-page--addAddress">Log out</a>
+  </div>
 
+  </section>
 
 </section>
 
@@ -74,18 +81,41 @@
 
 <style>
   .account-page{
+    /* display: flex;
+    justify-content: center; */
+  }
+
+  .account-page__card{
     max-width: 1040px;
-    padding: 125px 32px 125px 32px;
-    margin: auto;
+    margin: 32px auto;
+    padding: 16px;
     position: relative;
   }
 
   .account-page:first-child{
-    padding: 125px 32px 0 32px;
+    /* padding: 125px 32px 0 32px; */
   }
 
  .account-page .grid{
     margin-left: 0;
+  }
+
+
+  .myaccount__account-details{
+    margin-left: auto;
+  }
+
+  @media (max-width: 750px){
+    .myaccount__account-details{
+    width: 100%;
+    margin: 32px 0 0 0;
+    }
+  }
+
+  .account-page__closeButton{
+    position: absolute;
+    right: 16px;
+    top: 16px;
   }
 
   /* .account-page .grid__item{
@@ -166,7 +196,7 @@
   }
 
 .account-page__logoutDiv{
-  height: 300px;
+  /* height: 300px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,7 +214,7 @@
     } 
 
     .account-page {
-      padding: 60px 16px 60px 16px;
+      /* padding: 60px 16px 60px 16px; */
     }
 
     .account-page h1 {

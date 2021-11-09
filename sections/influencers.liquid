@@ -15,6 +15,10 @@
           <p >{{ block.settings.location }}</p>
           <p class="codev-page__influencers--item--story">{{ block.settings.description }}</p>
           
+          {% if block.settings.articleURL %}
+              <a href="{{ block.settings.articleURL }}" class="codev-page__influencers--articleURL" >Read my product story</a>
+          {% endif %}
+
           {% if block.settings.product %}
             <a class="codev-page__influencers--recommended" href="{{ block.settings.product.url }}">
               <img src="{{ block.settings.product.featured_image | img_url: "150x"}}" alt="recommended product image">
@@ -23,6 +27,7 @@
           {% endif %}
 
           <!-- <input class="clearButton" readonly type="text" value="{{ block.settings.code }}" id="{{ block.settings.code }}"> -->
+          
 
         </div>
       {% endfor %}
@@ -67,6 +72,12 @@
 
   .codev-page__influencers--item a{
     cursor: pointer;
+  }
+
+  .codev-page__influencers--articleURL{
+    color: #008554;
+    font-weight: 600;
+    padding-bottom: 16px;
   }
 
    .codev-page__influencers--item img:last-child{
@@ -215,6 +226,11 @@
           "id": "product",
           "type": "product",
           "label": "Recommended product"
+        },
+        {
+          "id": "articleURL",
+          "type": "url",
+          "label": "Article URL"
         }
         
       ]

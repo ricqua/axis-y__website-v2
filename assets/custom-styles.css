@@ -190,6 +190,22 @@
   }
 }
 
+.site-footer__companyInfo{
+  margin-bottom: 24px;
+}
+
+.site-footer__companyInfo p {
+  margin: 0;
+}
+
+.site-footer__DHLLogo{
+  max-width: 36px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  padding-top: 5px;
+  border-radius: 5px;
+}
+
 /* HEADER */
 .mobile-nav--closeIcon {
   position: absolute;
@@ -357,7 +373,7 @@
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px 16px;
-  text-align: center;
+  text-align: left;
   width: unset !important;
   font-family: Poppins;
   font-weight: 300;
@@ -423,28 +439,48 @@
   position: relative;
 }
 
-.product-card__imageDiv--soldOut {
-  z-index: 20;
+.product-card__imageDiv--saleTags{
   position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.product-card__imageDiv--soldOut {
   top: 8px;
   right: 8px;
   font-size: 14px;
   line-height: 24px;
+  z-index: 20;
   color: white;
   background-color: black;
-  padding: 8px 12px;
+  padding: 8px 12px; 
   border-radius: 8px;
 }
 
 .product-card__imageDiv--sale {
-  z-index: 20;
-  position: absolute;
   top: 8px;
   right: 8px;
   font-size: 14px;
   line-height: 24px;
+  z-index: 20;
   color: black;
   background-color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.product-card__imageDiv--new {
+  top: 8px;
+  right: 8px;
+  font-size: 14px;
+  line-height: 24px;
+  z-index: 20;
+  color: white;
+  background-color: #008554;
   padding: 8px 12px;
   border-radius: 8px;
 }
@@ -1327,6 +1363,17 @@
   margin-top: 32px;
 }
 
+@media (min-width: 749px) {
+  .signinPage {
+    align-items: center;
+  }
+
+  .signinPage__card {
+    margin-top: 0;
+    margin: auto;
+  }
+}
+
 .signinPage__card--image{
   width: 90px;
   margin-bottom: 16px;
@@ -1386,12 +1433,12 @@
 
 .signinPage a {
   font-size: 11px;
-  color: #008554;
+  color: black;
   font-weight: bold;
 }
 
 .signinPage a:hover {
-  color: hsl(158, 100%, 15%);
+  color: hsl(0, 0%, 22%);
 }
 
 .signinPage label {
@@ -2889,7 +2936,7 @@ a { color: #333; text-decoration: none; } */
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
-  text-decoration-line: underline;
+  /* text-decoration-line: underline; */
   color: #008554;
 }
 
@@ -3459,4 +3506,93 @@ a { color: #333; text-decoration: none; } */
 #notification-parent button{
   border-radius: 8px;
   padding: 16px 36px;
+}
+
+
+
+/* MEMBERSHIP FAQ */
+
+.membershipFAQ-page {
+  max-width: 1278px;
+  margin: auto;
+  padding: 64px 32px 100px 32px;
+}
+
+.membershipFAQ-page__description{
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.membershipFAQ-page__button{
+  margin: 64px auto 100px auto;
+  width: 100%;
+  text-align: center;
+}
+
+.membershipFAQ-page h1{
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 96px;
+  text-align: center;
+  width: 100%;
+  font-family: restora;
+  font-style: italic;
+}
+
+@media (max-width: 748px){
+  .membershipFAQ-page h1{
+    font-size: 48px;
+    line-height: 64px;
+  }
+}
+
+.membershipFAQ-page__section{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 100px;
+}
+
+.membershipFAQ-page__section div{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.membershipFAQ-page__section h2{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
+  margin: 24px 0;
+  text-align: center;
+  width: 100%;
+  color: #008554;
+}
+
+.membershipFAQ-page__section--img{
+  margin-bottom: 24px;
+  max-width: 160px;
+}
+
+.membershipFAQ-page__section p{
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+  text-align: center;
+}
+
+.membershipFAQ-page__section span{
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 28px;
+  color: #757575;
+  text-align: center;
+}
+
+/* FORUM SHOPICIAL*/
+.btn-link {
+  color: black;
 }
