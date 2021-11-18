@@ -5,20 +5,31 @@
       {% for block in section.blocks %}  
         <div class="codev-page__influencers--item" id="codev-page__influencers--openButton" for="influencers-{{ block.settings.name }}"> 
           <img src="{{ block.settings.image | img_url: "400x"}}" alt="{{ block.settings.image.alt }}">  
+         
+         
           <div class="codev-page__influencers--socialIcons">
             <h3>{{ block.settings.name }}</h3>
-            {% if block.settings.social0Url != "" %}<a href="https://www.tiktok.com/{{ block.settings.social0Url }}/" target="_blank">{% include 'icon-tiktok' %}</a>{% endif %}
-            {% if block.settings.social1Url != "" %}<a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>{% endif %}
-            {% if block.settings.social2Url != "" %}<a href="{{ block.settings.social2Url }}" target="_blank">{% include 'icon-blog' %}</a>{% endif %}
-            {% if block.settings.social3Url != "" %}<a href="https://www.youtube.com/{{ block.settings.social3Url }}/" target="_blank">{% include 'icon-youtube' %}</a>{% endif %}
+
+            {% if block.settings.social0Url != "" and block.settings.social0Url_priority == true %}<a href="https://www.tiktok.com/{{ block.settings.social0Url }}/" target="_blank">{% include 'icon-tiktok' %}</a>{% endif %}
+            {% if block.settings.social1Url != "" and block.settings.social1Url_priority == true %}<a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>{% endif %}
+            {% if block.settings.social2Url != "" and block.settings.social2Url_priority == true %}<a href="{{ block.settings.social2Url }}" target="_blank">{% include 'icon-blog' %}</a>{% endif %}
+            {% if block.settings.social3Url != "" and block.settings.social3Url_priority == true %}<a href="https://www.youtube.com/{{ block.settings.social3Url }}/" target="_blank">{% include 'icon-youtube' %}</a>{% endif %}
+          
+            {% if block.settings.social0Url != "" and block.settings.social0Url_priority == false %}<a href="https://www.tiktok.com/{{ block.settings.social0Url }}/" target="_blank">{% include 'icon-tiktok' %}</a>{% endif %}
+            {% if block.settings.social1Url != "" and block.settings.social1Url_priority == false %}<a href="https://www.instagram.com/{{ block.settings.social1Url }}/" target="_blank">{% include 'icon-instagram' %}</a>{% endif %}
+            {% if block.settings.social2Url != "" and block.settings.social2Url_priority == false %}<a href="{{ block.settings.social2Url }}" target="_blank">{% include 'icon-blog' %}</a>{% endif %}
+            {% if block.settings.social3Url != "" and block.settings.social3Url_priority == false %}<a href="https://www.youtube.com/{{ block.settings.social3Url }}/" target="_blank">{% include 'icon-youtube' %}</a>{% endif %}
+          
           </div>
+
+
           <p >{{ block.settings.location }}</p>
           <p class="codev-page__influencers--item--story">{{ block.settings.description }}</p>
           
           {% if block.settings.articleURL %}
               <a href="{{ block.settings.articleURL }}" class="codev-page__influencers--articleURL" >Read my product story</a>
           {% endif %}
-
+      
           {% if block.settings.product %}
             <a class="codev-page__influencers--recommended" href="{{ block.settings.product.url }}">
               <img src="{{ block.settings.product.featured_image | img_url: "150x"}}" alt="recommended product image">
@@ -197,9 +208,19 @@
           "label": "Description"
         },
         {
+          "id": "social0Url_priority",
+          "type": "checkbox",
+          "label": "Make TikTok the first option"
+        },
+        {
           "id": "social0Url",
           "type": "text",
           "label": "TikTok tag (no @)"
+        },
+        {
+          "id": "social1Url_priority",
+          "type": "checkbox",
+          "label": "Make Instagram the first option"
         },
         {
           "id": "social1Url",
@@ -207,9 +228,19 @@
           "label": "Instagram tag (no @)"
         },
         {
+          "id": "social2Url_priority",
+          "type": "checkbox",
+          "label": "Make Blog the first option"
+        },
+        {
           "id": "social2Url",
           "type": "text",
           "label": "Blog url"
+        },
+        {
+          "id": "social3Url_priority",
+          "type": "checkbox",
+          "label": "Make Youtube the first option"
         },
         {
           "id": "social3Url",

@@ -375,10 +375,15 @@
   padding: 10px 16px;
   text-align: left;
   width: unset !important;
-  font-family: Poppins;
+  font-family: poppins !important;
   font-weight: 300;
   font-size: 18px;
   line-height: 28px;
+}
+
+.collection__sortButton > option,
+.filters-toolbar__button > option {
+  font-family: poppins !important;
 }
 
 
@@ -481,6 +486,19 @@
   z-index: 20;
   color: white;
   background-color: #008554;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.product-card__imageDiv--best {
+  top: 8px;
+  right: 8px;
+  font-size: 14px;
+  line-height: 24px;
+  z-index: 20;
+  color: #008554;
+  background-color: white;
+  font-weight: 600;
   padding: 8px 12px;
   border-radius: 8px;
 }

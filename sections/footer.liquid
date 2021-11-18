@@ -126,7 +126,7 @@
 {%- capture payment_icon_markup -%}
   {%- if show_payment_icons -%}
     <div class="site-footer__payment-icons">
-      <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
+      <!-- <span class="visually-hidden">{{ 'general.payment.method' | t }}</span> -->
       <ul class="payment-icons list--inline site-footer__icon-list">
         {%- for type in shop.enabled_payment_types -%}
           <li class="payment-icon">
@@ -134,6 +134,7 @@
           </li>
         {%- endfor -%}
 
+        <!-- to add another shipping icon simply copy this code snippet and add the new icon to the asset folder -->
         <li class="site-footer__DHLLogo">
           {{ 'DHL_Logo.svg' | asset_url | img_tag: 'dhl logo' }}
         </li>
@@ -262,7 +263,7 @@
       <p>Business Registration: 107-88-01119</p>
     </div>
 
-    <div class="small--hide {{ payment_width_class }} {% if show_payment_icons %}site-footer-item-center-vertically{% endif %}">{{ payment_icon_markup }}</div>
+    <div class=" {% if show_payment_icons %}site-footer-item-center-vertically{% endif %}">{{ payment_icon_markup }}</div>
     
   </div>
 

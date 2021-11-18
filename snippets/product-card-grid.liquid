@@ -14,16 +14,20 @@
           {% assign     date_now = 'now' | date:'%s' %}
           {% assign   difference = date_now | minus: date_created %}
 
-          {% if difference < 5256000 %} <!-- time in seconds -->
-            <span class="product-card__imageDiv--new">New</span> 
+          {% if product.metafields.tags.best == true %}
+            <span class="product-card__imageDiv--new">Best</span> 
           {% endif %}
 
+          {% if product.metafields.tags.new == true %} 
+            <span class="product-card__imageDiv--new">New</span> 
+          {% endif %}
+          
           {% if product.available == false %}
-          <span class="product-card__imageDiv--soldOut">Sold out</span> 
+            <span class="product-card__imageDiv--soldOut">Sold out</span> 
           {% endif %}
           
           {% if product.price != product.compare_at_price and product.compare_at_price > 0  %}
-          <span class="product-card__imageDiv--sale">{{ 'products.product.on_sale' | t }}</span>
+            <span class="product-card__imageDiv--sale">{{ 'products.product.on_sale' | t }}</span>
           {% endif %}
         </div>
           
